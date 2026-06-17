@@ -443,141 +443,162 @@
             min-height: 50px;
         }
 
-        .island-stage {
-            position: relative;
-        }
-
-        .island-stage::before,
-        .island-stage::after {
-            content: "";
-            position: absolute;
-            border-radius: 999px;
-            pointer-events: none;
-            z-index: 0;
-            filter: blur(2px);
-        }
-
-        .island-stage::before {
-            width: 360px;
-            height: 360px;
-            top: 520px;
-            left: -180px;
-            background: radial-gradient(circle, rgba(244, 114, 182, 0.28), rgba(244, 114, 182, 0));
-        }
-
-        .island-stage::after {
-            width: 420px;
-            height: 420px;
-            top: 1160px;
-            right: -220px;
-            background: radial-gradient(circle, rgba(147, 197, 253, 0.24), rgba(147, 197, 253, 0));
-        }
-
-        .floating-island {
-            position: relative;
-            z-index: 2;
-        }
-
-        .island-hero {
-            transform: rotate(-0.7deg);
-            margin-top: 1rem;
-            margin-bottom: -1.5rem;
-            box-shadow: 0 34px 70px rgba(219, 39, 119, 0.18), 0 20px 45px rgba(59, 130, 246, 0.11);
-        }
-
-        .island-stats {
-            width: min(92%, 980px);
-            margin-left: auto;
-            margin-right: 2rem;
-            transform: translateY(-18px) rotate(0.6deg);
-        }
-
-        .island-actions {
-            width: min(88%, 920px);
-            margin-left: 1.5rem;
-            transform: translateY(-8px) rotate(-0.5deg);
-        }
-
-        .island-gps {
-            width: min(94%, 1060px);
-            margin-left: auto;
-            transform: translateY(12px) rotate(0.7deg);
-        }
-
-        .island-workspace {
-            margin-top: 1.5rem;
-        }
-
-        .island-workspace > .lg\:col-span-5 {
-            transform: translateY(26px) rotate(-0.45deg);
-        }
-
-        .island-workspace > .lg\:col-span-7 {
-            transform: translateY(-22px) rotate(0.35deg);
-        }
-
-        .island-trust {
-            width: min(95%, 1120px);
-            margin-right: auto;
-            transform: translateX(-12px) rotate(-0.55deg);
-        }
-
-        .island-process {
-            width: min(90%, 1040px);
-            margin-left: auto;
-            transform: translateY(-10px) rotate(0.55deg);
-        }
-
-        .island-split {
-            width: min(96%, 1140px);
-            margin-left: 1rem;
-        }
-
-        .island-split > .premium-card:first-child {
-            transform: translateY(24px) rotate(-0.45deg);
-        }
-
-        .island-split > .premium-card:last-child {
-            transform: translateY(-18px) rotate(0.45deg);
-        }
-
-        .island-contact {
-            width: min(92%, 1080px);
-            margin-left: auto;
-            margin-bottom: 1rem;
-            transform: rotate(-0.35deg);
+        .island-stage,
+        .floating-island,
+        .island-hero,
+        .island-stats,
+        .island-actions,
+        .island-gps,
+        .island-trust,
+        .island-process,
+        .island-split,
+        .island-contact,
+        .island-workspace,
+        .island-workspace > div,
+        .island-split > .premium-card,
+        .island-actions .toy-soft-button {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            transform: none !important;
         }
 
         .floating-island,
         .island-split > .premium-card,
         .island-workspace > div {
-            transition: transform .28s ease, box-shadow .28s ease;
+            transition: box-shadow .28s ease, border-color .28s ease;
         }
 
         .floating-island:hover,
         .island-split > .premium-card:hover,
         .island-workspace > div:hover {
-            box-shadow: 0 30px 64px rgba(219, 39, 119, 0.16), 0 12px 30px rgba(59, 130, 246, 0.12);
+            box-shadow: 0 30px 64px rgba(219, 39, 119, 0.14), 0 12px 30px rgba(59, 130, 246, 0.1);
         }
 
-        .island-actions .toy-soft-button:nth-child(1) {
-            transform: translateY(10px) rotate(-1.2deg);
+        .wide-band {
+            width: 100vw;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            padding: clamp(3rem, 7vw, 5.5rem) max(1rem, calc((100vw - 1152px) / 2));
+            position: relative;
+            overflow: hidden;
         }
 
-        .island-actions .toy-soft-button:nth-child(2) {
-            transform: translateY(-8px) rotate(1deg);
+        .band-soft-pink {
+            background:
+                radial-gradient(circle at 12% 18%, rgba(251, 207, 232, 0.65), transparent 28%),
+                linear-gradient(180deg, rgba(255, 247, 251, 0.98), rgba(255, 236, 246, 0.9));
         }
 
-        .island-actions .toy-soft-button:nth-child(3) {
-            transform: translateY(14px) rotate(0.7deg);
+        .band-soft-blue {
+            background:
+                radial-gradient(circle at 85% 18%, rgba(191, 219, 254, 0.7), transparent 26%),
+                linear-gradient(180deg, rgba(240, 249, 255, 0.98), rgba(255, 255, 255, 0.96));
         }
 
-        .island-actions .toy-soft-button:nth-child(4) {
-            transform: translateY(-6px) rotate(-0.9deg);
+        .band-soft-mint {
+            background:
+                radial-gradient(circle at 18% 12%, rgba(167, 243, 208, 0.55), transparent 24%),
+                linear-gradient(180deg, rgba(240, 253, 250, 0.98), rgba(255, 247, 251, 0.92));
         }
 
-        .island-actions .toy-soft-button:hover {
-            transform: translateY(-4px) rotate(0deg);
+        .section-shell {
+            max-width: 1152px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 2rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.05;
+            color: #172554;
+        }
+
+        .section-heading p {
+            margin-top: .75rem;
+            color: #475569;
+            font-weight: 700;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .scroll-row {
+            display: flex;
+            gap: 1.25rem;
+            overflow-x: auto;
+            padding: .35rem .2rem 1.25rem;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin;
+        }
+
+        .scroll-row > * {
+            scroll-snap-align: start;
+        }
+
+        .showcase-card {
+            flex: 0 0 min(310px, 82vw);
+            background: rgba(255, 255, 255, .96);
+            border: 2px solid rgba(255, 255, 255, .9);
+            border-radius: 28px;
+            box-shadow: 0 18px 38px rgba(15, 23, 42, .08);
+        }
+
+        .sitter-showcase img,
+        .discover-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 24px;
+        }
+
+        .press-strip {
+            display: flex;
+            gap: 2.5rem;
+            overflow: hidden;
+            white-space: nowrap;
+            color: rgba(71, 85, 105, .45);
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
+            font-weight: 900;
+            letter-spacing: .02em;
+            justify-content: center;
+        }
+
+        .social-pill {
+            background: rgba(255, 255, 255, .94);
+            border: 2px solid rgba(251, 207, 232, .9);
+            border-radius: 22px;
+            padding: 1rem 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: .85rem;
+            font-weight: 900;
+            color: #172554;
+            box-shadow: 0 14px 28px rgba(236, 72, 153, .1);
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .social-pill:hover {
+            transform: translateY(-3px);
+            border-color: rgba(236, 72, 153, .75);
+        }
+
+        .wave-bottom::after {
+            content: "";
+            position: absolute;
+            left: -8vw;
+            right: -8vw;
+            bottom: -90px;
+            height: 150px;
+            background: white;
+            border-radius: 50% 50% 0 0;
+            z-index: 1;
         }
 
         @media (max-width: 640px) {
@@ -595,26 +616,14 @@
                 height: 46px;
             }
 
-            .island-hero,
-            .island-stats,
-            .island-actions,
-            .island-gps,
-            .island-trust,
-            .island-process,
-            .island-split,
-            .island-contact,
-            .island-workspace > .lg\:col-span-5,
-            .island-workspace > .lg\:col-span-7,
-            .island-split > .premium-card:first-child,
-            .island-split > .premium-card:last-child,
-            .island-actions .toy-soft-button:nth-child(1),
-            .island-actions .toy-soft-button:nth-child(2),
-            .island-actions .toy-soft-button:nth-child(3),
-            .island-actions .toy-soft-button:nth-child(4) {
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
-                transform: none;
+            .wide-band {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .sitter-showcase img,
+            .discover-card img {
+                height: 190px;
             }
         }
     </style>
@@ -795,6 +804,59 @@
                 </span>
                 <span class="block text-[10px] font-black uppercase tracking-widest text-amber-700">Dəstək</span>
             </a>
+        </section>
+
+        <!-- FEATURED SITTERS CAROUSEL -->
+        <section class="wide-band band-soft-pink wave-bottom">
+            <div class="section-shell">
+                <div class="section-heading">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-pink-600">Seçilmiş profillər</span>
+                    <h2 class="serif-title font-black mt-2">Uşaqlarınızın sevəcəyi dayələr</h2>
+                    <p>Profil kartları ayrı səhifəyə açılır: bio, təcrübə, sənədlər, rəylər və uyğun saatlar daha geniş görünür.</p>
+                </div>
+                <div class="scroll-row">
+                    <a href="profile.html?id=1" class="showcase-card sitter-showcase p-4">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=420" alt="Nərgiz Qasımova">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-black text-blue-950">Nərgiz Qasımova <i class="fa-solid fa-circle-check text-pink-500"></i></h3>
+                            <p class="text-slate-600 font-bold mt-1">Bakı · 7 il təcrübə</p>
+                            <div class="flex justify-center gap-2 mt-3 text-[11px] font-black">
+                                <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full">Dayə</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Məktəbə hazırlıq</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="profile.html?id=2" class="showcase-card sitter-showcase p-4">
+                        <img src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=600&h=420" alt="Fatimə Həsənli">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-black text-blue-950">Fatimə Həsənli <i class="fa-solid fa-circle-check text-pink-500"></i></h3>
+                            <p class="text-slate-600 font-bold mt-1">Sumqayıt · Körpə rutini</p>
+                            <div class="flex justify-center gap-2 mt-3 text-[11px] font-black">
+                                <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full">Gecə baxımı</span>
+                                <span class="bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full">Rus dili</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="profile.html?id=3" class="showcase-card sitter-showcase p-4">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=600&h=420" alt="Aysel Məmmədova">
+                        <div class="p-4 text-center">
+                            <h3 class="text-xl font-black text-blue-950">Aysel Məmmədova <i class="fa-solid fa-circle-check text-pink-500"></i></h3>
+                            <p class="text-slate-600 font-bold mt-1">Bakı · Dərs dəstəyi</p>
+                            <div class="flex justify-center gap-2 mt-3 text-[11px] font-black">
+                                <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full">İngilis dili</span>
+                                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full">Yaradıcı məşğələ</span>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="#search" class="showcase-card sitter-showcase p-6 flex flex-col justify-center text-center bg-gradient-to-br from-blue-50 to-pink-50">
+                        <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-tr from-pink-500 to-blue-500 text-white flex items-center justify-center text-2xl shadow-lg">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <h3 class="text-2xl font-black text-blue-950 mt-5">Filtrlərlə daha çox uyğunluq tap</h3>
+                        <p class="text-slate-600 font-bold mt-3 leading-relaxed">Uşaq sayı, dil, xidmət növü və müddətə görə nəticələri dəyiş.</p>
+                    </a>
+                </div>
+            </div>
         </section>
 
         <!-- GPS REAL-TIME TRACKING SIMULATOR -->
@@ -1086,44 +1148,122 @@
             </div>
         </section>
 
-        <section class="island-split grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
-            <div class="premium-card p-8 rounded-3xl space-y-5">
-                <div>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Valideyn rəyləri</span>
-                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Etibar hissi ilk ekrandan başlamalıdır</h3>
+        <section class="wide-band band-soft-blue">
+            <div class="section-shell">
+                <div class="section-heading">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-blue-600">Valideyn rəyləri</span>
+                    <h2 class="serif-title font-black mt-2">Ailələrin ən çox rahatladığı hissələr</h2>
+                    <p>Rəy kartları ayrıca böyük lentdə görünür ki, güvən hissəsi ana səhifədə daha aydın oxunsun.</p>
                 </div>
-                <div class="space-y-4">
-                    <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100">
-                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Qiyməti öncədən görmək və müqavilə hissəsi məni ən çox rahatlatdı. Platforma valideyn kimi düşünülüb."</p>
-                        <div class="text-[10px] font-black uppercase tracking-widest text-blue-900 mt-3">Lalə A. Bakı</div>
+                <div class="flex items-center justify-center gap-2 text-amber-500 text-3xl mb-8">
+                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+                    <span class="text-blue-950 text-3xl font-black ml-2">4.9 / 5</span>
+                </div>
+                <div class="scroll-row">
+                    <div class="showcase-card p-8 min-h-[280px]">
+                        <div class="text-pink-300 text-6xl leading-none">“</div>
+                        <p class="text-lg text-slate-700 font-bold leading-relaxed">Qiyməti öncədən görmək və müqavilə hissəsi məni ən çox rahatlatdı. Platforma valideyn kimi düşünülüb.</p>
+                        <div class="text-sm font-black uppercase tracking-widest text-blue-900 mt-8">Lalə A. · Bakı</div>
                     </div>
-                    <div class="bg-pink-50/70 p-4 rounded-2xl border border-pink-100">
-                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Dayənin saatlarını seçmək, video təqdimata baxmaq və yekun məbləği hesablamaq çox rahatdır."</p>
-                        <div class="text-[10px] font-black uppercase tracking-widest text-pink-700 mt-3">Rauf M. Sumqayıt</div>
+                    <div class="showcase-card p-8 min-h-[280px]">
+                        <div class="text-pink-300 text-6xl leading-none">“</div>
+                        <p class="text-lg text-slate-700 font-bold leading-relaxed">Dayənin saatlarını seçmək, video təqdimata baxmaq və yekun məbləği hesablamaq çox rahatdır.</p>
+                        <div class="text-sm font-black uppercase tracking-widest text-pink-700 mt-8">Rauf M. · Sumqayıt</div>
                     </div>
+                    <div class="showcase-card p-8 min-h-[280px]">
+                        <div class="text-pink-300 text-6xl leading-none">“</div>
+                        <p class="text-lg text-slate-700 font-bold leading-relaxed">Profil səhifəsində bio, sənədlər və yaş qrupları ayrıca görünəndə seçim etmək daha asan oldu.</p>
+                        <div class="text-sm font-black uppercase tracking-widest text-emerald-700 mt-8">Nigar S. · Bakı</div>
+                    </div>
+                    <div class="showcase-card p-8 min-h-[280px]">
+                        <div class="text-pink-300 text-6xl leading-none">“</div>
+                        <p class="text-lg text-slate-700 font-bold leading-relaxed">AI köməkçisi ilk sualları tez cavablayır, sonra filtrlərdən uyğun dayəni seçmək rahatlaşır.</p>
+                        <div class="text-sm font-black uppercase tracking-widest text-blue-900 mt-8">Aysel R. · Bakı</div>
+                    </div>
+                </div>
+                <div class="press-strip mt-8" aria-label="Media qeydləri">
+                    <span>FAMILY NEWS</span>
+                    <span>BAKU CARE</span>
+                    <span>SMART PARENT</span>
+                    <span>TRUST GUIDE</span>
                 </div>
             </div>
+        </section>
 
-            <div id="faq" class="premium-card p-8 rounded-3xl space-y-5 scroll-mt-24">
-                <div>
-                    <span class="text-[10px] font-black uppercase tracking-widest text-blue-600">FAQ</span>
-                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Tez-tez verilən suallar</h3>
+        <section class="wide-band band-soft-mint wave-bottom">
+            <div class="section-shell">
+                <div class="section-heading">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-emerald-700">Daha çox kəşf et</span>
+                    <h2 class="serif-title font-black mt-2">Ayrıca baxıla bilən məlumat bölmələri</h2>
+                    <p>Hər mövzu kiçik yazı kimi sıxılmır, ayrıca kartdan uyğun hissəyə və ya səhifəyə keçid verir.</p>
                 </div>
-                <div class="space-y-3">
-                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
-                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Dayələr necə yoxlanılır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
-                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Demo konseptdə SİMA doğrulama, sənəd yoxlanışı və profil təsdiqi axını göstərilir.</p>
-                    </details>
-                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
-                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Qiymət necə hesablanır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
-                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Saatlıq tarifə uşaq sayı, xüsusi qayğı ehtiyacı və seçilən müddət əlavə olunur.</p>
-                    </details>
-                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
-                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Bu canlı xidmətə hazırdır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
-                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Hazırkı versiya təqdimat və interaktiv demo üçündür. Real ödəniş, real SİMA API və mesajlaşma sonrakı mərhələdə qoşula bilər.</p>
-                    </details>
+                <div class="scroll-row">
+                    <a href="#trust" class="showcase-card discover-card p-4">
+                        <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&q=80&w=600&h=420" alt="Güvən və təhlükəsizlik">
+                        <div class="p-4">
+                            <h3 class="text-xl font-black text-blue-950">Güvən və təhlükəsizlik</h3>
+                            <p class="text-sm text-slate-600 font-bold mt-2 leading-relaxed">SİMA yoxlama, müqavilə və profil təsdiqi necə işləyir.</p>
+                        </div>
+                    </a>
+                    <a href="parent-register.html" class="showcase-card discover-card p-4">
+                        <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&q=80&w=600&h=420" alt="Valideynlər üçün məsləhətlər">
+                        <div class="p-4">
+                            <h3 class="text-xl font-black text-blue-950">Valideynlər üçün</h3>
+                            <p class="text-sm text-slate-600 font-bold mt-2 leading-relaxed">Sifariş vermə, profil seçmə və ilk görüş üçün izahlı səhifə.</p>
+                        </div>
+                    </a>
+                    <a href="nanny-register.html" class="showcase-card discover-card p-4">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&q=80&w=600&h=420" alt="Dayələr üçün məsləhətlər">
+                        <div class="p-4">
+                            <h3 class="text-xl font-black text-blue-950">Dayələr üçün</h3>
+                            <p class="text-sm text-slate-600 font-bold mt-2 leading-relaxed">Qeydiyyat, profil hazırlığı və SİMA təsdiq addımları.</p>
+                        </div>
+                    </a>
+                    <a href="#search" class="showcase-card discover-card p-4">
+                        <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&q=80&w=600&h=420" alt="Xüsusi qayğı">
+                        <div class="p-4">
+                            <h3 class="text-xl font-black text-blue-950">Xüsusi qayğı</h3>
+                            <p class="text-sm text-slate-600 font-bold mt-2 leading-relaxed">Xüsusi ehtiyac, dil və xidmət növü ilə daha dəqiq filtr.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="premium-card p-8 rounded-3xl space-y-5 scroll-mt-24">
+            <div class="text-center max-w-2xl mx-auto">
+                <span class="text-[11px] font-black uppercase tracking-widest text-blue-600">FAQ</span>
+                <h3 class="text-3xl font-black text-blue-950 serif-title mt-1">Tez-tez verilən suallar</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <details class="bg-white p-5 rounded-2xl border border-blue-100 group">
+                    <summary class="cursor-pointer text-base font-black text-blue-950 flex justify-between gap-3">Dayələr necə yoxlanılır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                    <p class="text-sm text-slate-500 font-semibold leading-relaxed mt-3">Demo konseptdə SİMA doğrulama, sənəd yoxlanışı və profil təsdiqi axını göstərilir.</p>
+                </details>
+                <details class="bg-white p-5 rounded-2xl border border-blue-100 group">
+                    <summary class="cursor-pointer text-base font-black text-blue-950 flex justify-between gap-3">Qiymət necə hesablanır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                    <p class="text-sm text-slate-500 font-semibold leading-relaxed mt-3">Saatlıq tarifə uşaq sayı, xüsusi qayğı ehtiyacı və seçilən müddət əlavə olunur.</p>
+                </details>
+                <details class="bg-white p-5 rounded-2xl border border-blue-100 group">
+                    <summary class="cursor-pointer text-base font-black text-blue-950 flex justify-between gap-3">Bu canlı xidmətə hazırdır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                    <p class="text-sm text-slate-500 font-semibold leading-relaxed mt-3">Hazırkı versiya təqdimat və interaktiv demo üçündür. Real ödəniş, real SİMA API və mesajlaşma sonrakı mərhələdə qoşula bilər.</p>
+                </details>
+            </div>
+        </section>
+
+        <section class="wide-band band-soft-pink">
+            <div class="section-shell text-center space-y-8">
+                <div class="section-heading mb-0">
+                    <span class="text-[11px] font-black uppercase tracking-widest text-pink-600">Follow us on</span>
+                    <h2 class="serif-title font-black mt-2">Aldayə icmasını izləyin</h2>
+                    <p>Yeni dayə profilləri, təhlükəsizlik məsləhətləri və ailələr üçün qısa yeniliklər sosial kanallarda paylaşılır.</p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="#" class="social-pill"><i class="fa-brands fa-instagram text-2xl text-pink-500"></i> Instagram</a>
+                    <a href="#" class="social-pill"><i class="fa-brands fa-tiktok text-2xl text-slate-900"></i> TikTok</a>
+                    <a href="#" class="social-pill"><i class="fa-brands fa-linkedin text-2xl text-blue-600"></i> LinkedIn</a>
+                    <a href="#" class="social-pill"><i class="fa-brands fa-youtube text-2xl text-red-500"></i> YouTube</a>
+                    <a href="#" class="social-pill"><i class="fa-brands fa-telegram text-2xl text-sky-500"></i> Telegram</a>
                 </div>
             </div>
         </section>
