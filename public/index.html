@@ -112,9 +112,10 @@
             50% { box-shadow: 0 22px 42px rgba(236, 72, 153, 0.22); }
         }
 
+        /* Böyük Arxa Fon Oyuncaqları üçün Xüsusi Animasiyalı Class-lar */
         .bg-toy {
             position: absolute;
-            color: rgba(236, 72, 153, 0.07); 
+            color: rgba(236, 72, 153, 0.07); /* Çox zərif, göz yormayan çəhrayı-mavi ton */
             z-index: 1;
             pointer-events: none;
             user-select: none;
@@ -382,7 +383,7 @@
             </div>
         </nav>
         
-        <!-- HERO HEADER -->
+        <!-- HERO PINK & BLUE LUXURY HEADER -->
         <header class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden bg-gradient-to-br from-blue-100/40 via-white to-pink-100/40">
             
             <div class="lg:col-span-6 space-y-5 relative z-10">
@@ -532,22 +533,19 @@
             </a>
         </section>
 
-        <!-- AYRI SƏHİFƏLƏR BÖLMƏSİ -->
-        <section class="premium-card p-8 rounded-3xl grid grid-cols-1 md:grid-cols-12 gap-6">
-            <div class="md:col-span-4 flex flex-col justify-center space-y-2">
-                <span class="text-[9px] bg-slate-950 text-white px-2.5 py-1 rounded-md font-bold uppercase tracking-widest w-max">Genişləndirilmiş Sistem</span>
-                <h3 class="text-xl font-black text-blue-950 tracking-tight">Ayrı səhifələr</h3>
-                <p class="text-xs text-slate-600 font-semibold leading-relaxed">
-                    İstifadəçi təcrübəsini üst səviyyəyə çatdırmaq üçün valideyn və dayə qeydiyyat axınları fərqli səhifələrə bölünmüşdür.
-                </p>
+        <section class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-4">
+                <span class="text-[10px] font-black uppercase tracking-widest text-blue-700">Ayrı səhifələr</span>
+                <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Qeydiyyat izahları ayrıca açılsın</h3>
+                <p class="text-sm text-slate-600 font-semibold leading-relaxed mt-2">Ana səhifə qarışmasın deyə valideyn və dayə qeydiyyatı üçün ayrıca izahlı səhifələr hazırladım.</p>
             </div>
-            <div class="md:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
                 <a href="parent-register.html" class="trust-card-3d toy-soft-button bg-emerald-50 hover:bg-emerald-100 border-2 border-emerald-100 p-5 transition">
                     <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl mb-4">
                         <i class="fa-solid fa-people-roof"></i>
                     </div>
                     <h4 class="font-black text-blue-950">Valideyn üçün qeydiyyat</h4>
-                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Uşaq məlumatı, ehtiyac, təhlükəsizlik seçimləri və SİMA e-imza inteqrasiyalı sifariş axını.</p>
+                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Uşaq məlumatı, ehtiyac, təhlükəsizlik seçimləri və sifariş axını ayrıca səhifədə.</p>
                     <span class="inline-flex mt-4 text-[10px] font-black uppercase tracking-widest text-emerald-700">Səhifəyə keç <i class="fa-solid fa-arrow-right ml-1"></i></span>
                 </a>
                 <a href="nanny-register.html" class="trust-card-3d toy-soft-button bg-amber-50 hover:bg-amber-100 border-2 border-amber-100 p-5 transition">
@@ -555,52 +553,39 @@
                         <i class="fa-solid fa-user-nurse"></i>
                     </div>
                     <h4 class="font-black text-blue-950">Dayə üçün qeydiyyat</h4>
-                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Profil məlumatları, sənəd yükləmə, təcrübə sahələri, saatlıq tariflər və SİMA yoxlama mərhələləri.</p>
+                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Profil, sənəd, təcrübə, tarif və SİMA yoxlama mərhələləri ayrıca səhifədə.</p>
                     <span class="inline-flex mt-4 text-[10px] font-black uppercase tracking-widest text-amber-700">Səhifəyə keç <i class="fa-solid fa-arrow-right ml-1"></i></span>
                 </a>
             </div>
         </section>
 
-        <!-- RƏQİB ANALİZİNDƏN ƏLAVƏ EDİLƏNLƏR BÖLMƏSİ -->
-        <section class="premium-card p-8 rounded-3xl bg-gradient-to-br from-pink-500/10 via-white to-blue-500/10 border-2 border-dashed border-pink-300">
-            <div class="text-center max-w-xl mx-auto space-y-2 mb-8">
-                <span class="bg-pink-600 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Market Tədqiqatı</span>
-                <h2 class="text-2xl font-black text-blue-950 tracking-tight serif-title">Rəqib analizindən əlavə edilənlər</h2>
-                <p class="text-xs text-slate-600 font-semibold">Yerli və qlobal rəqiblərin boşluqları analiz edilərək Aldayə platformasına əlavə edilmiş üstün funksionallıqlar.</p>
+        <section class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-5 space-y-3">
+                <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">Rəqib analizindən əlavə edilənlər</span>
+                <h3 class="text-2xl font-black text-blue-950 serif-title">Profilə girmədən də güvən siqnalları görünür</h3>
+                <p class="text-sm text-slate-600 font-semibold leading-relaxed">Dayə kartlarında artıq referans, sənəd statusu, cavab müddəti, son aktivlik, təhsil və baxdığı yaş qrupları kimi qərar verməyə kömək edən məlumatlar var.</p>
             </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Kart 1: Ev Heyvanı -->
-                <div class="trust-card-3d bg-white p-6 rounded-2xl border-2 border-blue-100 shadow-sm space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-pink-500 to-pink-600 text-white flex items-center justify-center text-xl shadow-md">
-                        <i class="fa-solid fa-paw"></i>
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="trust-card-3d bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-4">
+                    <div class="w-11 h-11 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl mb-3">
+                        <i class="fa-solid fa-fingerprint"></i>
                     </div>
-                    <h4 class="font-black text-blue-950 text-sm tracking-tight">Ev heyvanı olan ailələr üçün xüsusi filter</h4>
-                    <p class="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                        Ailələrin ev heyvanı (pişik, it və s.) olub-olmaması və dayənin allergiya və ya uyğunluq vəziyyəti əvvəlcədən filterlənir, gözlənilməz rədd cavablarının qarşısı alınır.
-                    </p>
+                    <h4 class="font-black text-blue-950 text-sm">ID və sənəd yoxlanışı</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-2 leading-relaxed">SİMA, məhkumluq arayışı və referans statusları profildə göstərilir.</p>
                 </div>
-
-                <!-- Kart 2: Təcili Sifariş -->
-                <div class="trust-card-3d bg-white p-6 rounded-2xl border-2 border-blue-100 shadow-sm space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-blue-500 to-blue-600 text-white flex items-center justify-center text-xl shadow-md">
-                        <i class="fa-solid fa-bolt-lightning"></i>
+                <div class="trust-card-3d bg-blue-50 border-2 border-blue-100 rounded-2xl p-4">
+                    <div class="w-11 h-11 rounded-2xl bg-blue-500 text-white flex items-center justify-center text-xl mb-3">
+                        <i class="fa-solid fa-comments"></i>
                     </div>
-                    <h4 class="font-black text-blue-950 text-sm tracking-tight">15 dəqiqə ərzində "Təcili Dayə" çağırışı</h4>
-                    <p class="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                        Gözlənilməz iş görüşmələri və ya təcili planlar çıxdıqda, yaxınlıqdakı aktiv və SİMA tərəfindən təsdiqlənmiş dayələr dərhal bildiriş alır və 15 dəqiqədə ünvanınıza yönləndirilir.
-                    </p>
+                    <h4 class="font-black text-blue-950 text-sm">Əvvəlcə tanışlıq</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-2 leading-relaxed">Ailə sifarişdən öncə video təqdimat və profil qeydlərinə baxa bilir.</p>
                 </div>
-
-                <!-- Kart 3: Çoxdilli / İnkişaf -->
-                <div class="trust-card-3d bg-white p-6 rounded-2xl border-2 border-blue-100 shadow-sm space-y-3">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-emerald-500 to-emerald-600 text-white flex items-center justify-center text-xl shadow-md">
-                        <i class="fa-solid fa-brain"></i>
+                <div class="trust-card-3d bg-pink-50 border-2 border-pink-100 rounded-2xl p-4">
+                    <div class="w-11 h-11 rounded-2xl bg-pink-500 text-white flex items-center justify-center text-xl mb-3">
+                        <i class="fa-solid fa-list-check"></i>
                     </div>
-                    <h4 class="font-black text-blue-950 text-sm tracking-tight">İnkişaf yönümlü və çoxdilli dayə bazası</h4>
-                    <p class="text-[11px] text-slate-600 font-semibold leading-relaxed">
-                        Yalnız baxıcılıq deyil, həm də uşağın erkən inkişafı, xarici dil (Rus, İngilis) öyrədilməsi və mental dəstək göstərə biləcək sertifikatlı mentor-dayələr seçmək imkanı.
-                    </p>
+                    <h4 class="font-black text-blue-950 text-sm">Daha dərin filter</h4>
+                    <p class="text-xs text-slate-500 font-semibold mt-2 leading-relaxed">Xidmət növü, dil, xüsusi qayğı və saat seçimi birlikdə işləyir.</p>
                 </div>
             </div>
         </section>
@@ -629,471 +614,784 @@
                     <div class="absolute w-32 h-32 bg-blue-500/10 rounded-full animate-ping"></div>
                     
                     <div id="gpsMarker" class="absolute transition-all duration-1000 ease-in-out flex flex-col items-center" style="left: 45%; top: 40%;">
-                        <div class="relative">
-                            <div class="w-10 h-10 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-sm shadow-xl z-10 relative animate-bounce">
-                                <i class="fa-solid fa-child-reaching text-white"></i>
-                            </div>
-                            <div class="w-4 h-4 bg-pink-500 absolute bottom-0 left-1/2 -translate-x-1/2 rotate-45 z-0"></div>
+                        <div class="bg-pink-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-md shadow-md mb-1 flex items-center gap-1">
+                            <i class="fa-solid fa-baby"></i> Nərgiz Q. (Uşaqla)
                         </div>
-                        <span class="bg-slate-900 border border-pink-400 text-[9px] font-bold px-2 py-0.5 rounded shadow mt-1 whitespace-nowrap">Övladınız və Dayə</span>
+                        <div class="w-6 h-6 bg-blue-500 rounded-full border-4 border-white flex items-center justify-center shadow-lg text-[10px]">
+                            <i class="fa-solid fa-street-view text-white"></i>
+                        </div>
                     </div>
-
-                    <div class="absolute bottom-2 left-3 text-[10px] bg-slate-900/80 px-2 py-1 rounded border border-slate-700 font-mono text-slate-400">
-                        Xəritə Mərkəzi: Bakı, Azərbaycan
-                    </div>
+                    <span class="absolute bottom-3 left-4 text-[10px] text-slate-500 font-mono" id="geoCoords">📍 Cari Koor: 40.4093° N, 49.8671° E (Bakı ş.)</span>
                 </div>
-
-                <div class="lg:col-span-4 space-y-2">
-                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase">Status</span>
-                        <span class="text-[10px] bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 font-black px-2.5 py-0.5 rounded-full">Gəzintidə</span>
+                <div class="lg:col-span-4 space-y-3 text-xs font-bold bg-slate-850/50 p-2 rounded-xl">
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex justify-between">
+                        <span class="text-slate-400">Status:</span>
+                        <span class="text-emerald-400 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Parkda gəzinti</span>
                     </div>
-                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700 flex items-center justify-between">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase">Son Yenilənmə</span>
-                        <span id="gpsTime" class="text-[10px] font-mono text-pink-300 font-bold">İndi</span>
-                    </div>
-                    <div class="bg-slate-800/80 p-3 rounded-xl border border-slate-700">
-                        <span class="text-[10px] text-slate-400 font-bold uppercase block mb-1">Cari Ünvan Simulyasiyası</span>
-                        <p id="gpsAddress" class="text-[11px] font-bold text-slate-200">Hüseyn Cavid prospekti, Elmlər Akademiyası parkı yaxınlığı</p>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex justify-between">
+                        <span class="text-slate-400">Son Yenilənmə:</span>
+                        <span id="gpsTime" class="text-blue-300 font-mono">15:07:16</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- CORE CALCULATOR & NANNY FILTER SEARCH -->
-        <main id="search" class="grid grid-cols-1 lg:grid-cols-12 gap-6 relative z-10">
+        <!-- TWO COLUMN LAYOUT MATRIX -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
             
-            <!-- LEFT FILTER PANEL -->
-            <section class="premium-card p-6 rounded-3xl lg:col-span-5 space-y-5 bg-white/95">
-                <div class="border-b-2 border-pink-100 pb-3">
-                    <h2 class="text-xl font-black text-blue-950 tracking-tight serif-title flex items-center gap-1.5">
-                        <i class="fa-solid fa-sliders text-pink-500 text-sm"></i> Filterlər & Qiymət Hesablama
+            <!-- LEFT PANEL: DAYƏ MODULU -->
+            <div class="lg:col-span-5 premium-card p-6 md:p-8 rounded-3xl space-y-6">
+                <div class="flex justify-between items-center border-b-2 border-blue-50 pb-4">
+                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-blue-900 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-pink-500"></i> Dayə İdarəetmə Paneli
                     </h2>
-                    <p class="text-[11px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">Real-Vaxt SaaS Aləti</p>
+                    
+                    <label class="relative inline-flex items-center cursor-pointer select-none">
+                        <input type="checkbox" id="nannyStatus" checked onchange="toggleStatus()" class="sr-only peer">
+                        <div class="w-16 h-6 bg-slate-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-7 after:transition-all peer-checked:bg-emerald-600"></div>
+                        <span id="statusText" class="absolute text-[8px] font-bold text-white right-2 peer-checked:left-2 peer-checked:right-auto pointer-events-none tracking-wider">ON</span>
+                    </label>
                 </div>
 
-                <div class="space-y-4">
-                    <div class="grid grid-cols-2 gap-3">
-                        <div class="space-y-1">
-                            <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600 block">Xidmət növü</label>
-                            <select id="serviceType" onchange="calculatePrice()" class="w-full text-xs font-bold p-2.5 rounded-xl">
-                                <option value="hourly">Saatlıq Baxıcılıq</option>
-                                <option value="fulltime">Tam Gün (Aylıq)</option>
-                                <option value="weekend">Yalnız Həftəsonu</option>
-                            </select>
-                        </div>
-                        <div class="space-y-1">
-                            <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600 block">Uşaq sayı</label>
-                            <select id="childCount" onchange="calculatePrice()" class="w-full text-xs font-bold p-2.5 rounded-xl">
-                                <option value="1">1 Uşaq</option>
-                                <option value="2">2 Uşaq (+25%)</option>
-                                <option value="3">3 Uşaq (+50%)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="space-y-1">
-                        <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600 block">Dayənin Təcrübə Səviyyəsi</label>
-                        <select id="nannyExp" onchange="calculatePrice()" class="w-full text-xs font-bold p-2.5 rounded-xl">
-                            <option value="1-3">1-3 il təcrübə (Standart)</option>
-                            <option value="3-5">3-5 il təcrübə (+20%)</option>
-                            <option value="5+">5+ il (Premium Səviyyə +40%)</option>
-                        </select>
-                    </div>
-
-                    <div class="space-y-1">
-                        <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600 block">Xüsusi Dil Tələbi</label>
-                        <select id="langReq" onchange="calculatePrice()" class="w-full text-xs font-bold p-2.5 rounded-xl">
-                            <option value="az">Yalnız Azərbaycanca</option>
-                            <option value="ru">Rus dilli dayə (+15%)</option>
-                            <option value="en">İngilis dilli mentor-dayə (+30%)</option>
-                        </select>
-                    </div>
-
-                    <div id="hourInputBlock" class="space-y-1">
-                        <div class="flex justify-between items-center">
-                            <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600">Gündəlik Saat</label>
-                            <span id="hourVal" class="text-xs font-black bg-blue-100 text-blue-700 px-2 py-0.5 rounded-md">4 saat</span>
-                        </div>
-                        <input type="range" id="hours" min="2" max="12" value="4" oninput="updateHourVal()" class="w-full accent-pink-500">
-                    </div>
-
-                    <!-- SLOT SELECTION DEMO -->
-                    <div class="space-y-2 pt-2 border-t border-slate-100">
-                        <label class="text-[11px] font-extrabold uppercase tracking-wider text-slate-600 block">Günün Uyğun Vaxt Aralığı</label>
-                        <div class="grid grid-cols-3 gap-2">
-                            <button onclick="toggleSlot(this)" class="slot-btn border-2 border-blue-100 p-2 rounded-xl text-center text-[10px] font-bold bg-slate-50 text-slate-700 transition">09:00 - 13:00</button>
-                            <button onclick="toggleSlot(this)" class="slot-btn border-2 border-blue-100 p-2 rounded-xl text-center text-[10px] font-bold bg-slate-50 text-slate-700 transition">14:00 - 18:00</button>
-                            <button onclick="toggleSlot(this)" class="slot-btn border-2 border-blue-100 p-2 rounded-xl text-center text-[10px] font-bold bg-slate-50 text-slate-700 transition">19:00 - 23:00</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- LIVE PRICE DISPLAY -->
-                <div class="bg-gradient-to-br from-blue-50 to-pink-50 p-4 rounded-2xl border-2 border-blue-100 text-center space-y-1">
-                    <div class="text-[10px] font-black text-slate-500 uppercase tracking-widest">Təxmini Xidmət Haqqı</div>
-                    <div class="text-3xl font-black text-slate-900 tracking-tight"><span id="totalPrice">24.00</span> <span class="text-xl">AZN</span></div>
-                    <p id="priceInfo" class="text-[10px] text-slate-500 font-medium">Saatlığı ~6.00 AZN-dən hesablanır</p>
-                </div>
-
-                <button onclick="generateOfficialPDF()" class="btn-premium toy-action text-white w-full font-black py-3 text-xs uppercase tracking-widest text-center">
-                    <i class="fa-solid fa-file-pdf mr-1.5"></i> Dövlət E-İmza (SİMA) Müqavilə Demosu Yüklə
-                </button>
-            </section>
-
-            <!-- RIGHT NANNY GRID -->
-            <section class="lg:col-span-7 space-y-4">
-                <div class="flex items-center justify-between border-b-2 border-blue-100 pb-3 bg-white/40 p-2 rounded-xl">
+                <div class="space-y-5 text-xs font-bold text-slate-700">
                     <div>
-                        <h3 class="text-sm font-black text-blue-950 uppercase tracking-wider">Doğrulanmış Aktiv Profillər</h3>
-                        <p class="text-[11px] text-slate-500 font-medium">Bakı və Sumqayıt üzrə hazırda aktiv olan dayələr</p>
+                        <label class="block mb-1.5 text-blue-950">Adınız və Soyadınız</label>
+                        <input type="text" id="nannyName" value="Nərgiz Qasımova" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
                     </div>
-                    <span class="text-[10px] bg-emerald-500 text-white font-black px-2.5 py-1 rounded-full uppercase tracking-wider flex items-center gap-1">
-                        <span class="w-1.5 h-1.5 rounded-full bg-white animate-ping"></span> SİMA Canlı
-                    </span>
-                </div>
 
-                <!-- NANNY CARD 1 -->
-                <div class="premium-card p-5 rounded-2xl space-y-3 trust-card-3d bg-white">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center text-pink-600 font-bold text-lg border border-pink-200">
-                                G.A
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h4 class="font-black text-blue-950 text-sm">Gülpəri A.</h4>
-                                    <span class="text-[9px] bg-blue-100 text-blue-700 font-bold px-1.5 py-0.5 rounded">42 yaş</span>
-                                </div>
-                                <div class="flex items-center gap-2 mt-0.5 text-[11px] font-bold text-slate-600">
-                                    <span class="text-amber-500"><i class="fa-solid fa-star"></i> 4.9</span>
-                                    <span>• 6 il təcrübə</span>
-                                    <span>• Bakı (Nərimanov)</span>
-                                </div>
-                            </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Fəaliyyət Şəhəri</label>
+                            <select id="nannyCity" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
+                                <option>Bakı</option>
+                                <option>Sumqayıt</option>
+                            </select>
                         </div>
-                        <div class="text-right">
-                            <div class="text-xs font-black text-slate-900">5.50 - 7.00 AZN</div>
-                            <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">saatlıq tarif</div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Təcrübə (İl)</label>
+                            <input type="number" id="nannyExp" value="7" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
                         </div>
                     </div>
-                    
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="profile-chip"><i class="fa-solid fa-language text-blue-500"></i> Azərbaycan, Rus</span>
-                        <span class="profile-chip"><i class="fa-solid fa-graduation-cap text-pink-500"></i> Pedaqoji Təhsil</span>
-                        <span class="profile-chip"><i class="fa-solid fa-heart-pulse text-emerald-500"></i> İlkin Tibbi Yardım</span>
+
+                    <div class="space-y-2">
+                        <label class="block text-blue-950">📅 Uyğun Olduğunuz Günlər:</label>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">B.e</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç.a</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C.a</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C</span>
+                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">Ş</span>
+                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">B</span>
+                        </div>
                     </div>
 
-                    <div class="trust-badge flex items-center justify-between text-[11px] font-bold">
-                        <span class="text-emerald-700 flex items-center gap-1">
-                            <i class="fa-solid fa-square-check"></i> SİMA Dövlət Rəqəmsal İmzası ilə Şəxsiyyəti Təsdiqlənib
-                        </span>
-                        <button onclick="toggleDetails('det1')" class="text-blue-600 hover:underline">Ətraflı</button>
-                    </div>
-
-                    <div id="det1" class="profile-details">
-                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 font-medium space-y-1 mt-2">
-                            <p><b>Bioqrafiya:</b> Uşaq psixologiyası üzrə kurslar bitirmişəm. 2 fərqli ailədə ümumilikdə 6 il dayə olaraq çalışmışam. Yaradıcı oyunlar və uşaqların nitq inkişafı sahəsində ixtisaslaşmışam.</p>
-                            <p><b>Ev heyvanı uyğunluğu:</b> Ev heyvanları olan ailələrlə rahatlıqla çalışa bilərəm (Allergiyam yoxdur).</p>
+                    <div class="bg-blue-50/80 p-4 rounded-xl border-2 border-blue-100 space-y-3">
+                        <label class="block font-black text-blue-950 text-[10px] uppercase tracking-widest">💰 Saatlıq Qiymət (MİN: 4 AZN)</label>
+                        <div class="relative">
+                            <input type="number" id="nannyHourlyRate" value="5" min="4" oninput="calculateNannyEarnings()" class="w-full p-3 rounded-xl font-black text-xl text-center text-pink-600 pr-16 bg-white border-2 border-pink-200">
+                            <span class="absolute right-4 top-3.5 text-xs font-bold text-slate-400">AZN / Saat</span>
+                        </div>
+                        
+                        <div class="text-xs text-slate-600 space-y-1.5 pt-1">
+                            <div class="flex justify-between">
+                                <span>Platforma komissiyası (15%):</span>
+                                <span id="lblComm" class="font-bold text-red-500">-0.75 AZN</span>
+                            </div>
+                            <div class="flex justify-between border-t-2 pt-2 border-blue-100 font-black text-blue-900">
+                                <span>Sizin Xalis Gəliriniz:</span>
+                                <span id="lblNet" class="font-black text-pink-600">4.25 AZN/saat</span>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- NANNY CARD 2 -->
-                <div class="premium-card p-5 rounded-2xl space-y-3 trust-card-3d bg-white">
-                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                        <div class="flex items-center gap-3">
-                            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 font-bold text-lg border border-blue-200">
-                                L.M
-                            </div>
-                            <div>
-                                <div class="flex items-center gap-1.5">
-                                    <h4 class="font-black text-blue-950 text-sm">Leyla M.</h4>
-                                    <span class="text-[9px] bg-blue-100 text-blue-700 font-bold px-1.5 py-0.5 rounded">29 yaş</span>
-                                </div>
-                                <div class="flex items-center gap-2 mt-0.5 text-[11px] font-bold text-slate-600">
-                                    <span class="text-amber-500"><i class="fa-solid fa-star"></i> 5.0</span>
-                                    <span>• 4 il təcrübə</span>
-                                    <span>• Sumqayıt (1-ci mkr)</span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="text-right">
-                            <div class="text-xs font-black text-slate-900">7.00 - 9.00 AZN</div>
-                            <div class="text-[9px] text-slate-400 font-bold uppercase tracking-wider">saatlıq tarif</div>
-                        </div>
-                    </div>
-                    
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="profile-chip"><i class="fa-solid fa-language text-blue-500"></i> Azərbaycan, İngilis</span>
-                        <span class="profile-chip"><i class="fa-solid fa-brain text-purple-500"></i> İnkişaf Mentoru</span>
-                    </div>
-
-                    <div class="trust-badge flex items-center justify-between text-[11px] font-bold">
-                        <span class="text-emerald-700 flex items-center gap-1">
-                            <i class="fa-solid fa-square-check"></i> SİMA Dövlət Rəqəmsal İmzası ilə Şəxsiyyəti Təsdiqlənib
-                        </span>
-                        <button onclick="toggleDetails('det2')" class="text-blue-600 hover:underline">Ətraflı</button>
-                    </div>
-
-                    <div id="det2" class="profile-details">
-                        <div class="bg-slate-50 p-3 rounded-xl border border-slate-100 text-xs text-slate-600 font-medium space-y-1 mt-2">
-                            <p><b>Bioqrafiya:</b> Xarici dillər universitetini bitirmişəm. Uşaqlara ingilis dilini interaktiv oyunlarla öyrədirəm. Məktəbəqədər hazırlıq təcrübəm var.</p>
-                            <p><b>Ev heyvanı uyğunluğu:</b> Yalnız evində pişik/it olmayan ailələrlə çalışıram.</p>
-                        </div>
-                    </div>
-                </div>
-
-            </section>
-            </main>
-
-        <!-- TRUST INFO SECTION -->
-        <section id="trust" class="premium-card p-6 md:p-8 rounded-3xl bg-white/95 space-y-6">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <span class="bg-blue-600 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Mükəmməl Güvən Modeli</span>
-                <h2 class="text-2xl font-black text-blue-950 tracking-tight serif-title">Biz Təhlükəsizliyi Necə Təmin Edirik?</h2>
-                <p class="text-xs text-slate-600 font-semibold">Aldayə platforması adi elan saytı deyil, hər iki tərəfi hüquqi olaraq qoruyan rəqəmsal ekosistemdir.</p>
+                <button class="w-full btn-premium toy-action text-white font-bold py-4 text-xs tracking-widest uppercase">
+                    <i class="fa-solid fa-cubes-stacked mr-1.5"></i> Profili SİMA-ya Göndər
+                </button>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-slate-50 border-2 border-blue-100 p-5 rounded-2xl space-y-2">
-                    <span class="text-2xl text-pink-500 block"><i class="fa-solid fa-fingerprint"></i></span>
-                    <h3 class="font-extrabold text-blue-950 text-sm">SİMA Biometrik Doğrulama</h3>
-                    <p class="text-[11px] text-slate-600 font-medium leading-relaxed">Platformaya daxil olan hər bir dayə Azərbaycan Respublikası Rəqəmsal İnkişaf və Nəqliyyat Nazirliyinin təqdim etdiyi SİMA e-imza tətbiqi ilə üz tanıma və şəxsiyyət vəsiqəsi yoxlanışından keçir.</p>
+            <!-- RIGHT PANEL: VALİDEYN FILTER / LISTINGS -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- SEARCH MODULE -->
+                <div id="search" class="premium-card p-6 rounded-3xl space-y-4 scroll-mt-24">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-2 border-pink-50 pb-3">
+                        <h2 class="text-xs font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-blue-500"></i> Dayə Axtarış və Sifariş Filtrləri
+                        </h2>
+                        <button onclick="generateOfficialPDF()" class="text-xs font-bold text-blue-600 hover:text-pink-600 flex items-center gap-1.5 underline">
+                            <i class="fa-solid fa-file-pdf text-red-500"></i> Rəsmi Müqavilə Variantı (PDF Yüklə)
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-xs font-bold text-slate-700">
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Uşaq Sayı</label>
+                            <select id="filterChildren" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="1">1 Uşaq var</option>
+                                <option value="2">2 Uşaq (+1.50 AZN/s)</option>
+                                <option value="3">3 Uşaq (+3.00 AZN/s)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Xüsusi Qayğı Ehtiyacı</label>
+                            <select id="filterSpecial" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="no">Yoxdur (Standart Baxım)</option>
+                                <option value="yes">İnkişaf Dəstəyi (+2.50 AZN/s)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Xidmət Növü</label>
+                            <select id="filterService" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="all">Hamısı</option>
+                                <option value="daye">Dayə</option>
+                                <option value="gece">Gecə baxımı</option>
+                                <option value="ders">Dərs dəstəyi</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Dil</label>
+                            <select id="filterLanguage" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="all">Fərqi yoxdur</option>
+                                <option value="Azərbaycan">Azərbaycan</option>
+                                <option value="Rus">Rus</option>
+                                <option value="İngilis">İngilis</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Tələb olunan müddət</label>
+                            <input type="number" id="filterHours" min="1" max="24" value="4" oninput="loadActiveSitters()" class="w-full p-3 rounded-xl font-black text-center text-pink-600 bg-white">
+                        </div>
+                    </div>
                 </div>
-                <div class="bg-slate-50 border-2 border-blue-100 p-5 rounded-2xl space-y-2">
-                    <span class="text-2xl text-blue-500 block"><i class="fa-solid fa-file-contract"></i></span>
-                    <h3 class="font-extrabold text-blue-950 text-sm">Avtomatik Leqal Müqavilə</h3>
-                    <p class="text-[11px] text-slate-600 font-medium leading-relaxed">Sifariş tamamlandığı an sistem avtomatik olaraq AR Mülki Məcəlləsinə tam uyğun xidmət müqaviləsi yaradır. Bu müqavilə hər iki tərəf üçün məhkəmə və digər dövlət orqanlarında hüquqi qüvvəyə malikdir.</p>
+
+                <!-- DYNAMICALLY RENDERED SEARCH RESULTS -->
+                <div id="sittersList" class="space-y-4"></div>
+            </div>
+
+        </div>
+
+        <!-- 100% RELIABLE LIVE AI DIGITAL SIMULATION MODAL (No Loading/CORS issues) -->
+        <div id="videoModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+            <div class="bg-gradient-to-b from-slate-900 to-blue-950 rounded-3xl border-2 border-pink-400 overflow-hidden max-w-sm w-full shadow-2xl relative">
+                <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white w-8 h-8 rounded-full flex items-center justify-center z-20 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                
+                <div class="h-[450px] w-full flex flex-col items-center justify-center relative p-6 text-center overflow-hidden">
+                    <div class="absolute w-64 h-64 border-4 border-pink-500/30 rounded-full animate-ping"></div>
+                    <div class="absolute w-48 h-48 border-2 border-blue-400/20 rounded-full animate-pulse"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-blue-500 shadow-2xl">
+                            <img id="modalAvatar" src="" class="w-full h-full object-cover rounded-full border-4 border-slate-900">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <span class="bg-pink-500 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">AI Video Verified</span>
+                            <h3 id="videoModalTitle" class="text-xl font-black text-white tracking-tight pt-1">Dayə Təqdimatı</h3>
+                            <p class="text-xs text-emerald-400 font-mono flex items-center justify-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Canlı Giriş Təmin Olunub
+                            </p>
+                        </div>
+
+                        <!-- Real Səs Dalğası Simulyasiyası (CSS Animasiya) -->
+                        <div class="flex items-center justify-center gap-1 h-8 pt-2">
+                            <span class="w-1 bg-pink-500 rounded animate-bounce h-6" style="animation-duration: 0.5s"></span>
+                            <span class="w-1 bg-blue-400 rounded animate-bounce h-4" style="animation-duration: 0.3s"></span>
+                            <span class="w-1 bg-purple-500 rounded animate-bounce h-7" style="animation-duration: 0.7s"></span>
+                            <span class="w-1 bg-pink-400 rounded animate-bounce h-5" style="animation-duration: 0.4s"></span>
+                            <span class="w-1 bg-emerald-400 rounded animate-bounce h-3" style="animation-duration: 0.6s"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 inset-x-0 bg-slate-900/90 p-5 border-t border-slate-800 text-left">
+                        <p class="text-[11px] text-slate-300 leading-normal font-medium">
+                            <i class="fa-solid fa-circle-info text-pink-400 mr-1"></i> Təhlükəsizlik protokolları səbəbindən dayənin rəsmi video-müraciəti platformanın daxili şifrəli kanalında tam təhlükəsiz yayımlanır.
+                        </p>
+                    </div>
                 </div>
-                <div class="bg-slate-50 border-2 border-blue-100 p-5 rounded-2xl space-y-2">
-                    <span class="text-2xl text-emerald-500 block"><i class="fa-solid fa-shield-halved"></i></span>
-                    <h3 class="font-extrabold text-blue-950 text-sm">Depozit Sistemi və Sığorta</h3>
-                    <p class="text-[11px] text-slate-600 font-medium leading-relaxed">Ödənişiniz dayə xidmətini tam və problemsiz başa vurana qədər Aldayə güvənli hesabında bloklanır. Xidmət uğurla bitdikdən sonra ödəniş dayənin balansına köçürülür.</p>
+            </div>
+        </div>
+
+        <!-- SECTION: PLATFORM BENEFITS & STATS -->
+        <section id="trust" class="premium-card p-8 rounded-3xl space-y-6 relative z-10 scroll-mt-24">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h3 class="text-2xl font-black text-blue-950 serif-title">Niyə Aldayə Ekosistemi?</h3>
+                <p class="text-xs text-slate-500 font-bold">Platformamız tam rəsmi müqavilə infrastrukturu və SİMA dövlət rəqəmsal imza inteqrasiyası ilə valideynlərin təhlükəsizliyini təmin edir.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="trust-card-3d p-5 bg-white border-2 border-pink-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">100% SİMA Doğrulama</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Sistemdəki bütün dayələr yalnız SİMA E-İmza ilə şəxsiyyəti və məhkumluq statusu tam yoxlanıldıqdan sonra aktiv edilir.</p>
+                </div>
+
+                <div class="trust-card-3d p-5 bg-white border-2 border-blue-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">Şəffaf Maliyyə Matrisi</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Heç bir gizli xidmət haqqı yoxdur. Əlavə uşaq koeffisientləri və xidmət tarifləri tam leqal şəkildə anında hesablanır.</p>
+                </div>
+
+                <div class="trust-card-3d p-5 bg-white border-2 border-pink-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">Avtomatik PDF Müqavilə</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Sifariş təsdiqləndiyi an AR Mülki Məcəlləsininin xidmət müddəalarına uyğun hüquqi müqavilə PDF olaraq generasiya edilir.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ SECTION -->
-        <section id="faq" class="premium-card p-6 md:p-8 rounded-3xl bg-white/95 space-y-6">
-            <div class="text-center max-w-xl mx-auto space-y-2">
-                <span class="bg-emerald-600 text-white text-[9px] font-black uppercase px-3 py-1 rounded-full tracking-widest">Suallar & Cavablar</span>
-                <h2 class="text-2xl font-black text-blue-950 tracking-tight serif-title">Tez-tez soruşulan suallar</h2>
-                <p class="text-xs text-slate-600 font-semibold">Platforma və xidmət barədə ən çox verilən sualların qısa və konkret cavabları.</p>
+        <section class="premium-card soft-band p-8 rounded-3xl space-y-6 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">3 addımda sifariş</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Ailə üçün sadə, platforma üçün ciddi proses</h3>
+                </div>
+                <a href="#search" class="text-xs font-black text-pink-600 hover:text-blue-600 uppercase tracking-widest">
+                    Demo filtrlərə keç <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
             </div>
 
-            <div class="space-y-3 max-w-3xl mx-auto">
-                <div class="border-2 border-blue-100 rounded-xl p-4 bg-slate-50">
-                    <h4 class="font-black text-blue-950 text-xs md:text-sm">SİMA ilə doğrulama nə dərəcədə təhlükəsizdir?</h4>
-                    <p class="text-[11px] md:text-xs text-slate-600 font-medium mt-1 leading-relaxed">Bu, dövlət səviyyəli biometrik identifikasiya sistemidir. Dayənin saxta şəxsiyyət vəsiqəsi və ya başqasının adı ilə qeydiyyatdan keçməsi 100% qeyri-mümkündür.</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="trust-card-3d bg-white/90 p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black mb-4">1</div>
+                    <h4 class="font-black text-blue-950 text-sm">Ehtiyacı seçin</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Uşaq sayı, xüsusi qayğı, müddət və uyğun saatları seçərək real qiyməti dərhal görün.</p>
                 </div>
-                <div class="border-2 border-blue-100 rounded-xl p-4 bg-slate-50">
-                    <h4 class="font-black text-blue-950 text-xs md:text-sm">Platformanın xidmət haqqı (komissiya) nə qədərdir?</h4>
-                    <p class="text-[11px] md:text-xs text-slate-600 font-medium mt-1 leading-relaxed">Aldayə platforması hər uğurlu sifarişdən cəmi 15% xidmət haqqı tutur. Bu məbləğ leqal müqavilə təminatına, SİMA sorğularına və 24/7 dəstək xidmətinə sərf olunur.</p>
+                <div class="trust-card-3d bg-white/90 p-5 rounded-2xl border border-amber-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black mb-4">2</div>
+                    <h4 class="font-black text-blue-950 text-sm">Profili yoxlayın</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Dayənin təcrübəsi, reytinqi, video təqdimatı və SİMA statusu bir ekranda görünür.</p>
                 </div>
-                <div class="border-2 border-blue-100 rounded-xl p-4 bg-slate-50">
-                    <h4 class="font-black text-blue-950 text-xs md:text-sm">Hər hansı bir problem yaşanarsa müqavilə necə kömək edir?</h4>
-                    <p class="text-[11px] md:text-xs text-slate-600 font-medium mt-1 leading-relaxed">Sistem tərəfindən generasiya edilən rəsmi sənəd AR Mülki Məcəlləsinə əsaslandığı üçün həm valideynin, həm də dayənin hüquqlarını qoruyur, hər hansı mübahisə zamanı birbaşa hüquqi sübut rolunu oynayır.</p>
+                <div class="trust-card-3d bg-white/90 p-5 rounded-2xl border border-pink-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-black mb-4">3</div>
+                    <h4 class="font-black text-blue-950 text-sm">Təsdiqləyin</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Sifarişdən sonra müqavilə, ödəniş xülasəsi və GPS izləmə paneli aktiv olur.</p>
                 </div>
             </div>
         </section>
 
-        <!-- FOOTER & CONTACT -->
-        <footer id="contact" class="premium-card p-6 rounded-3xl bg-slate-900 text-slate-300 text-xs font-bold space-y-4">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-800 pb-4">
-                <div class="space-y-1">
-                    <div class="flex items-center gap-2 text-white text-base font-black">
-                        <span class="w-7 h-7 rounded-lg bg-pink-500 flex items-center justify-center text-white text-xs"><i class="fa-solid fa-feather-pointed"></i></span>
-                        <span>Aldayə Mikro-SaaS</span>
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+            <div class="premium-card p-8 rounded-3xl space-y-5">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Valideyn rəyləri</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Etibar hissi ilk ekrandan başlamalıdır</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100">
+                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Qiyməti öncədən görmək və müqavilə hissəsi məni ən çox rahatlatdı. Platforma valideyn kimi düşünülüb."</p>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-blue-900 mt-3">Lalə A. Bakı</div>
                     </div>
-                    <p class="text-[11px] text-slate-400 font-medium">Bakı və Sumqayıt üzrə rəqəmsal ailə köməkçiniz.</p>
-                </div>
-                <div class="flex gap-3">
-                    <a href="https://wa.me/994500000000" target="_blank" class="toy-soft-button bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 flex items-center gap-1.5 transition">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> <span class="whatsapp-bubble-text">WhatsApp Dəstək</span>
-                    </a>
-                    <a href="mailto:info@aldaye.az" class="toy-soft-button bg-slate-800 hover:bg-slate-700 text-white px-4 py-2 flex items-center gap-1.5 transition border border-slate-700">
-                        <i class="fa-solid fa-envelope"></i> E-poçt
-                    </a>
+                    <div class="bg-pink-50/70 p-4 rounded-2xl border border-pink-100">
+                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Dayənin saatlarını seçmək, video təqdimata baxmaq və yekun məbləği hesablamaq çox rahatdır."</p>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-pink-700 mt-3">Rauf M. Sumqayıt</div>
+                    </div>
                 </div>
             </div>
-            <div class="flex flex-col sm:flex-row justify-between text-[11px] text-slate-500 font-medium">
-                <p>© 2026 Aldayə. Bütün hüquqlar qorunur.</p>
-                <p>Bu platforma bir təhlükəsizlik və hüquqi rəqəmsal zəmanət demosudur.</p>
+
+            <div id="faq" class="premium-card p-8 rounded-3xl space-y-5 scroll-mt-24">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-blue-600">FAQ</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Tez-tez verilən suallar</h3>
+                </div>
+                <div class="space-y-3">
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Dayələr necə yoxlanılır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Demo konseptdə SİMA doğrulama, sənəd yoxlanışı və profil təsdiqi axını göstərilir.</p>
+                    </details>
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Qiymət necə hesablanır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Saatlıq tarifə uşaq sayı, xüsusi qayğı ehtiyacı və seçilən müddət əlavə olunur.</p>
+                    </details>
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Bu canlı xidmətə hazırdır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Hazırkı versiya təqdimat və interaktiv demo üçündür. Real ödəniş, real SİMA API və mesajlaşma sonrakı mərhələdə qoşula bilər.</p>
+                    </details>
+                </div>
             </div>
+        </section>
+
+        <section id="contact" class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 scroll-mt-24">
+            <div class="lg:col-span-5 space-y-4">
+                <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">Əlaqə</span>
+                <h3 class="text-3xl font-black text-blue-950 serif-title">Demo üçün müraciət göndərin</h3>
+                <p class="text-sm text-slate-600 font-semibold leading-relaxed">Valideyn, dayə və ya investor kimi maraqlanırsınızsa, məlumatınızı yazın. Forma məlumatı brauzerdə saxlayır və demo təsdiq mesajı göstərir.</p>
+                <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-widest">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full">Bakı</span>
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full">Sumqayıt</span>
+                    <span class="bg-pink-100 text-pink-700 px-3 py-1.5 rounded-full">SİMA konsept</span>
+                </div>
+            </div>
+            <form onsubmit="submitLead(event)" class="lg:col-span-7 bg-white/90 p-5 rounded-2xl border-2 border-blue-100 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1.5 text-blue-950 text-xs font-black">Ad Soyad</label>
+                        <input id="leadName" required type="text" placeholder="Adınızı yazın" class="w-full p-3 rounded-xl text-sm font-semibold">
+                    </div>
+                    <div>
+                        <label class="block mb-1.5 text-blue-950 text-xs font-black">Telefon və ya email</label>
+                        <input id="leadContact" required type="text" placeholder="+994..." class="w-full p-3 rounded-xl text-sm font-semibold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block mb-1.5 text-blue-950 text-xs font-black">Marağınız</label>
+                    <select id="leadType" class="w-full p-3 rounded-xl text-sm font-semibold">
+                        <option>Valideyn kimi istifadə etmək istəyirəm</option>
+                        <option>Dayə kimi qeydiyyatdan keçmək istəyirəm</option>
+                        <option>Partnyorluq və investisiya haqqında danışmaq istəyirəm</option>
+                    </select>
+                </div>
+                <button class="w-full btn-premium text-white font-black py-4 text-xs rounded-xl tracking-widest uppercase shadow-md">
+                    Müraciəti göndər
+                </button>
+                <p id="leadSuccess" class="hidden text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl p-3">Müraciət qeydə alındı. Demo versiyada məlumat brauzerdə saxlanıldı.</p>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center py-4 text-[10px] text-blue-900 font-bold tracking-widest uppercase relative z-10">
+            © 2026 Aldayə Ecosystem Inc. Bütün hüquqlar qorunur.
         </footer>
 
     </div>
 
-    <!-- WHATSAPP FLOATING BUBBLE -->
-    <a href="https://wa.me/994500000000" target="_blank" class="fixed bottom-4 right-4 z-50 bg-emerald-500 text-white font-black px-4 py-3 rounded-2xl shadow-2xl hover:bg-emerald-600 transition flex items-center gap-2 border-2 border-white text-xs md:text-sm">
-        <i class="fa-brands fa-whatsapp text-lg animate-pulse"></i>
-        <span>Canlı Dəstək</span>
-    </a>
+    <!-- AI ASSISTANT CHAT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5">
+        <div id="aiChatPanel" class="chat-panel hidden premium-card rounded-3xl overflow-hidden">
+            <div class="bg-gradient-to-r from-pink-500 to-blue-600 text-white p-4 flex items-center justify-between">
+                <div>
+                    <div class="text-[10px] font-black uppercase tracking-widest opacity-80">Canlı AI assistant</div>
+                    <div class="font-black">Aldayə köməkçisi</div>
+                </div>
+                <button onclick="toggleAiChat()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="aiChatMessages" class="h-80 overflow-y-auto p-4 space-y-3 bg-white"></div>
+            <div class="p-3 border-t border-pink-100 bg-pink-50/70">
+                <div class="flex gap-2">
+                    <input id="aiChatInput" onkeydown="handleAiChatKey(event)" type="text" placeholder="Sual yazın..." class="flex-1 p-3 rounded-2xl text-sm font-semibold">
+                    <button onclick="sendAiChatMessage()" class="btn-premium text-white px-4 py-2 text-sm font-black">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                    <button onclick="quickAiQuestion('Dayə qeydiyyatı necədir?')" class="text-[10px] font-black bg-white border border-pink-100 text-pink-700 px-2 py-1 rounded-full">Dayə qeydiyyatı</button>
+                    <button onclick="quickAiQuestion('Valideyn necə sifariş edir?')" class="text-[10px] font-black bg-white border border-blue-100 text-blue-700 px-2 py-1 rounded-full">Valideyn sifarişi</button>
+                    <button onclick="quickAiQuestion('SİMA yoxlama nədir?')" class="text-[10px] font-black bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded-full">SİMA</button>
+                </div>
+            </div>
+        </div>
+        <button onclick="toggleAiChat()" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative" aria-label="AI assistant aç">
+            <i class="fa-solid fa-robot"></i>
+            <span class="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">1</span>
+        </button>
+    </div>
 
-    <!-- CORE JAVASCRIPT FOR DYNAMIC INTERACTIONS -->
     <script>
-        function updateHourVal() {
-            const val = document.getElementById('hours').value;
-            document.getElementById('hourVal').innerText = val + " saat";
-            calculatePrice();
+        const sittersData = [
+            { 
+                id: 1, 
+                name: "Nərgiz Qasımova", 
+                city: "Bakı", 
+                experience: 7, 
+                languages: ["Azərbaycan"], 
+                maxChildren: 1, 
+                basePrice: 5, 
+                distanceKm: 3.1, 
+                online: true, 
+                rating: 5.0, 
+                slots: ["09:00", "11:00", "14:00", "16:00"],
+                age: 32,
+                responseTime: "12 dəq",
+                lastActive: "Bu gün aktiv",
+                references: 4,
+                repeatFamilies: 18,
+                education: "Məktəbəqədər təhsil",
+                services: ["daye", "ders"],
+                serviceLabels: ["Dayə", "Məktəbə hazırlıq", "Ev tapşırığı dəstəyi"],
+                skills: ["Nağıl oxuma", "Sakitləşdirici oyunlar", "İlk yardım biliyi", "Qida rejimi"],
+                careAges: ["1-3 yaş", "4-6 yaş"],
+                verifications: ["SİMA ID", "Məhkumluq arayışı", "Referans yoxlanışı"],
+                bio: "7 illik təcrübəm var. Uşaqlarla sakit, ritmli gün planı qurmağı və valideynlə gündəlik hesabat paylaşmağı sevirəm.",
+                review: "Nərgiz xanım uşağımızla çox tez bağ qurdu, vaxtında gəldi və günün sonunda hər şeyi izah etdi.",
+                avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120"
+            },
+            { 
+                id: 2, 
+                name: "Fatimə Həsənli", 
+                city: "Sumqayıt", 
+                experience: 3, 
+                languages: ["Azərbaycan", "Rus"], 
+                maxChildren: 3, 
+                basePrice: 4, 
+                distanceKm: 4.8, 
+                online: true, 
+                rating: 4.9, 
+                slots: ["10:00", "13:00", "15:00"],
+                age: 27,
+                responseTime: "25 dəq",
+                lastActive: "Dünən aktiv",
+                references: 2,
+                repeatFamilies: 9,
+                education: "Psixologiya üzrə bakalavr",
+                services: ["daye", "gece"],
+                serviceLabels: ["Dayə", "Gecə baxımı", "Körpə rutini"],
+                skills: ["Körpə baxımı", "Yuxu rutini", "Gigiyena", "Sakit ünsiyyət"],
+                careAges: ["0-12 ay", "1-3 yaş"],
+                verifications: ["SİMA ID", "Video təqdimat", "Referans yoxlanışı"],
+                bio: "Körpə və azyaşlı uşaqlarla işləməyi sevirəm. Gecə baxımı və yuxu rejimi mövzularında ailələrə dəstək verirəm.",
+                review: "Fatimə xanım çox diqqətli idi, körpəmizin rejiminə tam uyğunlaşdı.",
+                avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=120&h=120"
+            },
+            { 
+                id: 3, 
+                name: "Aysel Məmmədova", 
+                city: "Bakı", 
+                experience: 5, 
+                languages: ["Azərbaycan", "İngilis"], 
+                maxChildren: 2, 
+                basePrice: 6, 
+                distanceKm: 6.2, 
+                online: true, 
+                rating: 5.0, 
+                slots: ["08:00", "12:00", "17:00"],
+                age: 29,
+                responseTime: "8 dəq",
+                lastActive: "İndi aktiv",
+                references: 5,
+                repeatFamilies: 21,
+                education: "İbtidai sinif müəllimliyi",
+                services: ["daye", "ders"],
+                serviceLabels: ["Dayə", "İngilis dili", "Dərs dəstəyi"],
+                skills: ["İngilis dili", "Yaradıcı məşğələ", "Xüsusi qayğı dəstəyi", "Oxu vərdişi"],
+                careAges: ["4-6 yaş", "7-10 yaş"],
+                verifications: ["SİMA ID", "Məhkumluq arayışı", "Təhsil sənədi"],
+                bio: "İbtidai yaşlı uşaqlara dərs dəstəyi, yaradıcı oyunlar və dil praktikası ilə kömək edirəm. Valideynlə planlı ünsiyyət saxlayıram.",
+                review: "Aysel xanım həm dayə, həm də dərs dəstəyi kimi çox faydalı oldu.",
+                avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120"
+            }
+        ];
+
+        function calculateNannyEarnings() {
+            const input = document.getElementById('nannyHourlyRate');
+            let rate = parseFloat(input.value) || 0;
+            if (rate < 4) rate = 4;
+
+            const commission = rate * 0.15;
+            const netEarnings = rate - commission;
+
+            document.getElementById('lblComm').innerText = `-${commission.toFixed(2)} AZN`;
+            document.getElementById('lblNet').innerText = `${netEarnings.toFixed(2)} AZN/saat`;
+            
+            if(sittersData[0]) {
+                sittersData[0].basePrice = rate;
+                loadActiveSitters();
+            }
         }
 
-        function toggleSlot(btn) {
-            btn.classList.toggle('selected');
-            calculatePrice();
+        function toggleStatus() {
+            const checkbox = document.getElementById('nannyStatus');
+            const text = document.getElementById('statusText');
+            if (checkbox.checked) {
+                text.innerText = "ON";
+                sittersData[0].online = true;
+            } else {
+                text.innerText = "OFF";
+                sittersData[0].online = false;
+            }
+            loadActiveSitters();
         }
 
-        function calculatePrice() {
-            const serviceType = document.getElementById('serviceType').value;
-            const childCount = parseInt(document.getElementById('childCount').value);
-            const nannyExp = document.getElementById('nannyExp').value;
-            const langReq = document.getElementById('langReq').value;
-            const hours = parseInt(document.getElementById('hours').value);
-            const hourBlock = document.getElementById('hourInputBlock');
+        function loadActiveSitters() {
+            const grid = document.getElementById('sittersList');
+            grid.innerHTML = "";
 
-            let basePrice = 0;
-            let infoText = "";
+            const selectedChildren = parseInt(document.getElementById('filterChildren').value);
+            const needsSpecialCare = document.getElementById('filterSpecial').value === 'yes';
+            const selectedService = document.getElementById('filterService').value;
+            const selectedLanguage = document.getElementById('filterLanguage').value;
+            const hours = parseInt(document.getElementById('filterHours').value) || 1;
 
-            if (serviceType === 'hourly') {
-                hourBlock.style.display = 'block';
-                let hourlyRate = 6.00; 
-                
-                if (nannyExp === '3-5') hourlyRate *= 1.2;
-                if (nannyExp === '5+') hourlyRate *= 1.4;
-                if (langReq === 'ru') hourlyRate *= 1.15;
-                if (langReq === 'en') hourlyRate *= 1.3;
-                
-                basePrice = hourlyRate * hours;
-                
-                if (childCount === 2) basePrice *= 1.25;
-                if (childCount === 3) basePrice *= 1.5;
-                
-                infoText = `Saatlığı ~${hourlyRate.toFixed(2)} AZN-dən gündəlik ${hours} saatlıq hesablama`;
-            } else if (serviceType === 'fulltime') {
-                hourBlock.style.display = 'none';
-                basePrice = 750.00; 
-                
-                if (nannyExp === '3-5') basePrice *= 1.2;
-                if (nannyExp === '5+') basePrice *= 1.4;
-                if (langReq === 'ru') basePrice *= 1.15;
-                if (langReq === 'en') basePrice *= 1.3;
-                if (childCount === 2) basePrice *= 1.25;
-                if (childCount === 3) basePrice *= 1.5;
-                
-                infoText = "Həftədə 5 gün, tam iş qrafiki üzrə standart aylıq paket";
-            } else if (serviceType === 'weekend') {
-                hourBlock.style.display = 'none';
-                basePrice = 220.00; 
-                
-                if (nannyExp === '3-5') basePrice *= 1.2;
-                if (nannyExp === '5+') basePrice *= 1.4;
-                if (langReq === 'ru') basePrice *= 1.15;
-                if (langReq === 'en') basePrice *= 1.3;
-                if (childCount === 2) basePrice *= 1.25;
-                if (childCount === 3) basePrice *= 1.5;
-                
-                infoText = "Şənbə və Bazar günlərini əhatə edən aylıq paket";
+            const filtered = sittersData.filter(s => {
+                const serviceMatch = selectedService === 'all' || s.services.includes(selectedService);
+                const languageMatch = selectedLanguage === 'all' || s.languages.includes(selectedLanguage);
+                return s.online && s.maxChildren >= selectedChildren && serviceMatch && languageMatch;
+            });
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="premium-card text-center p-12 rounded-3xl text-xs font-bold text-slate-400 tracking-wider">
+                        Kriteriyalara uyğun aktiv dayə tapılmadı.
+                    </div>`;
+                return;
             }
 
-            document.getElementById('totalPrice').innerText = basePrice.toFixed(2);
-            document.getElementById('priceInfo').innerText = infoText;
+            filtered.forEach(s => {
+                let currentHourly = s.basePrice;
+                let priceDetails = `Baza: ${s.basePrice} AZN/s`;
+
+                if (selectedChildren > 1) {
+                    const extra = (selectedChildren - 1) * 1.50;
+                    currentHourly += extra;
+                    priceDetails += ` + Əlavə uşaq (+${extra.toFixed(2)})`;
+                }
+
+                if (needsSpecialCare) {
+                    currentHourly += 2.50;
+                    priceDetails += ` + Qayğı (+2.50)`;
+                }
+
+                const finalTotal = currentHourly * hours;
+
+                let slotsHtml = "";
+                s.slots.forEach(slot => {
+                    slotsHtml += `<button onclick="selectTimeSlot(this)" class="slot-btn border-2 border-blue-200 bg-white hover:border-pink-400 text-slate-700 text-[10px] font-black px-2.5 py-1 rounded-lg transition-all">${slot}</button>`;
+                });
+
+                const serviceTags = s.serviceLabels.map(item => `<span class="profile-chip"><i class="fa-solid fa-heart text-pink-500"></i>${item}</span>`).join('');
+
+                const card = document.createElement('div');
+                card.className = "premium-card p-6 rounded-3xl flex flex-col space-y-4 border-2 border-blue-100 hover:border-pink-400 transition-all duration-300";
+
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        
+                        <div class="flex items-center gap-4">
+                            <!-- DAYƏNİN KİÇİK PROFİL ŞƏKLİ (Neon border) -->
+                            <div class="relative w-16 h-16 rounded-2xl overflow-hidden p-[3px] bg-gradient-to-tr from-pink-500 to-blue-500 shadow-md shrink-0">
+                                <img src="${s.avatar}" alt="${s.name}" class="w-full h-full object-cover rounded-xl bg-white">
+                            </div>
+                            
+                            <div class="space-y-1.5">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h4 class="font-extrabold text-blue-950 text-base tracking-tight">
+                                        ${s.name}
+                                    </h4>
+                                    <button onclick="openVideoModal('${s.name}', '${s.avatar}')" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm hover:scale-105 transition">
+                                        <i class="fa-solid fa-circle-play text-[11px]"></i> VİDEO BAX
+                                    </button>
+                                    <span class="text-[9px] bg-emerald-500 text-white px-2 py-0.5 rounded font-bold tracking-wider uppercase flex items-center gap-0.5">
+                                        <i class="fa-solid fa-shield-halved"></i> SİMA
+                                    </span>
+                                    <span class="text-xs text-amber-500 font-bold flex items-center gap-0.5 ml-0.5">
+                                        <i class="fa-solid fa-star"></i> ${s.rating.toFixed(1)}
+                                    </span>
+                                </div>
+                                
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[11px] text-slate-600 font-bold">
+                                    <span>Yaş: <span class="text-slate-900">${s.age}</span></span>
+                                    <span>Təcrübə: <span class="text-pink-600">${s.experience} İl</span></span>
+                                    <span>Şəhər: <span class="text-blue-600">${s.city}</span></span>
+                                    <span>Məsafə: <span class="text-slate-900">📍 ${s.distanceKm} km</span></span>
+                                    <span>Cavab: <span class="text-emerald-600">${s.responseTime}</span></span>
+                                    <span>${s.lastActive}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-right w-full sm:w-auto flex sm:flex-col justify-between sm:justify-center items-center gap-1">
+                            <span class="text-[9px] text-slate-400 block font-black tracking-widest uppercase">YEKUN MƏBLƏĞ</span>
+                            <span class="text-xl font-black text-blue-950 tracking-tight">${finalTotal.toFixed(2)} <span class="text-xs font-bold text-slate-500">AZN</span></span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+                        <div class="trust-badge">
+                            <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Referans</div>
+                            <div class="text-sm font-black text-blue-950">${s.references} yoxlanmış</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Təkrar ailə</div>
+                            <div class="text-sm font-black text-blue-950">${s.repeatFamilies}</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Təhsil</div>
+                            <div class="text-sm font-black text-blue-950">${s.education}</div>
+                        </div>
+                        <div class="trust-badge">
+                            <div class="text-[9px] text-slate-400 font-black uppercase tracking-widest">Dil</div>
+                            <div class="text-sm font-black text-blue-950">${s.languages.join(', ')}</div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap gap-2">
+                        ${serviceTags}
+                    </div>
+
+                    <div class="bg-blue-50/50 p-3 rounded-2xl border border-blue-100/60 space-y-2">
+                        <span class="text-[10px] text-blue-900 font-black uppercase tracking-wider block">
+                            <i class="fa-solid fa-calendar-check text-pink-500"></i> Bu Gün Üçün Boş Saatlar (Birini seçin):
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            ${slotsHtml}
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-xs font-bold text-slate-400">
+                        <span class="text-[11px] font-semibold">${priceDetails} × ${hours} saat</span>
+                        <div class="flex flex-wrap justify-end gap-2">
+                            <a href="profile.html?id=${s.id}" class="toy-soft-button bg-white text-blue-900 border-2 border-blue-100 font-black px-4 py-3 text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-id-card mr-1"></i> Profilə bax
+                            </a>
+                            <button onclick="alert('SİMA rəqəmsal imza pəncərəsi başladıldı. Müqavilə təsdiqləndikdən sonra GPS aktivləşəcək.')" class="btn-premium toy-action text-white font-bold px-6 py-3 text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-baby-carriage mr-1"></i> Sifariş Et
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
         }
 
-        function toggleDetails(id) {
-            const element = document.getElementById(id);
-            element.classList.toggle('open');
+        function selectTimeSlot(btn) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
         }
 
-        // GPS SIMULATOR ALGORITHM
-        const addresses = [
-            "Hüseyn Cavid prospekti, Elmlər Akademiyası parkı yaxınlığı",
-            "Nərimanov metrosu, Heydər Əliyev Mərkəzinin qarşısı",
-            "Gənclik Mall yaxınlığı, uşaq əyləncə mərkəzi",
-            "Sumqayıt Bulvarı, dəniz kənarı gəzinti zolağı",
-            "İçərişəhər, Qoşa Qala qapıları yaxınlığı"
-        ];
+        function openVideoModal(name, avatarUrl) {
+            document.getElementById('videoModalTitle').innerText = name;
+            document.getElementById('modalAvatar').src = avatarUrl;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+        }
 
         function simulateGPSMove() {
             const marker = document.getElementById('gpsMarker');
-            const addressText = document.getElementById('gpsAddress');
+            const coordsText = document.getElementById('geoCoords');
             const timeText = document.getElementById('gpsTime');
 
-            // Random positions for local simulation
-            const randomLeft = Math.floor(Math.random() * 60) + 15;
-            const randomTop = Math.floor(Math.random() * 50) + 20;
-            const randomAddress = addresses[Math.floor(Math.random() * addresses.length)];
-
+            const randomLeft = Math.floor(Math.random() * 40) + 30; 
+            const randomTop = Math.floor(Math.random() * 30) + 25; 
+            
             marker.style.left = randomLeft + "%";
             marker.style.top = randomTop + "%";
-            addressText.innerText = randomAddress;
 
-            const now = new Date();
-            timeText.innerText = now.getHours().toString().padStart(2, '0') + ":" + now.getMinutes().toString().padStart(2, '0') + ":" + now.getSeconds().toString().padStart(2, '0');
+            const mockLat = (40.4093 + (Math.random() - 0.5) * 0.01).toFixed(4);
+            const mockLng = (49.8671 + (Math.random() - 0.5) * 0.01).toFixed(4);
+
+            coordsText.innerText = `📍 Cari Koor: ${mockLat}° N, ${mockLng}° E (Dinamik Yeniləndi)`;
+            timeText.innerText = new Date().toTimeString().split(' ')[0];
         }
 
-        // LEGAL CONTRACT PDF GENERATOR (jsPDF)
         function generateOfficialPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
-            
-            const price = document.getElementById('totalPrice').innerText;
-            const serviceType = document.getElementById('serviceType').value;
-            const uşaqSayı = document.getElementById('childCount').value;
-
-            doc.setFillColor(236, 72, 153);
-            doc.rect(0, 0, 210, 15, 'F');
-            
-            doc.setTextColor(255, 255, 255);
+            doc.setFont("Helvetica", "bold");
             doc.setFontSize(14);
-            doc.text("ALDAYE MiKRO-SaaS - HUQUQi XidMET MUQAViLESi DEMOSU", 15, 10);
-
-            doc.setTextColor(30, 41, 59);
-            doc.setFontSize(11);
-            
-            doc.text("Muqavile No: AL-" + Math.floor(100000 + Math.random() * 900000), 15, 30);
-            doc.text("Tarix: 17.06.2026", 15, 37);
-            doc.text("Terefler: Valideyn (Sifarisci) & Daye (Xidmet Gösteren)", 15, 44);
-            
-            doc.setLineWidth(0.5);
-            doc.line(15, 50, 195, 50);
-
-            doc.setFontSize(12);
-            doc.text("1. MUQAViLENiN PREDMETi VE ADRESLER", 15, 60);
+            doc.text("ALDAYE EKOSISTEMI - RASMI XIDMET MUQAVILESI", 15, 20);
             doc.setFontSize(10);
-            doc.text("Isbu muqavile, AR Mulki Mecellesinin xidmet gösterilmesi qaydalarina uygun olaraq,", 15, 68);
-            doc.text("platforma terefinden teyin edilen dayenin usaga baxiciliq ohdeliyini tenzimleyir.", 15, 74);
+            doc.setFont("Helvetica", "normal");
+            doc.text("Tarix: " + new Date().toLocaleDateString(), 15, 30);
+            doc.text("Bu sened AR Mulki Mecellesinin xidmet muqavileleri standartlarina uygun hazirlanmisdir.", 15, 40);
+            doc.text("SIMA ile tesdiqlendiyi an huquqi quvveye sahib olur.", 15, 50);
+            doc.save("Aldaye_Guvenlik_Muqavilesi.pdf");
+        }
 
-            doc.setFontSize(12);
-            doc.text("2. MALiYYE SARTLARI VE ODENiS", 15, 88);
-            doc.setFontSize(10);
-            doc.text(`Secilmis Tarif Modeli: ${serviceType.toUpperCase()}`, 15, 96);
-            doc.text(`Usag sayi: ${uşaqSayı}`, 15, 102);
-            doc.text(`Umumi Emanet Depozit Meblegi: ${price} AZN`, 15, 108);
-            doc.text("Platforma Komissiyasi (15%): Daxildir", 15, 114);
+        function submitLead(event) {
+            event.preventDefault();
 
-            doc.setFontSize(12);
-            doc.text("3. TEHLUKESizLiK VE Sima DiGiTAL iMZA", 15, 128);
-            doc.setFontSize(10);
-            doc.text("Xidmet gösteren dayenin sexsiyyeti SiMA Biometrik rəqəmsal imza ile tesdiq edilmisdir.", 15, 136);
-            doc.text("Is zamani bas vere bilecek her hansi huquq pozuntusu birbasa cinayet mesuliyyeti yaradir.", 15, 142);
+            const lead = {
+                name: document.getElementById('leadName').value.trim(),
+                contact: document.getElementById('leadContact').value.trim(),
+                type: document.getElementById('leadType').value,
+                createdAt: new Date().toISOString()
+            };
 
-            doc.rect(15, 160, 80, 25);
-            doc.text("VALiDEYN (Sima E-imza)", 20, 166);
-            doc.setTextColor(16, 185, 129);
-            doc.text("DOVLET TELEKOM iMZALI", 20, 175);
-            
-            doc.setTextColor(30, 41, 59);
-            doc.rect(115, 160, 80, 25);
-            doc.text("DAYE (Sima E-imza)", 120, 166);
-            doc.setTextColor(16, 185, 129);
-            doc.text("BIOMETRIK TESDIQLI", 120, 175);
+            const savedLeads = JSON.parse(localStorage.getItem('aldayeLeads') || '[]');
+            savedLeads.push(lead);
+            localStorage.setItem('aldayeLeads', JSON.stringify(savedLeads));
 
-            doc.save("Aldaye_Legallashdirilmish_Muqavile_Demo.pdf");
+            document.getElementById('leadSuccess').classList.remove('hidden');
+            event.target.reset();
+        }
+
+        function toggleAiChat() {
+            const panel = document.getElementById('aiChatPanel');
+            panel.classList.toggle('hidden');
+
+            if (!panel.classList.contains('hidden') && !panel.dataset.started) {
+                panel.dataset.started = "true";
+                addAiMessage('bot', 'Salam, mən Aldayə AI köməkçisiyəm. Dayə qeydiyyatı, valideyn sifarişi, SİMA yoxlama və qiymət haqqında sual verə bilərsiniz.');
+            }
+        }
+
+        function addAiMessage(type, text) {
+            const messages = document.getElementById('aiChatMessages');
+            const bubble = document.createElement('div');
+            bubble.className = `chat-message ${type}`;
+            bubble.innerText = text;
+            messages.appendChild(bubble);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function getAiReply(question) {
+            const q = question.toLowerCase();
+
+            if (q.includes('dayə') || q.includes('daye')) {
+                return 'Dayə kimi qeydiyyat ayrıca səhifədədir: “Dayə qeydiyyatı” bölməsinə keçin. Orada profil, təcrübə, saatlıq tarif, sənədlər, SİMA yoxlama və təsdiq mərhələləri izah olunur.';
+            }
+
+            if (q.includes('valideyn') || q.includes('uşaq') || q.includes('usaq') || q.includes('sifariş')) {
+                return 'Valideyn üçün axın ayrıca səhifədədir: uşaq məlumatı, ehtiyac seçimi, uyğun dayə axtarışı, profilə baxış, tanışlıq və SİMA ilə sifariş təsdiqi.';
+            }
+
+            if (q.includes('sima') || q.includes('sənəd') || q.includes('sened') || q.includes('yoxlama')) {
+                return 'SİMA konsepti şəxsiyyət təsdiqi üçün nəzərdə tutulub. Demo versiyada SİMA ID, məhkumluq arayışı, referans və təhsil sənədi kimi güvən siqnalları göstərilir.';
+            }
+
+            if (q.includes('qiymət') || q.includes('qiymet') || q.includes('azn') || q.includes('komissiya')) {
+                return 'Qiymət saatlıq tarif, uşaq sayı, xüsusi qayğı ehtiyacı və müddətə görə hesablanır. Platforma komissiyası demo olaraq 15% göstərilib.';
+            }
+
+            if (q.includes('profil')) {
+                return 'Dayə kartındakı “Profilə bax” düyməsi ayrıca profil səhifəsini açır. Orada bio, bacarıqlar, yaş qrupları, sənədlər, rəylər və boş saatlar rahat görünür.';
+            }
+
+            return 'Bu demo AI köməkçisidir. Sizə ən uyğun bölmə: dayə qeydiyyatı, valideyn qeydiyyatı, dayə profilləri, SİMA yoxlama və qiymət hesablamasıdır. Hansı biri haqqında danışaq?';
+        }
+
+        function sendAiChatMessage() {
+            const input = document.getElementById('aiChatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addAiMessage('user', text);
+            input.value = '';
+
+            setTimeout(() => {
+                addAiMessage('bot', getAiReply(text));
+            }, 350);
+        }
+
+        function quickAiQuestion(text) {
+            document.getElementById('aiChatInput').value = text;
+            sendAiChatMessage();
+        }
+
+        function handleAiChatKey(event) {
+            if (event.key === 'Enter') {
+                sendAiChatMessage();
+            }
         }
 
         window.onload = function() {
-            calculatePrice();
+            calculateNannyEarnings();
+            loadActiveSitters();
         };
     </script>
 </body>
