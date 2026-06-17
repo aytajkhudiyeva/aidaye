@@ -443,6 +443,143 @@
             min-height: 50px;
         }
 
+        .island-stage {
+            position: relative;
+        }
+
+        .island-stage::before,
+        .island-stage::after {
+            content: "";
+            position: absolute;
+            border-radius: 999px;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(2px);
+        }
+
+        .island-stage::before {
+            width: 360px;
+            height: 360px;
+            top: 520px;
+            left: -180px;
+            background: radial-gradient(circle, rgba(244, 114, 182, 0.28), rgba(244, 114, 182, 0));
+        }
+
+        .island-stage::after {
+            width: 420px;
+            height: 420px;
+            top: 1160px;
+            right: -220px;
+            background: radial-gradient(circle, rgba(147, 197, 253, 0.24), rgba(147, 197, 253, 0));
+        }
+
+        .floating-island {
+            position: relative;
+            z-index: 2;
+        }
+
+        .island-hero {
+            transform: rotate(-0.7deg);
+            margin-top: 1rem;
+            margin-bottom: -1.5rem;
+            box-shadow: 0 34px 70px rgba(219, 39, 119, 0.18), 0 20px 45px rgba(59, 130, 246, 0.11);
+        }
+
+        .island-stats {
+            width: min(92%, 980px);
+            margin-left: auto;
+            margin-right: 2rem;
+            transform: translateY(-18px) rotate(0.6deg);
+        }
+
+        .island-actions {
+            width: min(88%, 920px);
+            margin-left: 1.5rem;
+            transform: translateY(-8px) rotate(-0.5deg);
+        }
+
+        .island-gps {
+            width: min(94%, 1060px);
+            margin-left: auto;
+            transform: translateY(12px) rotate(0.7deg);
+        }
+
+        .island-workspace {
+            margin-top: 1.5rem;
+        }
+
+        .island-workspace > .lg\:col-span-5 {
+            transform: translateY(26px) rotate(-0.45deg);
+        }
+
+        .island-workspace > .lg\:col-span-7 {
+            transform: translateY(-22px) rotate(0.35deg);
+        }
+
+        .island-trust {
+            width: min(95%, 1120px);
+            margin-right: auto;
+            transform: translateX(-12px) rotate(-0.55deg);
+        }
+
+        .island-process {
+            width: min(90%, 1040px);
+            margin-left: auto;
+            transform: translateY(-10px) rotate(0.55deg);
+        }
+
+        .island-split {
+            width: min(96%, 1140px);
+            margin-left: 1rem;
+        }
+
+        .island-split > .premium-card:first-child {
+            transform: translateY(24px) rotate(-0.45deg);
+        }
+
+        .island-split > .premium-card:last-child {
+            transform: translateY(-18px) rotate(0.45deg);
+        }
+
+        .island-contact {
+            width: min(92%, 1080px);
+            margin-left: auto;
+            margin-bottom: 1rem;
+            transform: rotate(-0.35deg);
+        }
+
+        .floating-island,
+        .island-split > .premium-card,
+        .island-workspace > div {
+            transition: transform .28s ease, box-shadow .28s ease;
+        }
+
+        .floating-island:hover,
+        .island-split > .premium-card:hover,
+        .island-workspace > div:hover {
+            box-shadow: 0 30px 64px rgba(219, 39, 119, 0.16), 0 12px 30px rgba(59, 130, 246, 0.12);
+        }
+
+        .island-actions .toy-soft-button:nth-child(1) {
+            transform: translateY(10px) rotate(-1.2deg);
+        }
+
+        .island-actions .toy-soft-button:nth-child(2) {
+            transform: translateY(-8px) rotate(1deg);
+        }
+
+        .island-actions .toy-soft-button:nth-child(3) {
+            transform: translateY(14px) rotate(0.7deg);
+        }
+
+        .island-actions .toy-soft-button:nth-child(4) {
+            transform: translateY(-6px) rotate(-0.9deg);
+        }
+
+        .island-actions .toy-soft-button:hover {
+            transform: translateY(-4px) rotate(0deg);
+        }
+
         @media (max-width: 640px) {
             .whatsapp-bubble-text {
                 display: none;
@@ -457,6 +594,28 @@
                 width: 46px;
                 height: 46px;
             }
+
+            .island-hero,
+            .island-stats,
+            .island-actions,
+            .island-gps,
+            .island-trust,
+            .island-process,
+            .island-split,
+            .island-contact,
+            .island-workspace > .lg\:col-span-5,
+            .island-workspace > .lg\:col-span-7,
+            .island-split > .premium-card:first-child,
+            .island-split > .premium-card:last-child,
+            .island-actions .toy-soft-button:nth-child(1),
+            .island-actions .toy-soft-button:nth-child(2),
+            .island-actions .toy-soft-button:nth-child(3),
+            .island-actions .toy-soft-button:nth-child(4) {
+                width: 100%;
+                margin-left: 0;
+                margin-right: 0;
+                transform: none;
+            }
         }
     </style>
 </head>
@@ -469,7 +628,7 @@
     <div class="bg-toy-blue text-9xl bottom-10 right-16 floating-element"><i class="fa-solid fa-balloon"></i></div>
     <div class="bg-toy text-8xl top-1/2 left-1/3 opacity-50 floating-element"><i class="fa-solid fa-train-child"></i></div>
 
-    <div class="max-w-6xl mx-auto space-y-10 relative z-10">
+    <div class="max-w-6xl mx-auto space-y-10 relative z-10 island-stage">
 
         <nav class="glass-nav sticky top-3 z-40 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3">
             <a href="#" class="flex items-center gap-2 text-blue-950 font-black tracking-tight">
@@ -489,7 +648,7 @@
         </nav>
         
         <!-- HERO PINK & BLUE LUXURY HEADER -->
-        <header class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden bg-gradient-to-br from-blue-100/40 via-white to-pink-100/40">
+        <header class="premium-card floating-island island-hero p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden bg-gradient-to-br from-blue-100/40 via-white to-pink-100/40">
             
             <div class="lg:col-span-6 space-y-5 relative z-10">
                 <div class="flex items-center gap-3">
@@ -581,7 +740,7 @@
         </header>
 
         <!-- INFO STATS BAR -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-center relative z-10">
+        <div class="floating-island island-stats grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-center relative z-10">
             <div class="bg-blue-600 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm">
                 <i class="fa-solid fa-percent text-pink-300 text-sm"></i>
                 <span>Platforma Xidmət Haqqı: <b class="text-pink-200">15%</b></span>
@@ -592,7 +751,7 @@
             </div>
         </div>
 
-        <section class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <section class="floating-island island-stats grid grid-cols-2 lg:grid-cols-4 gap-3">
             <div class="mini-kpi trust-card-3d rounded-2xl p-4 text-center">
                 <div class="text-2xl font-black text-blue-950">100+</div>
                 <div class="text-[10px] font-black uppercase tracking-widest text-slate-500">Valideyn rəyi</div>
@@ -611,7 +770,7 @@
             </div>
         </section>
 
-        <section class="premium-card p-5 rounded-3xl grid grid-cols-2 md:grid-cols-4 gap-3">
+        <section class="premium-card floating-island island-actions p-5 rounded-3xl grid grid-cols-2 md:grid-cols-4 gap-3">
             <a href="#search" class="toy-soft-button bg-pink-50 hover:bg-pink-100 border-2 border-pink-100 p-4 text-center transition">
                 <span class="mx-auto mb-2 w-12 h-12 rounded-2xl bg-pink-500 text-white flex items-center justify-center text-xl shadow-md">
                     <i class="fa-solid fa-puzzle-piece"></i>
@@ -639,7 +798,7 @@
         </section>
 
         <!-- GPS REAL-TIME TRACKING SIMULATOR -->
-        <section class="premium-card p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-blue-950 text-white overflow-hidden">
+        <section class="premium-card floating-island island-gps p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-blue-950 text-white overflow-hidden">
             <div class="absolute top-0 right-0 p-8 opacity-10 text-9xl">
                 <i class="fa-solid fa-map-location-dot"></i>
             </div>
@@ -685,7 +844,7 @@
         </section>
 
         <!-- TWO COLUMN LAYOUT MATRIX -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+        <div class="island-workspace grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
             
             <!-- LEFT PANEL: DAYƏ MODULU -->
             <div class="lg:col-span-5 premium-card p-6 md:p-8 rounded-3xl space-y-6">
@@ -864,7 +1023,7 @@
         </div>
 
         <!-- SECTION: PLATFORM BENEFITS & STATS -->
-        <section id="trust" class="premium-card p-8 rounded-3xl space-y-6 relative z-10 scroll-mt-24">
+        <section id="trust" class="premium-card floating-island island-trust p-8 rounded-3xl space-y-6 relative z-10 scroll-mt-24">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h3 class="text-2xl font-black text-blue-950 serif-title">Niyə Aldayə Ekosistemi?</h3>
                 <p class="text-xs text-slate-500 font-bold">Platformamız tam rəsmi müqavilə infrastrukturu və SİMA dövlət rəqəmsal imza inteqrasiyası ilə valideynlərin təhlükəsizliyini təmin edir.</p>
@@ -897,7 +1056,7 @@
             </div>
         </section>
 
-        <section class="premium-card soft-band p-8 rounded-3xl space-y-6 relative z-10">
+        <section class="premium-card floating-island island-process soft-band p-8 rounded-3xl space-y-6 relative z-10">
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
                 <div>
                     <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">3 addımda sifariş</span>
@@ -927,7 +1086,7 @@
             </div>
         </section>
 
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+        <section class="island-split grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
             <div class="premium-card p-8 rounded-3xl space-y-5">
                 <div>
                     <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Valideyn rəyləri</span>
@@ -969,7 +1128,7 @@
             </div>
         </section>
 
-        <section id="contact" class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 scroll-mt-24">
+        <section id="contact" class="premium-card floating-island island-contact p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 scroll-mt-24">
             <div class="lg:col-span-5 space-y-4">
                 <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">Əlaqə</span>
                 <h3 class="text-3xl font-black text-blue-950 serif-title">Demo üçün müraciət göndərin</h3>
