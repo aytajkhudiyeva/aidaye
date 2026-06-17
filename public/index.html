@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aldayə - Premium Dayə və Ailə Ekosistemi</title>
+    <title>Aldayə - Güvənli dayə sifarişi və ailə dəstəyi</title>
+    <meta name="description" content="Aldayə Bakı və Sumqayıtda SİMA doğrulamalı dayə axtarışı, sifariş, GPS izləmə və rəsmi müqavilə demosu təqdim edən ailə platformasıdır.">
+    <meta name="theme-color" content="#ec4899">
+    <meta property="og:title" content="Aldayə - Güvənli dayə sifarişi">
+    <meta property="og:description" content="SİMA doğrulamalı dayə profilləri, şəffaf qiymət hesablaması, GPS izləmə demosu və avtomatik müqavilə.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aidaye.vercel.app/">
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Premium İkonlar -->
@@ -111,6 +117,28 @@
             color: white !important;
             border-color: #db2777 !important;
         }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(191, 219, 254, 0.9);
+            box-shadow: 0 12px 28px rgba(30, 64, 175, 0.08);
+            backdrop-filter: blur(16px);
+        }
+
+        .mini-kpi {
+            background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(239,246,255,0.9));
+            border: 1px solid rgba(191, 219, 254, 0.9);
+        }
+
+        .soft-band {
+            background: linear-gradient(135deg, rgba(236, 253, 245, 0.9), rgba(255, 255, 255, 0.96), rgba(255, 247, 237, 0.9));
+        }
+
+        @media (max-width: 640px) {
+            .whatsapp-bubble-text {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body class="p-4 md:p-10 text-slate-800 antialiased">
@@ -123,6 +151,21 @@
     <div class="bg-toy text-8xl top-1/2 left-1/3 opacity-50 floating-element"><i class="fa-solid fa-train-child"></i></div>
 
     <div class="max-w-6xl mx-auto space-y-10 relative z-10">
+
+        <nav class="glass-nav sticky top-3 z-40 rounded-2xl px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+            <a href="#" class="flex items-center gap-2 text-blue-950 font-black tracking-tight">
+                <span class="w-9 h-9 rounded-xl bg-gradient-to-tr from-pink-500 to-blue-500 text-white flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-feather-pointed"></i>
+                </span>
+                <span>Aldayə</span>
+            </a>
+            <div class="flex flex-wrap items-center gap-2 text-[11px] font-black uppercase tracking-wider text-slate-600">
+                <a href="#search" class="px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Dayə tap</a>
+                <a href="#trust" class="px-3 py-2 rounded-xl hover:bg-pink-50 hover:text-pink-700 transition">Güvən</a>
+                <a href="#faq" class="px-3 py-2 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 transition">FAQ</a>
+                <a href="#contact" class="bg-slate-900 text-white px-4 py-2 rounded-xl hover:bg-pink-600 transition">Əlaqə</a>
+            </div>
+        </nav>
         
         <!-- HERO PINK & BLUE LUXURY HEADER -->
         <header class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden bg-gradient-to-br from-blue-100/40 via-white to-pink-100/40">
@@ -144,6 +187,15 @@
                 <p class="text-xs md:text-sm text-slate-700 font-semibold leading-relaxed max-w-lg">
                     Övladınız üçün ən doğru və təhlükəsiz dayəni tapın, AR Mülki Məcəlləsinə uyğun leqal xidmət müqaviləsini anında dövlət rəqəmsal imzası ilə təsdiqləyin.
                 </p>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="#search" class="btn-premium text-white font-black px-5 py-3 rounded-xl text-xs uppercase tracking-widest text-center shadow-md">
+                        <i class="fa-solid fa-magnifying-glass mr-1.5"></i> Dayə axtar
+                    </a>
+                    <a href="#contact" class="bg-white text-blue-950 border-2 border-blue-100 hover:border-pink-300 font-black px-5 py-3 rounded-xl text-xs uppercase tracking-widest text-center transition shadow-sm">
+                        <i class="fa-solid fa-headset mr-1.5 text-pink-500"></i> Məsləhət al
+                    </a>
+                </div>
 
                 <div class="pt-3 flex items-center gap-4 border-t-2 border-pink-100">
                     <div class="flex -space-x-2">
@@ -201,6 +253,25 @@
                 <span>SİMA E-İmza ilə Hüquqi Təminat</span>
             </div>
         </div>
+
+        <section class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="mini-kpi rounded-2xl p-4 text-center">
+                <div class="text-2xl font-black text-blue-950">100+</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-500">Valideyn rəyi</div>
+            </div>
+            <div class="mini-kpi rounded-2xl p-4 text-center">
+                <div class="text-2xl font-black text-pink-600">4.9</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-500">Orta reytinq</div>
+            </div>
+            <div class="mini-kpi rounded-2xl p-4 text-center">
+                <div class="text-2xl font-black text-emerald-600">24/7</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-500">Dəstək xətti</div>
+            </div>
+            <div class="mini-kpi rounded-2xl p-4 text-center">
+                <div class="text-2xl font-black text-amber-600">15 dk</div>
+                <div class="text-[10px] font-black uppercase tracking-widest text-slate-500">Sürətli seçim</div>
+            </div>
+        </section>
 
         <!-- GPS REAL-TIME TRACKING SIMULATOR -->
         <section class="premium-card p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-blue-950 text-white overflow-hidden">
@@ -327,7 +398,7 @@
             <div class="lg:col-span-7 space-y-6">
                 
                 <!-- SEARCH MODULE -->
-                <div class="premium-card p-6 rounded-3xl space-y-4">
+                <div id="search" class="premium-card p-6 rounded-3xl space-y-4 scroll-mt-24">
                     <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-2 border-pink-50 pb-3">
                         <h2 class="text-xs font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2">
                             <i class="fa-solid fa-magnifying-glass text-blue-500"></i> Dayə Axtarış və Sifariş Filtrləri
@@ -410,7 +481,7 @@
         </div>
 
         <!-- SECTION: PLATFORM BENEFITS & STATS -->
-        <section class="premium-card p-8 rounded-3xl space-y-6 relative z-10">
+        <section id="trust" class="premium-card p-8 rounded-3xl space-y-6 relative z-10 scroll-mt-24">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h3 class="text-2xl font-black text-blue-950 serif-title">Niyə Aldayə Ekosistemi?</h3>
                 <p class="text-xs text-slate-500 font-bold">Platformamız tam rəsmi müqavilə infrastrukturu və SİMA dövlət rəqəmsal imza inteqrasiyası ilə valideynlərin təhlükəsizliyini təmin edir.</p>
@@ -443,6 +514,115 @@
             </div>
         </section>
 
+        <section class="premium-card soft-band p-8 rounded-3xl space-y-6 relative z-10">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-3">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">3 addımda sifariş</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Ailə üçün sadə, platforma üçün ciddi proses</h3>
+                </div>
+                <a href="#search" class="text-xs font-black text-pink-600 hover:text-blue-600 uppercase tracking-widest">
+                    Demo filtrlərə keç <i class="fa-solid fa-arrow-right ml-1"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="bg-white/90 p-5 rounded-2xl border border-emerald-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black mb-4">1</div>
+                    <h4 class="font-black text-blue-950 text-sm">Ehtiyacı seçin</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Uşaq sayı, xüsusi qayğı, müddət və uyğun saatları seçərək real qiyməti dərhal görün.</p>
+                </div>
+                <div class="bg-white/90 p-5 rounded-2xl border border-amber-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-black mb-4">2</div>
+                    <h4 class="font-black text-blue-950 text-sm">Profili yoxlayın</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Dayənin təcrübəsi, reytinqi, video təqdimatı və SİMA statusu bir ekranda görünür.</p>
+                </div>
+                <div class="bg-white/90 p-5 rounded-2xl border border-pink-100 shadow-sm">
+                    <div class="w-11 h-11 rounded-xl bg-pink-100 text-pink-700 flex items-center justify-center font-black mb-4">3</div>
+                    <h4 class="font-black text-blue-950 text-sm">Təsdiqləyin</h4>
+                    <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-2">Sifarişdən sonra müqavilə, ödəniş xülasəsi və GPS izləmə paneli aktiv olur.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-6 relative z-10">
+            <div class="premium-card p-8 rounded-3xl space-y-5">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Valideyn rəyləri</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Etibar hissi ilk ekrandan başlamalıdır</h3>
+                </div>
+                <div class="space-y-4">
+                    <div class="bg-blue-50/70 p-4 rounded-2xl border border-blue-100">
+                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Qiyməti öncədən görmək və müqavilə hissəsi məni ən çox rahatlatdı. Platforma valideyn kimi düşünülüb."</p>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-blue-900 mt-3">Lalə A. Bakı</div>
+                    </div>
+                    <div class="bg-pink-50/70 p-4 rounded-2xl border border-pink-100">
+                        <div class="text-amber-500 text-xs mb-2"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                        <p class="text-xs text-slate-600 font-semibold leading-relaxed">"Dayənin saatlarını seçmək, video təqdimata baxmaq və yekun məbləği hesablamaq çox rahatdır."</p>
+                        <div class="text-[10px] font-black uppercase tracking-widest text-pink-700 mt-3">Rauf M. Sumqayıt</div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="faq" class="premium-card p-8 rounded-3xl space-y-5 scroll-mt-24">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-blue-600">FAQ</span>
+                    <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Tez-tez verilən suallar</h3>
+                </div>
+                <div class="space-y-3">
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Dayələr necə yoxlanılır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Demo konseptdə SİMA doğrulama, sənəd yoxlanışı və profil təsdiqi axını göstərilir.</p>
+                    </details>
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Qiymət necə hesablanır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Saatlıq tarifə uşaq sayı, xüsusi qayğı ehtiyacı və seçilən müddət əlavə olunur.</p>
+                    </details>
+                    <details class="bg-white p-4 rounded-2xl border border-blue-100 group">
+                        <summary class="cursor-pointer text-sm font-black text-blue-950 flex justify-between gap-3">Bu canlı xidmətə hazırdır? <i class="fa-solid fa-chevron-down text-pink-500 group-open:rotate-180 transition"></i></summary>
+                        <p class="text-xs text-slate-500 font-semibold leading-relaxed mt-3">Hazırkı versiya təqdimat və interaktiv demo üçündür. Real ödəniş, real SİMA API və mesajlaşma sonrakı mərhələdə qoşula bilər.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10 scroll-mt-24">
+            <div class="lg:col-span-5 space-y-4">
+                <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">Əlaqə</span>
+                <h3 class="text-3xl font-black text-blue-950 serif-title">Demo üçün müraciət göndərin</h3>
+                <p class="text-sm text-slate-600 font-semibold leading-relaxed">Valideyn, dayə və ya investor kimi maraqlanırsınızsa, məlumatınızı yazın. Forma məlumatı brauzerdə saxlayır və demo təsdiq mesajı göstərir.</p>
+                <div class="flex flex-wrap gap-2 text-[10px] font-black uppercase tracking-widest">
+                    <span class="bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full">Bakı</span>
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full">Sumqayıt</span>
+                    <span class="bg-pink-100 text-pink-700 px-3 py-1.5 rounded-full">SİMA konsept</span>
+                </div>
+            </div>
+            <form onsubmit="submitLead(event)" class="lg:col-span-7 bg-white/90 p-5 rounded-2xl border-2 border-blue-100 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block mb-1.5 text-blue-950 text-xs font-black">Ad Soyad</label>
+                        <input id="leadName" required type="text" placeholder="Adınızı yazın" class="w-full p-3 rounded-xl text-sm font-semibold">
+                    </div>
+                    <div>
+                        <label class="block mb-1.5 text-blue-950 text-xs font-black">Telefon və ya email</label>
+                        <input id="leadContact" required type="text" placeholder="+994..." class="w-full p-3 rounded-xl text-sm font-semibold">
+                    </div>
+                </div>
+                <div>
+                    <label class="block mb-1.5 text-blue-950 text-xs font-black">Marağınız</label>
+                    <select id="leadType" class="w-full p-3 rounded-xl text-sm font-semibold">
+                        <option>Valideyn kimi istifadə etmək istəyirəm</option>
+                        <option>Dayə kimi qeydiyyatdan keçmək istəyirəm</option>
+                        <option>Partnyorluq və investisiya haqqında danışmaq istəyirəm</option>
+                    </select>
+                </div>
+                <button class="w-full btn-premium text-white font-black py-4 text-xs rounded-xl tracking-widest uppercase shadow-md">
+                    Müraciəti göndər
+                </button>
+                <p id="leadSuccess" class="hidden text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl p-3">Müraciət qeydə alındı. Demo versiyada məlumat brauzerdə saxlanıldı.</p>
+            </form>
+        </section>
+
         <!-- FOOTER -->
         <footer class="text-center py-4 text-[10px] text-blue-900 font-bold tracking-widest uppercase relative z-10">
             © 2026 Aldayə Ecosystem Inc. Bütün hüquqlar qorunur.
@@ -452,11 +632,11 @@
 
     <!-- WHATSAPP LIVE CHAT WIDGET -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5 max-w-[240px]">
-        <div class="bg-white p-3.5 rounded-xl border-2 border-pink-300 shadow-xl text-xs font-bold text-slate-700 leading-normal">
+        <div class="whatsapp-bubble-text bg-white p-3.5 rounded-xl border-2 border-pink-300 shadow-xl text-xs font-bold text-slate-700 leading-normal">
             Aldayə Dəstək: Bir sualınız var? Bizə canlı yazın.
         </div>
-        <a href="https://wa.me/994000000000" target="_blank" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative">
-            <i class="fa-brands fa-whatsapp"></i>
+        <a href="#contact" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative" aria-label="Əlaqə bölməsinə keç">
+            <i class="fa-solid fa-message"></i>
             <span class="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">1</span>
         </a>
     </div>
@@ -685,6 +865,24 @@
             doc.text("Bu sened AR Mulki Mecellesinin xidmet muqavileleri standartlarina uygun hazirlanmisdir.", 15, 40);
             doc.text("SIMA ile tesdiqlendiyi an huquqi quvveye sahib olur.", 15, 50);
             doc.save("Aldaye_Guvenlik_Muqavilesi.pdf");
+        }
+
+        function submitLead(event) {
+            event.preventDefault();
+
+            const lead = {
+                name: document.getElementById('leadName').value.trim(),
+                contact: document.getElementById('leadContact').value.trim(),
+                type: document.getElementById('leadType').value,
+                createdAt: new Date().toISOString()
+            };
+
+            const savedLeads = JSON.parse(localStorage.getItem('aldayeLeads') || '[]');
+            savedLeads.push(lead);
+            localStorage.setItem('aldayeLeads', JSON.stringify(savedLeads));
+
+            document.getElementById('leadSuccess').classList.remove('hidden');
+            event.target.reset();
         }
 
         window.onload = function() {
