@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldayə - Valideyn qeydiyyatı</title>
+    <meta name="description" content="Aldayə platformasında valideyn qeydiyyatı, uşaq ehtiyacı, dayə seçimi, profil yoxlama və SİMA ilə sifariş.">
+    <meta name="theme-color" content="#10b981">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: Inter, sans-serif; background: #f0f7ff; background-image: radial-gradient(#bfdbfe 1.5px, transparent 1.5px); background-size: 24px 24px; }
+        .serif-title { font-family: 'Playfair Display', serif; }
+        .card { background: rgba(255,255,255,.96); border: 2px solid #bfdbfe; box-shadow: 0 15px 30px rgba(37,99,235,.1); }
+        .btn { background: linear-gradient(135deg,#10b981,#3b82f6); border-radius: 18px; box-shadow: 0 10px 0 rgba(16,185,129,.16),0 18px 36px rgba(15,23,42,.12); }
+        input, select, textarea { border: 2px solid #bfdbfe !important; background: #f8fafc !important; outline: none; }
+    </style>
+</head>
+<body class="p-4 md:p-10 text-slate-800">
+    <main class="max-w-6xl mx-auto space-y-6">
+        <nav class="card rounded-2xl p-4 flex justify-between items-center gap-3">
+            <a href="index.html" class="text-xs font-black uppercase tracking-widest text-blue-900"><i class="fa-solid fa-arrow-left text-emerald-500 mr-1"></i> Ana səhifə</a>
+            <span class="font-black text-blue-950">Aldayə</span>
+        </nav>
+
+        <section class="card rounded-3xl p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-7 space-y-5">
+                <span class="bg-emerald-100 text-emerald-700 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full">Valideyn üçün</span>
+                <h1 class="serif-title text-4xl md:text-5xl font-black text-blue-950">Uşağınız üçün güvənli dayə seçin</h1>
+                <p class="text-sm font-semibold text-slate-600 leading-relaxed">Ehtiyacınızı yazın, uyğun profillərə baxın, sənədləri və rəyləri yoxlayın, sonra sifarişi SİMA ilə təsdiqləyin.</p>
+                <div class="flex flex-wrap gap-2">
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-blue-100 text-blue-700 px-3 py-1.5 rounded-full">Profilə baxış</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-pink-100 text-pink-700 px-3 py-1.5 rounded-full">Tanışlıq</span>
+                    <span class="text-[10px] font-black uppercase tracking-widest bg-emerald-100 text-emerald-700 px-3 py-1.5 rounded-full">SİMA təsdiq</span>
+                </div>
+            </div>
+            <div class="lg:col-span-5 bg-gradient-to-br from-emerald-100 via-white to-blue-100 rounded-3xl p-6 border-2 border-white">
+                <div class="text-7xl text-emerald-500 mb-4"><i class="fa-solid fa-people-roof"></i></div>
+                <h2 class="font-black text-blue-950 text-xl">Valideyn axını necə işləyir?</h2>
+                <p class="text-sm font-semibold text-slate-600 mt-2">Axtarış, profil yoxlama, tanışlıq və sifariş təsdiqi ayrı-ayrı addımlarla aparılır.</p>
+            </div>
+        </section>
+
+        <section class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="card rounded-3xl p-5"><div class="font-black text-emerald-600 text-2xl">1</div><h3 class="font-black text-blue-950 mt-2">Uşaq ehtiyacı</h3><p class="text-xs font-semibold text-slate-500 mt-2">Yaş, saat, xüsusi qayğı, dərs dəstəyi və şəhər seçilir.</p></div>
+            <div class="card rounded-3xl p-5"><div class="font-black text-emerald-600 text-2xl">2</div><h3 class="font-black text-blue-950 mt-2">Profil yoxlama</h3><p class="text-xs font-semibold text-slate-500 mt-2">Dayənin sənədləri, bio, bacarıqları, rəyləri və referansları görünür.</p></div>
+            <div class="card rounded-3xl p-5"><div class="font-black text-emerald-600 text-2xl">3</div><h3 class="font-black text-blue-950 mt-2">Tanışlıq</h3><p class="text-xs font-semibold text-slate-500 mt-2">Video təqdimat və ilkin görüşdən sonra qərar verilir.</p></div>
+            <div class="card rounded-3xl p-5"><div class="font-black text-emerald-600 text-2xl">4</div><h3 class="font-black text-blue-950 mt-2">Sifariş</h3><p class="text-xs font-semibold text-slate-500 mt-2">Qiymət hesablanır, müqavilə hazırlanır və GPS paneli aktiv olur.</p></div>
+        </section>
+
+        <section class="card rounded-3xl p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <div class="lg:col-span-5">
+                <h2 class="serif-title text-3xl font-black text-blue-950">Demo valideyn forması</h2>
+                <p class="text-sm font-semibold text-slate-600 mt-2">Bu forma demo məqsədlidir və məlumatı brauzerdə saxlayır.</p>
+            </div>
+            <form onsubmit="submitRegister(event, 'valideyn')" class="lg:col-span-7 space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input required id="name" class="p-3 rounded-xl text-sm font-semibold" placeholder="Ad Soyad">
+                    <input required id="contact" class="p-3 rounded-xl text-sm font-semibold" placeholder="Telefon və ya email">
+                    <select id="city" class="p-3 rounded-xl text-sm font-semibold"><option>Bakı</option><option>Sumqayıt</option><option>Gəncə</option></select>
+                    <select id="need" class="p-3 rounded-xl text-sm font-semibold"><option>Gündəlik dayə</option><option>Gecə baxımı</option><option>Dərs dəstəyi</option><option>Xüsusi qayğı dəstəyi</option></select>
+                </div>
+                <textarea id="note" class="w-full p-3 rounded-xl text-sm font-semibold" rows="4" placeholder="Uşağın yaşı, lazım olan saatlar və xüsusi qeydlər"></textarea>
+                <button class="btn text-white font-black px-6 py-4 text-xs uppercase tracking-widest">Valideyn kimi müraciət göndər</button>
+                <p id="success" class="hidden text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl p-3">Müraciət qeydə alındı.</p>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        function submitRegister(event, type) {
+            event.preventDefault();
+            const payload = { type, name: name.value, contact: contact.value, city: city.value, need: need.value, note: note.value, createdAt: new Date().toISOString() };
+            const data = JSON.parse(localStorage.getItem('aldayeRegistrations') || '[]');
+            data.push(payload);
+            localStorage.setItem('aldayeRegistrations', JSON.stringify(data));
+            success.classList.remove('hidden');
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>

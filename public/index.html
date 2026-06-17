@@ -308,6 +308,36 @@
             overflow: hidden;
         }
 
+        .chat-panel {
+            width: min(92vw, 360px);
+            max-height: 560px;
+            transform-origin: bottom right;
+        }
+
+        .chat-message {
+            max-width: 82%;
+            border-radius: 18px;
+            padding: 10px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+
+        .chat-message.user {
+            margin-left: auto;
+            background: #2563eb;
+            color: white;
+            border-bottom-right-radius: 6px;
+        }
+
+        .chat-message.bot {
+            margin-right: auto;
+            background: #fdf2f8;
+            color: #334155;
+            border: 1px solid #fbcfe8;
+            border-bottom-left-radius: 6px;
+        }
+
         @media (max-width: 640px) {
             .whatsapp-bubble-text {
                 display: none;
@@ -346,6 +376,8 @@
             <div class="flex flex-wrap items-center gap-2 text-[11px] font-black uppercase tracking-wider text-slate-600">
                 <a href="#search" class="px-3 py-2 rounded-xl hover:bg-blue-50 hover:text-blue-700 transition">Dayə tap</a>
                 <a href="#trust" class="px-3 py-2 rounded-xl hover:bg-pink-50 hover:text-pink-700 transition">Güvən</a>
+                <a href="parent-register.html" class="px-3 py-2 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 transition">Valideyn</a>
+                <a href="nanny-register.html" class="px-3 py-2 rounded-xl hover:bg-amber-50 hover:text-amber-700 transition">Dayə qeydiyyatı</a>
                 <a href="#faq" class="px-3 py-2 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 transition">FAQ</a>
                 <a href="#contact" class="toy-soft-button bg-slate-900 text-white px-4 py-2 hover:bg-pink-600 transition">Əlaqə</a>
             </div>
@@ -499,6 +531,32 @@
                 </span>
                 <span class="block text-[10px] font-black uppercase tracking-widest text-amber-700">Dəstək</span>
             </a>
+        </section>
+
+        <section class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-4">
+                <span class="text-[10px] font-black uppercase tracking-widest text-blue-700">Ayrı səhifələr</span>
+                <h3 class="text-2xl font-black text-blue-950 serif-title mt-1">Qeydiyyat izahları ayrıca açılsın</h3>
+                <p class="text-sm text-slate-600 font-semibold leading-relaxed mt-2">Ana səhifə qarışmasın deyə valideyn və dayə qeydiyyatı üçün ayrıca izahlı səhifələr hazırladım.</p>
+            </div>
+            <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="parent-register.html" class="trust-card-3d toy-soft-button bg-emerald-50 hover:bg-emerald-100 border-2 border-emerald-100 p-5 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-emerald-500 text-white flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-people-roof"></i>
+                    </div>
+                    <h4 class="font-black text-blue-950">Valideyn üçün qeydiyyat</h4>
+                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Uşaq məlumatı, ehtiyac, təhlükəsizlik seçimləri və sifariş axını ayrıca səhifədə.</p>
+                    <span class="inline-flex mt-4 text-[10px] font-black uppercase tracking-widest text-emerald-700">Səhifəyə keç <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </a>
+                <a href="nanny-register.html" class="trust-card-3d toy-soft-button bg-amber-50 hover:bg-amber-100 border-2 border-amber-100 p-5 transition">
+                    <div class="w-12 h-12 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-xl mb-4">
+                        <i class="fa-solid fa-user-nurse"></i>
+                    </div>
+                    <h4 class="font-black text-blue-950">Dayə üçün qeydiyyat</h4>
+                    <p class="text-xs text-slate-600 font-semibold leading-relaxed mt-2">Profil, sənəd, təcrübə, tarif və SİMA yoxlama mərhələləri ayrıca səhifədə.</p>
+                    <span class="inline-flex mt-4 text-[10px] font-black uppercase tracking-widest text-amber-700">Səhifəyə keç <i class="fa-solid fa-arrow-right ml-1"></i></span>
+                </a>
+            </div>
         </section>
 
         <section class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
@@ -907,15 +965,37 @@
 
     </div>
 
-    <!-- WHATSAPP LIVE CHAT WIDGET -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5 max-w-[240px]">
-        <div class="whatsapp-bubble-text bg-white p-3.5 rounded-xl border-2 border-pink-300 shadow-xl text-xs font-bold text-slate-700 leading-normal">
-            Aldayə Dəstək: Bir sualınız var? Bizə canlı yazın.
+    <!-- AI ASSISTANT CHAT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5">
+        <div id="aiChatPanel" class="chat-panel hidden premium-card rounded-3xl overflow-hidden">
+            <div class="bg-gradient-to-r from-pink-500 to-blue-600 text-white p-4 flex items-center justify-between">
+                <div>
+                    <div class="text-[10px] font-black uppercase tracking-widest opacity-80">Canlı AI assistant</div>
+                    <div class="font-black">Aldayə köməkçisi</div>
+                </div>
+                <button onclick="toggleAiChat()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="aiChatMessages" class="h-80 overflow-y-auto p-4 space-y-3 bg-white"></div>
+            <div class="p-3 border-t border-pink-100 bg-pink-50/70">
+                <div class="flex gap-2">
+                    <input id="aiChatInput" onkeydown="handleAiChatKey(event)" type="text" placeholder="Sual yazın..." class="flex-1 p-3 rounded-2xl text-sm font-semibold">
+                    <button onclick="sendAiChatMessage()" class="btn-premium text-white px-4 py-2 text-sm font-black">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-1.5 mt-2">
+                    <button onclick="quickAiQuestion('Dayə qeydiyyatı necədir?')" class="text-[10px] font-black bg-white border border-pink-100 text-pink-700 px-2 py-1 rounded-full">Dayə qeydiyyatı</button>
+                    <button onclick="quickAiQuestion('Valideyn necə sifariş edir?')" class="text-[10px] font-black bg-white border border-blue-100 text-blue-700 px-2 py-1 rounded-full">Valideyn sifarişi</button>
+                    <button onclick="quickAiQuestion('SİMA yoxlama nədir?')" class="text-[10px] font-black bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded-full">SİMA</button>
+                </div>
+            </div>
         </div>
-        <a href="#contact" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative" aria-label="Əlaqə bölməsinə keç">
-            <i class="fa-solid fa-message"></i>
+        <button onclick="toggleAiChat()" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative" aria-label="AI assistant aç">
+            <i class="fa-solid fa-robot"></i>
             <span class="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">1</span>
-        </a>
+        </button>
     </div>
 
     <script>
@@ -1238,6 +1318,75 @@
 
             document.getElementById('leadSuccess').classList.remove('hidden');
             event.target.reset();
+        }
+
+        function toggleAiChat() {
+            const panel = document.getElementById('aiChatPanel');
+            panel.classList.toggle('hidden');
+
+            if (!panel.classList.contains('hidden') && !panel.dataset.started) {
+                panel.dataset.started = "true";
+                addAiMessage('bot', 'Salam, mən Aldayə AI köməkçisiyəm. Dayə qeydiyyatı, valideyn sifarişi, SİMA yoxlama və qiymət haqqında sual verə bilərsiniz.');
+            }
+        }
+
+        function addAiMessage(type, text) {
+            const messages = document.getElementById('aiChatMessages');
+            const bubble = document.createElement('div');
+            bubble.className = `chat-message ${type}`;
+            bubble.innerText = text;
+            messages.appendChild(bubble);
+            messages.scrollTop = messages.scrollHeight;
+        }
+
+        function getAiReply(question) {
+            const q = question.toLowerCase();
+
+            if (q.includes('dayə') || q.includes('daye')) {
+                return 'Dayə kimi qeydiyyat ayrıca səhifədədir: “Dayə qeydiyyatı” bölməsinə keçin. Orada profil, təcrübə, saatlıq tarif, sənədlər, SİMA yoxlama və təsdiq mərhələləri izah olunur.';
+            }
+
+            if (q.includes('valideyn') || q.includes('uşaq') || q.includes('usaq') || q.includes('sifariş')) {
+                return 'Valideyn üçün axın ayrıca səhifədədir: uşaq məlumatı, ehtiyac seçimi, uyğun dayə axtarışı, profilə baxış, tanışlıq və SİMA ilə sifariş təsdiqi.';
+            }
+
+            if (q.includes('sima') || q.includes('sənəd') || q.includes('sened') || q.includes('yoxlama')) {
+                return 'SİMA konsepti şəxsiyyət təsdiqi üçün nəzərdə tutulub. Demo versiyada SİMA ID, məhkumluq arayışı, referans və təhsil sənədi kimi güvən siqnalları göstərilir.';
+            }
+
+            if (q.includes('qiymət') || q.includes('qiymet') || q.includes('azn') || q.includes('komissiya')) {
+                return 'Qiymət saatlıq tarif, uşaq sayı, xüsusi qayğı ehtiyacı və müddətə görə hesablanır. Platforma komissiyası demo olaraq 15% göstərilib.';
+            }
+
+            if (q.includes('profil')) {
+                return 'Dayə kartındakı “Profilə bax” düyməsi ayrıca profil səhifəsini açır. Orada bio, bacarıqlar, yaş qrupları, sənədlər, rəylər və boş saatlar rahat görünür.';
+            }
+
+            return 'Bu demo AI köməkçisidir. Sizə ən uyğun bölmə: dayə qeydiyyatı, valideyn qeydiyyatı, dayə profilləri, SİMA yoxlama və qiymət hesablamasıdır. Hansı biri haqqında danışaq?';
+        }
+
+        function sendAiChatMessage() {
+            const input = document.getElementById('aiChatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            addAiMessage('user', text);
+            input.value = '';
+
+            setTimeout(() => {
+                addAiMessage('bot', getAiReply(text));
+            }, 350);
+        }
+
+        function quickAiQuestion(text) {
+            document.getElementById('aiChatInput').value = text;
+            sendAiChatMessage();
+        }
+
+        function handleAiChatKey(event) {
+            if (event.key === 'Enter') {
+                sendAiChatMessage();
+            }
         }
 
         window.onload = function() {
