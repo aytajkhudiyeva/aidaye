@@ -1080,9 +1080,6 @@
                 });
 
                 const serviceTags = s.serviceLabels.map(item => `<span class="profile-chip"><i class="fa-solid fa-heart text-pink-500"></i>${item}</span>`).join('');
-                const skillTags = s.skills.map(item => `<span class="profile-chip bg-pink-50 text-pink-700 border-pink-100"><i class="fa-solid fa-puzzle-piece"></i>${item}</span>`).join('');
-                const ageTags = s.careAges.map(item => `<span class="profile-chip bg-amber-50 text-amber-700 border-amber-100"><i class="fa-solid fa-child-reaching"></i>${item}</span>`).join('');
-                const verificationTags = s.verifications.map(item => `<div class="trust-badge text-[11px] font-black text-emerald-800 flex items-center gap-2"><i class="fa-solid fa-circle-check text-emerald-500"></i>${item}</div>`).join('');
 
                 const card = document.createElement('div');
                 card.className = "premium-card p-6 rounded-3xl flex flex-col space-y-4 border-2 border-blue-100 hover:border-pink-400 transition-all duration-300";
@@ -1160,40 +1157,13 @@
                             ${slotsHtml}
                         </div>
                     </div>
-
-                    <div id="profileDetails-${s.id}" class="profile-details">
-                        <div>
-                            <div class="bg-white/80 border-2 border-pink-100 rounded-2xl p-4 space-y-4">
-                                <div>
-                                    <div class="text-[10px] font-black uppercase tracking-widest text-pink-600 mb-2">Haqqında</div>
-                                    <p class="text-xs text-slate-600 font-semibold leading-relaxed">${s.bio}</p>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-black uppercase tracking-widest text-blue-600 mb-2">Bacarıqlar</div>
-                                    <div class="flex flex-wrap gap-2">${skillTags}</div>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-black uppercase tracking-widest text-amber-600 mb-2">Baxdığı yaş qrupları</div>
-                                    <div class="flex flex-wrap gap-2">${ageTags}</div>
-                                </div>
-                                <div>
-                                    <div class="text-[10px] font-black uppercase tracking-widest text-emerald-600 mb-2">Güvən və sənədlər</div>
-                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-2">${verificationTags}</div>
-                                </div>
-                                <div class="bg-blue-50/70 border border-blue-100 rounded-2xl p-3">
-                                    <div class="text-[10px] font-black uppercase tracking-widest text-blue-900 mb-1">Valideyn rəyi</div>
-                                    <p class="text-xs text-slate-600 font-semibold leading-relaxed">"${s.review}"</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     
                     <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-xs font-bold text-slate-400">
                         <span class="text-[11px] font-semibold">${priceDetails} × ${hours} saat</span>
                         <div class="flex flex-wrap justify-end gap-2">
-                            <button onclick="toggleProfileDetails(${s.id}, this)" class="toy-soft-button bg-white text-blue-900 border-2 border-blue-100 font-black px-4 py-3 text-xs uppercase tracking-wider">
-                                <i class="fa-solid fa-id-card mr-1"></i> Ətraflı profil
-                            </button>
+                            <a href="profile.html?id=${s.id}" class="toy-soft-button bg-white text-blue-900 border-2 border-blue-100 font-black px-4 py-3 text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-id-card mr-1"></i> Profilə bax
+                            </a>
                             <button onclick="alert('SİMA rəqəmsal imza pəncərəsi başladıldı. Müqavilə təsdiqləndikdən sonra GPS aktivləşəcək.')" class="btn-premium toy-action text-white font-bold px-6 py-3 text-xs uppercase tracking-wider">
                                 <i class="fa-solid fa-baby-carriage mr-1"></i> Sifariş Et
                             </button>
@@ -1208,14 +1178,6 @@
             const parent = btn.parentElement;
             parent.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
-        }
-
-        function toggleProfileDetails(id, btn) {
-            const detail = document.getElementById(`profileDetails-${id}`);
-            detail.classList.toggle('open');
-            btn.innerHTML = detail.classList.contains('open')
-                ? '<i class="fa-solid fa-chevron-up mr-1"></i> Profili bağla'
-                : '<i class="fa-solid fa-id-card mr-1"></i> Ətraflı profil';
         }
 
         function openVideoModal(name, avatarUrl) {
