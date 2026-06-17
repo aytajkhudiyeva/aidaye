@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aldayə - Premium Dayə və Ailə Ekosistemi</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Premium İkonlar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght=0,700;1,400&display=swap" rel="stylesheet">
+    <!-- jsPDF Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f7ff; 
+            background-image: radial-gradient(#fbcfe8 1.5px, transparent 1.5px); 
+            background-size: 24px 24px;
+            position: relative;
+            overflow-x: hidden;
+        }
+        .serif-title {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .premium-card {
+            background: rgba(255, 255, 255, 0.96);
+            border: 2px solid #fbcfe8; 
+            box-shadow: 0 15px 30px rgba(219, 39, 119, 0.1);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .btn-premium {
+            background: linear-gradient(135deg, #ec4899 0%, #3b82f6 100%); 
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-premium:hover {
+            transform: scale(1.03) translateY(-2px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        input, select {
+            border: 2px solid #bfdbfe !important; 
+            background-color: #f8fafc !important;
+            transition: all 0.2s ease;
+        }
+        input:focus, select:focus {
+            border-color: #ec4899 !important; 
+            box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.2) !important;
+            outline: none;
+        }
+        
+        @keyframes textShimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .live-text {
+            background: linear-gradient(270deg, #ec4899, #3b82f6, #d946ef, #2563eb);
+            background-size: 600% 600%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: textShimmer 4s ease infinite;
+        }
+        
+        @keyframes floatBigSaaS {
+            0% { transform: translateY(0px) scale(1); }
+            50% { transform: translateY(-15px) scale(1.02); }
+            100% { transform: translateY(0px) scale(1); }
+        }
+        .big-3d-avatar {
+            animation: floatBigSaaS 5s ease-in-out infinite;
+        }
+        
+        @keyframes floatSmall {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating-element {
+            animation: floatSmall 3.5s ease-in-out infinite;
+        }
+        .floating-delayed {
+            animation: floatSmall 4.5s ease-in-out infinite;
+            animation-delay: 1s;
+        }
+
+        /* Böyük Arxa Fon Oyuncaqları üçün Xüsusi Animasiyalı Class-lar */
+        .bg-toy {
+            position: absolute;
+            color: rgba(236, 72, 153, 0.07); /* Çox zərif, göz yormayan çəhrayı-mavi ton */
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+        .bg-toy-blue {
+            position: absolute;
+            color: rgba(59, 130, 246, 0.06);
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .slot-btn.selected {
+            background-color: #ec4899 !important;
+            color: white !important;
+            border-color: #db2777 !important;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-10 text-slate-800 antialiased">
+
+    <!-- ARXA FONDA BÖYÜK DEKORATİV UŞAQ OYUNCAQLARI -->
+    <div class="bg-toy text-9xl top-24 left-6 floating-element"><i class="fa-solid fa-teddy-bear"></i></div>
+    <div class="bg-toy-blue text-[150px] top-1/4 right-8 floating-delayed"><i class="fa-solid fa-cubes-stacked"></i></div>
+    <div class="bg-toy text-[130px] bottom-1/3 left-12 floating-delayed"><i class="fa-solid fa-shapes"></i></div>
+    <div class="bg-toy-blue text-9xl bottom-10 right-16 floating-element"><i class="fa-solid fa-balloon"></i></div>
+    <div class="bg-toy text-8xl top-1/2 left-1/3 opacity-50 floating-element"><i class="fa-solid fa-train-child"></i></div>
+
+    <div class="max-w-6xl mx-auto space-y-10 relative z-10">
+        
+        <!-- HERO PINK & BLUE LUXURY HEADER -->
+        <header class="premium-card p-8 rounded-3xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center overflow-hidden bg-gradient-to-br from-blue-100/40 via-white to-pink-100/40">
+            
+            <div class="lg:col-span-6 space-y-5 relative z-10">
+                <div class="flex items-center gap-3">
+                    <div class="w-14 h-14 bg-gradient-to-tr from-pink-500 to-blue-500 rounded-full flex items-center justify-center text-white text-2xl shadow-lg">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h1 class="text-4xl font-extrabold tracking-tight serif-title live-text">Aldayə</h1>
+                            <span class="text-[10px] bg-pink-500 text-white font-bold px-3 py-0.5 rounded-full uppercase tracking-widest">Bakı & Sumqayıt</span>
+                        </div>
+                        <p class="text-xs text-blue-900 font-bold mt-0.5 uppercase tracking-wider">Uşaqlarımızın təhlükəsizliyi üçün SİMA Güvənli Mikro-SaaS Platforması</p>
+                    </div>
+                </div>
+
+                <p class="text-xs md:text-sm text-slate-700 font-semibold leading-relaxed max-w-lg">
+                    Övladınız üçün ən doğru və təhlükəsiz dayəni tapın, AR Mülki Məcəlləsinə uyğun leqal xidmət müqaviləsini anında dövlət rəqəmsal imzası ilə təsdiqləyin.
+                </p>
+
+                <div class="pt-3 flex items-center gap-4 border-t-2 border-pink-100">
+                    <div class="flex -space-x-2">
+                        <div class="w-8 h-8 rounded-full bg-pink-500 border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow">A.T</div>
+                        <div class="w-8 h-8 rounded-full bg-blue-500 border-2 border-white flex items-center justify-center text-[10px] font-bold text-white shadow">E.M</div>
+                    </div>
+                    <div class="text-xs font-bold text-slate-700">
+                        <div class="flex text-amber-500 text-[10px] mb-0.5">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p><b>4.9 / 5</b> — 100+ Həqiqi Valideyn rəyi əsasında</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-6 relative flex justify-center items-center py-10 min-h-[340px]">
+                <div class="w-72 h-72 md:w-85 md:h-85 bg-gradient-to-tr from-pink-300 to-blue-300 rounded-full absolute border border-white flex items-center justify-center shadow-lg opacity-80 animate-pulse">
+                    <div class="w-60 h-60 md:w-64 md:h-64 bg-white rounded-full"></div>
+                </div>
+
+                <div class="relative z-10 big-3d-avatar flex flex-col items-center">
+                    <div class="bg-white p-6 rounded-3xl border-2 border-pink-300 shadow-2xl text-center max-w-[250px] relative">
+                        <div class="w-28 h-28 bg-gradient-to-tr from-pink-500 via-purple-400 to-blue-500 rounded-full mx-auto flex items-center justify-center text-white text-6xl shadow-xl border-4 border-white relative">
+                            <i class="fa-solid fa-face-smile-wink"></i>
+                            <span class="absolute -bottom-1 -right-1 bg-blue-500 text-white w-12 h-12 rounded-full border-4 border-white flex items-center justify-center text-xl shadow-md">
+                                <i class="fa-solid fa-baby"></i>
+                            </span>
+                        </div>
+                        <h3 class="font-black text-lg text-blue-950 mt-4 tracking-tight">Aldayə Multi-3D</h3>
+                        <p class="text-[11px] text-pink-600 font-black uppercase tracking-widest mt-1">SaaS Canlı İnfrastruktur</p>
+                    </div>
+                </div>
+
+                <div class="absolute top-2 left-6 bg-blue-500 text-white px-3 py-1.5 rounded-xl border border-white shadow-lg text-xs font-bold flex items-center gap-1.5 floating-delayed">
+                    <i class="fa-solid fa-mobile-screen"></i> iOS App
+                </div>
+                <div class="absolute bottom-2 right-4 bg-pink-500 text-white px-3 py-1.5 rounded-xl border border-white shadow-lg text-xs font-bold flex items-center gap-1.5 floating-element">
+                    <i class="fa-solid fa-robot"></i> Android App
+                </div>
+                <div class="absolute top-1/2 -right-4 bg-emerald-500 text-white px-3 py-2 rounded-xl border border-white shadow-lg text-[10px] font-bold flex items-center gap-1 floating-delayed">
+                    <span class="w-2 h-2 rounded-full bg-white animate-ping"></span> 100% Müqaviləli
+                </div>
+            </div>
+
+        </header>
+
+        <!-- INFO STATS BAR -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-bold text-center relative z-10">
+            <div class="bg-blue-600 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-solid fa-percent text-pink-300 text-sm"></i>
+                <span>Platforma Xidmət Haqqı: <b class="text-pink-200">15%</b></span>
+            </div>
+            <div class="bg-pink-600 text-white px-4 py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm">
+                <i class="fa-solid fa-shield-halved text-blue-200 text-sm"></i>
+                <span>SİMA E-İmza ilə Hüquqi Təminat</span>
+            </div>
+        </div>
+
+        <!-- GPS REAL-TIME TRACKING SIMULATOR -->
+        <section class="premium-card p-6 rounded-3xl bg-gradient-to-r from-slate-900 to-blue-950 text-white overflow-hidden">
+            <div class="absolute top-0 right-0 p-8 opacity-10 text-9xl">
+                <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-slate-700 pb-4">
+                <div>
+                    <span class="bg-pink-500 text-white text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full tracking-wider animate-pulse">Canlı Demo</span>
+                    <h3 class="text-lg font-black tracking-tight mt-1 text-pink-300 flex items-center gap-2">
+                        <i class="fa-solid fa-satellite-dish text-blue-400"></i> Aktiv Sifariş: GPS Canlı Məkan İzləmə Paneli
+                    </h3>
+                    <p class="text-[11px] text-slate-400 font-medium mt-0.5">Sifariş təsdiqləndikdən sonra uşağınızın və dayənin yerini xəritədə izləyin.</p>
+                </div>
+                <button onclick="simulateGPSMove()" class="bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 border border-blue-400 shadow-md">
+                    <i class="fa-solid fa-location-crosshairs animate-spin"></i> Koordinatları Yenilə
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-4 items-center">
+                <div class="lg:col-span-8 bg-slate-800 rounded-2xl p-4 h-40 border border-slate-700 relative overflow-hidden flex items-center justify-center">
+                    <div class="absolute inset-0 opacity-20 bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+                    <div class="absolute w-32 h-32 bg-blue-500/10 rounded-full animate-ping"></div>
+                    
+                    <div id="gpsMarker" class="absolute transition-all duration-1000 ease-in-out flex flex-col items-center" style="left: 45%; top: 40%;">
+                        <div class="bg-pink-500 text-white text-[9px] font-bold px-2 py-0.5 rounded-md shadow-md mb-1 flex items-center gap-1">
+                            <i class="fa-solid fa-baby"></i> Nərgiz Q. (Uşaqla)
+                        </div>
+                        <div class="w-6 h-6 bg-blue-500 rounded-full border-4 border-white flex items-center justify-center shadow-lg text-[10px]">
+                            <i class="fa-solid fa-street-view text-white"></i>
+                        </div>
+                    </div>
+                    <span class="absolute bottom-3 left-4 text-[10px] text-slate-500 font-mono" id="geoCoords">📍 Cari Koor: 40.4093° N, 49.8671° E (Bakı ş.)</span>
+                </div>
+                <div class="lg:col-span-4 space-y-3 text-xs font-bold bg-slate-850/50 p-2 rounded-xl">
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex justify-between">
+                        <span class="text-slate-400">Status:</span>
+                        <span class="text-emerald-400 flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Parkda gəzinti</span>
+                    </div>
+                    <div class="p-3 bg-slate-800/80 rounded-xl border border-slate-700 flex justify-between">
+                        <span class="text-slate-400">Son Yenilənmə:</span>
+                        <span id="gpsTime" class="text-blue-300 font-mono">15:07:16</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TWO COLUMN LAYOUT MATRIX -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
+            
+            <!-- LEFT PANEL: DAYƏ MODULU -->
+            <div class="lg:col-span-5 premium-card p-6 md:p-8 rounded-3xl space-y-6">
+                <div class="flex justify-between items-center border-b-2 border-blue-50 pb-4">
+                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-blue-900 flex items-center gap-2">
+                        <i class="fa-solid fa-sliders text-pink-500"></i> Dayə İdarəetmə Paneli
+                    </h2>
+                    
+                    <label class="relative inline-flex items-center cursor-pointer select-none">
+                        <input type="checkbox" id="nannyStatus" checked onchange="toggleStatus()" class="sr-only peer">
+                        <div class="w-16 h-6 bg-slate-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-7 after:transition-all peer-checked:bg-emerald-600"></div>
+                        <span id="statusText" class="absolute text-[8px] font-bold text-white right-2 peer-checked:left-2 peer-checked:right-auto pointer-events-none tracking-wider">ON</span>
+                    </label>
+                </div>
+
+                <div class="space-y-5 text-xs font-bold text-slate-700">
+                    <div>
+                        <label class="block mb-1.5 text-blue-950">Adınız və Soyadınız</label>
+                        <input type="text" id="nannyName" value="Nərgiz Qasımova" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Fəaliyyət Şəhəri</label>
+                            <select id="nannyCity" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
+                                <option>Bakı</option>
+                                <option>Sumqayıt</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Təcrübə (İl)</label>
+                            <input type="number" id="nannyExp" value="7" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-blue-950">📅 Uyğun Olduğunuz Günlər:</label>
+                        <div class="flex flex-wrap gap-1.5">
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">B.e</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç.a</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C.a</span>
+                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C</span>
+                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">Ş</span>
+                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">B</span>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50/80 p-4 rounded-xl border-2 border-blue-100 space-y-3">
+                        <label class="block font-black text-blue-950 text-[10px] uppercase tracking-widest">💰 Saatlıq Qiymət (MİN: 4 AZN)</label>
+                        <div class="relative">
+                            <input type="number" id="nannyHourlyRate" value="5" min="4" oninput="calculateNannyEarnings()" class="w-full p-3 rounded-xl font-black text-xl text-center text-pink-600 pr-16 bg-white border-2 border-pink-200">
+                            <span class="absolute right-4 top-3.5 text-xs font-bold text-slate-400">AZN / Saat</span>
+                        </div>
+                        
+                        <div class="text-xs text-slate-600 space-y-1.5 pt-1">
+                            <div class="flex justify-between">
+                                <span>Platforma komissiyası (15%):</span>
+                                <span id="lblComm" class="font-bold text-red-500">-0.75 AZN</span>
+                            </div>
+                            <div class="flex justify-between border-t-2 pt-2 border-blue-100 font-black text-blue-900">
+                                <span>Sizin Xalis Gəliriniz:</span>
+                                <span id="lblNet" class="font-black text-pink-600">4.25 AZN/saat</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="w-full btn-premium text-white font-bold py-4 text-xs rounded-xl tracking-widest uppercase shadow-md">
+                    Profili SİMA-ya Göndər
+                </button>
+            </div>
+
+            <!-- RIGHT PANEL: VALİDEYN FILTER / LISTINGS -->
+            <div class="lg:col-span-7 space-y-6">
+                
+                <!-- SEARCH MODULE -->
+                <div class="premium-card p-6 rounded-3xl space-y-4">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b-2 border-pink-50 pb-3">
+                        <h2 class="text-xs font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2">
+                            <i class="fa-solid fa-magnifying-glass text-blue-500"></i> Dayə Axtarış və Sifariş Filtrləri
+                        </h2>
+                        <button onclick="generateOfficialPDF()" class="text-xs font-bold text-blue-600 hover:text-pink-600 flex items-center gap-1.5 underline">
+                            <i class="fa-solid fa-file-pdf text-red-500"></i> Rəsmi Müqavilə Variantı (PDF Yüklə)
+                        </button>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-bold text-slate-700">
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Uşaq Sayı</label>
+                            <select id="filterChildren" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="1">1 Uşaq var</option>
+                                <option value="2">2 Uşaq (+1.50 AZN/s)</option>
+                                <option value="3">3 Uşaq (+3.00 AZN/s)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Xüsusi Qayğı Ehtiyacı</label>
+                            <select id="filterSpecial" onchange="loadActiveSitters()" class="w-full p-3 rounded-xl text-slate-900 bg-white">
+                                <option value="no">Yoxdur (Standart Baxım)</option>
+                                <option value="yes">İnkişaf Dəstəyi (+2.50 AZN/s)</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block mb-1.5 text-blue-950">Tələb olunan müddət</label>
+                            <input type="number" id="filterHours" min="1" max="24" value="4" oninput="loadActiveSitters()" class="w-full p-3 rounded-xl font-black text-center text-pink-600 bg-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DYNAMICALLY RENDERED SEARCH RESULTS -->
+                <div id="sittersList" class="space-y-4"></div>
+            </div>
+
+        </div>
+
+        <!-- 100% RELIABLE LIVE AI DIGITAL SIMULATION MODAL (No Loading/CORS issues) -->
+        <div id="videoModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
+            <div class="bg-gradient-to-b from-slate-900 to-blue-950 rounded-3xl border-2 border-pink-400 overflow-hidden max-w-sm w-full shadow-2xl relative">
+                <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white w-8 h-8 rounded-full flex items-center justify-center z-20 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                
+                <div class="h-[450px] w-full flex flex-col items-center justify-center relative p-6 text-center overflow-hidden">
+                    <div class="absolute w-64 h-64 border-4 border-pink-500/30 rounded-full animate-ping"></div>
+                    <div class="absolute w-48 h-48 border-2 border-blue-400/20 rounded-full animate-pulse"></div>
+                    
+                    <div class="relative z-10 space-y-4">
+                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-blue-500 shadow-2xl">
+                            <img id="modalAvatar" src="" class="w-full h-full object-cover rounded-full border-4 border-slate-900">
+                        </div>
+                        
+                        <div class="space-y-1">
+                            <span class="bg-pink-500 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">AI Video Verified</span>
+                            <h3 id="videoModalTitle" class="text-xl font-black text-white tracking-tight pt-1">Dayə Təqdimatı</h3>
+                            <p class="text-xs text-emerald-400 font-mono flex items-center justify-center gap-1.5">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Canlı Giriş Təmin Olunub
+                            </p>
+                        </div>
+
+                        <!-- Real Səs Dalğası Simulyasiyası (CSS Animasiya) -->
+                        <div class="flex items-center justify-center gap-1 h-8 pt-2">
+                            <span class="w-1 bg-pink-500 rounded animate-bounce h-6" style="animation-duration: 0.5s"></span>
+                            <span class="w-1 bg-blue-400 rounded animate-bounce h-4" style="animation-duration: 0.3s"></span>
+                            <span class="w-1 bg-purple-500 rounded animate-bounce h-7" style="animation-duration: 0.7s"></span>
+                            <span class="w-1 bg-pink-400 rounded animate-bounce h-5" style="animation-duration: 0.4s"></span>
+                            <span class="w-1 bg-emerald-400 rounded animate-bounce h-3" style="animation-duration: 0.6s"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute bottom-0 inset-x-0 bg-slate-900/90 p-5 border-t border-slate-800 text-left">
+                        <p class="text-[11px] text-slate-300 leading-normal font-medium">
+                            <i class="fa-solid fa-circle-info text-pink-400 mr-1"></i> Təhlükəsizlik protokolları səbəbindən dayənin rəsmi video-müraciəti platformanın daxili şifrəli kanalında tam təhlükəsiz yayımlanır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: PLATFORM BENEFITS & STATS -->
+        <section class="premium-card p-8 rounded-3xl space-y-6 relative z-10">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h3 class="text-2xl font-black text-blue-950 serif-title">Niyə Aldayə Ekosistemi?</h3>
+                <p class="text-xs text-slate-500 font-bold">Platformamız tam rəsmi müqavilə infrastrukturu və SİMA dövlət rəqəmsal imza inteqrasiyası ilə valideynlərin təhlükəsizliyini təmin edir.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-5 bg-white border-2 border-pink-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-pink-100 text-pink-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">100% SİMA Doğrulama</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Sistemdəki bütün dayələr yalnız SİMA E-İmza ilə şəxsiyyəti və məhkumluq statusu tam yoxlanıldıqdan sonra aktiv edilir.</p>
+                </div>
+
+                <div class="p-5 bg-white border-2 border-blue-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-calculator"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">Şəffaf Maliyyə Matrisi</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Heç bir gizli xidmət haqqı yoxdur. Əlavə uşaq koeffisientləri və xidmət tarifləri tam leqal şəkildə anında hesablanır.</p>
+                </div>
+
+                <div class="p-5 bg-white border-2 border-pink-100 rounded-2xl space-y-2.5 shadow-sm">
+                    <div class="w-10 h-10 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center text-lg">
+                        <i class="fa-solid fa-file-signature"></i>
+                    </div>
+                    <h4 class="font-black text-sm text-blue-950">Avtomatik PDF Müqavilə</h4>
+                    <p class="text-xs text-slate-500 font-medium leading-relaxed">Sifariş təsdiqləndiyi an AR Mülki Məcəlləsininin xidmət müddəalarına uyğun hüquqi müqavilə PDF olaraq generasiya edilir.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center py-4 text-[10px] text-blue-900 font-bold tracking-widest uppercase relative z-10">
+            © 2026 Aldayə Ecosystem Inc. Bütün hüquqlar qorunur.
+        </footer>
+
+    </div>
+
+    <!-- WHATSAPP LIVE CHAT WIDGET -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2.5 max-w-[240px]">
+        <div class="bg-white p-3.5 rounded-xl border-2 border-pink-300 shadow-xl text-xs font-bold text-slate-700 leading-normal">
+            Aldayə Dəstək: Bir sualınız var? Bizə canlı yazın.
+        </div>
+        <a href="https://wa.me/994000000000" target="_blank" class="w-14 h-14 bg-emerald-500 text-white rounded-full flex items-center justify-center text-2xl shadow-xl hover:scale-105 transition relative">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="absolute -top-0.5 -right-0.5 bg-rose-600 text-white text-[10px] font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">1</span>
+        </a>
+    </div>
+
+    <script>
+        const sittersData = [
+            { 
+                id: 1, 
+                name: "Nərgiz Qasımova", 
+                city: "Bakı", 
+                experience: 7, 
+                languages: ["Azərbaycan"], 
+                maxChildren: 1, 
+                basePrice: 5, 
+                distanceKm: 3.1, 
+                online: true, 
+                rating: 5.0, 
+                slots: ["09:00", "11:00", "14:00", "16:00"],
+                avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120"
+            },
+            { 
+                id: 2, 
+                name: "Fatimə Həsənli", 
+                city: "Sumqayıt", 
+                experience: 3, 
+                languages: ["Azərbaycan", "Rus"], 
+                maxChildren: 3, 
+                basePrice: 4, 
+                distanceKm: 4.8, 
+                online: true, 
+                rating: 4.9, 
+                slots: ["10:00", "13:00", "15:00"],
+                avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=120&h=120"
+            },
+            { 
+                id: 3, 
+                name: "Aysel Məmmədova", 
+                city: "Bakı", 
+                experience: 5, 
+                languages: ["Azərbaycan", "İngilis"], 
+                maxChildren: 2, 
+                basePrice: 6, 
+                distanceKm: 6.2, 
+                online: true, 
+                rating: 5.0, 
+                slots: ["08:00", "12:00", "17:00"],
+                avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120"
+            }
+        ];
+
+        function calculateNannyEarnings() {
+            const input = document.getElementById('nannyHourlyRate');
+            let rate = parseFloat(input.value) || 0;
+            if (rate < 4) rate = 4;
+
+            const commission = rate * 0.15;
+            const netEarnings = rate - commission;
+
+            document.getElementById('lblComm').innerText = `-${commission.toFixed(2)} AZN`;
+            document.getElementById('lblNet').innerText = `${netEarnings.toFixed(2)} AZN/saat`;
+            
+            if(sittersData[0]) {
+                sittersData[0].basePrice = rate;
+                loadActiveSitters();
+            }
+        }
+
+        function toggleStatus() {
+            const checkbox = document.getElementById('nannyStatus');
+            const text = document.getElementById('statusText');
+            if (checkbox.checked) {
+                text.innerText = "ON";
+                sittersData[0].online = true;
+            } else {
+                text.innerText = "OFF";
+                sittersData[0].online = false;
+            }
+            loadActiveSitters();
+        }
+
+        function loadActiveSitters() {
+            const grid = document.getElementById('sittersList');
+            grid.innerHTML = "";
+
+            const selectedChildren = parseInt(document.getElementById('filterChildren').value);
+            const needsSpecialCare = document.getElementById('filterSpecial').value === 'yes';
+            const hours = parseInt(document.getElementById('filterHours').value) || 1;
+
+            const filtered = sittersData.filter(s => s.online && s.maxChildren >= selectedChildren);
+
+            if(filtered.length === 0) {
+                grid.innerHTML = `
+                    <div class="premium-card text-center p-12 rounded-3xl text-xs font-bold text-slate-400 tracking-wider">
+                        Kriteriyalara uyğun aktiv dayə tapılmadı.
+                    </div>`;
+                return;
+            }
+
+            filtered.forEach(s => {
+                let currentHourly = s.basePrice;
+                let priceDetails = `Baza: ${s.basePrice} AZN/s`;
+
+                if (selectedChildren > 1) {
+                    const extra = (selectedChildren - 1) * 1.50;
+                    currentHourly += extra;
+                    priceDetails += ` + Əlavə uşaq (+${extra.toFixed(2)})`;
+                }
+
+                if (needsSpecialCare) {
+                    currentHourly += 2.50;
+                    priceDetails += ` + Qayğı (+2.50)`;
+                }
+
+                const finalTotal = currentHourly * hours;
+
+                let slotsHtml = "";
+                s.slots.forEach(slot => {
+                    slotsHtml += `<button onclick="selectTimeSlot(this)" class="slot-btn border-2 border-blue-200 bg-white hover:border-pink-400 text-slate-700 text-[10px] font-black px-2.5 py-1 rounded-lg transition-all">${slot}</button>`;
+                });
+
+                const card = document.createElement('div');
+                card.className = "premium-card p-6 rounded-3xl flex flex-col space-y-4 border-2 border-blue-100 hover:border-pink-400 transition-all duration-300";
+
+                card.innerHTML = `
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                        
+                        <div class="flex items-center gap-4">
+                            <!-- DAYƏNİN KİÇİK PROFİL ŞƏKLİ (Neon border) -->
+                            <div class="relative w-16 h-16 rounded-2xl overflow-hidden p-[3px] bg-gradient-to-tr from-pink-500 to-blue-500 shadow-md shrink-0">
+                                <img src="${s.avatar}" alt="${s.name}" class="w-full h-full object-cover rounded-xl bg-white">
+                            </div>
+                            
+                            <div class="space-y-1.5">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h4 class="font-extrabold text-blue-950 text-base tracking-tight">
+                                        ${s.name}
+                                    </h4>
+                                    <button onclick="openVideoModal('${s.name}', '${s.avatar}')" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm hover:scale-105 transition">
+                                        <i class="fa-solid fa-circle-play text-[11px]"></i> VİDEO BAX
+                                    </button>
+                                    <span class="text-[9px] bg-emerald-500 text-white px-2 py-0.5 rounded font-bold tracking-wider uppercase flex items-center gap-0.5">
+                                        <i class="fa-solid fa-shield-cat"></i> SİMA
+                                    </span>
+                                    <span class="text-xs text-amber-500 font-bold flex items-center gap-0.5 ml-0.5">
+                                        <i class="fa-solid fa-star"></i> ${s.rating.toFixed(1)}
+                                    </span>
+                                </div>
+                                
+                                <div class="flex flex-wrap items-center gap-x-3 gap-y-0.5 text-[11px] text-slate-600 font-bold">
+                                    <span>Təcrübə: <span class="text-pink-600">${s.experience} İl</span></span>
+                                    <span>Şəhər: <span class="text-blue-600">${s.city}</span></span>
+                                    <span>Məsafə: <span class="text-slate-900">📍 ${s.distanceKm} km</span></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-right w-full sm:w-auto flex sm:flex-col justify-between sm:justify-center items-center gap-1">
+                            <span class="text-[9px] text-slate-400 block font-black tracking-widest uppercase">YEKUN MƏBLƏĞ</span>
+                            <span class="text-xl font-black text-blue-950 tracking-tight">${finalTotal.toFixed(2)} <span class="text-xs font-bold text-slate-500">AZN</span></span>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50/50 p-3 rounded-2xl border border-blue-100/60 space-y-2">
+                        <span class="text-[10px] text-blue-900 font-black uppercase tracking-wider block">
+                            <i class="fa-solid fa-calendar-check text-pink-500"></i> Bu Gün Üçün Boş Saatlar (Birini seçin):
+                        </span>
+                        <div class="flex flex-wrap gap-2">
+                            ${slotsHtml}
+                        </div>
+                    </div>
+                    
+                    <div class="flex justify-between items-center pt-2 border-t border-slate-100 text-xs font-bold text-slate-400">
+                        <span class="text-[11px] font-semibold">${priceDetails} × ${hours} saat</span>
+                        <button onclick="alert('SİMA rəqəmsal imza pəncərəsi başladıldı. Müqavilə təsdiqləndikdən sonra GPS aktivləşəcək.')" class="btn-premium text-white font-bold px-6 py-3 text-xs rounded-xl uppercase tracking-wider shadow">
+                            Sifariş Et
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function selectTimeSlot(btn) {
+            const parent = btn.parentElement;
+            parent.querySelectorAll('.slot-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+        }
+
+        function openVideoModal(name, avatarUrl) {
+            document.getElementById('videoModalTitle').innerText = name;
+            document.getElementById('modalAvatar').src = avatarUrl;
+            document.getElementById('videoModal').classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            document.getElementById('videoModal').classList.add('hidden');
+        }
+
+        function simulateGPSMove() {
+            const marker = document.getElementById('gpsMarker');
+            const coordsText = document.getElementById('geoCoords');
+            const timeText = document.getElementById('gpsTime');
+
+            const randomLeft = Math.floor(Math.random() * 40) + 30; 
+            const randomTop = Math.floor(Math.random() * 30) + 25; 
+            
+            marker.style.left = randomLeft + "%";
+            marker.style.top = randomTop + "%";
+
+            const mockLat = (40.4093 + (Math.random() - 0.5) * 0.01).toFixed(4);
+            const mockLng = (49.8671 + (Math.random() - 0.5) * 0.01).toFixed(4);
+
+            coordsText.innerText = `📍 Cari Koor: ${mockLat}° N, ${mockLng}° E (Dinamik Yeniləndi)`;
+            timeText.innerText = new Date().toTimeString().split(' ')[0];
+        }
+
+        function generateOfficialPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            doc.setFont("Helvetica", "bold");
+            doc.setFontSize(14);
+            doc.text("ALDAYE EKOSISTEMI - RASMI XIDMET MUQAVILESI", 15, 20);
+            doc.setFontSize(10);
+            doc.setFont("Helvetica", "normal");
+            doc.text("Tarix: " + new Date().toLocaleDateString(), 15, 30);
+            doc.text("Bu sened AR Mulki Mecellesinin xidmet muqavileleri standartlarina uygun hazirlanmisdir.", 15, 40);
+            doc.text("SIMA ile tesdiqlendiyi an huquqi quvveye sahib olur.", 15, 50);
+            doc.save("Aldaye_Guvenlik_Muqavilesi.pdf");
+        }
+
+        window.onload = function() {
+            calculateNannyEarnings();
+            loadActiveSitters();
+        };
+    </script>
+</body>
+</html>
