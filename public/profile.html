@@ -368,18 +368,6 @@
             `;
         }
 
-        function bookingUrl() {
-            if (!isFavorite()) {
-                const favorites = getFavorites();
-                localStorage.setItem('aldayeFavorites', JSON.stringify([...favorites, sitter.id]));
-            }
-            return `parent-register.html?nanny=${sitter.id}#booking`;
-        }
-
-        function goToBooking() {
-            window.location.href = bookingUrl();
-        }
-
         function renderProfile() {
             const root = document.getElementById('profileRoot');
             root.innerHTML = `
@@ -411,6 +399,15 @@
                                 <button id="favoriteButton" onclick="toggleFavorite()" class="toy-soft-button w-full bg-white text-rose-600 border-2 border-rose-100 font-black px-5 py-3.5 text-xs uppercase tracking-wider transition">
                                     <i class="fa-regular fa-heart mr-1.5"></i> Favorilərə əlavə et
                                 </button>
+                                <div class="grid grid-cols-2 gap-2">
+                                    <button onclick="openCallModal('audio')" class="toy-soft-button bg-emerald-50 text-emerald-700 border-2 border-emerald-100 font-black px-3 py-3 text-[10px] uppercase tracking-wider">
+                                        <i class="fa-solid fa-phone mr-1"></i> Səsli zəng
+                                    </button>
+                                    <button onclick="openCallModal('video')" class="toy-soft-button bg-blue-50 text-blue-700 border-2 border-blue-100 font-black px-3 py-3 text-[10px] uppercase tracking-wider">
+                                        <i class="fa-solid fa-video mr-1"></i> Video zəng
+                                    </button>
+                                </div>
+                                <p class="text-[10px] font-bold text-slate-400"><i class="fa-solid fa-shield-halved mr-1"></i> Zənglər yalnız Aldayə daxilində aparılır; şəxsi nömrə paylaşılmır.</p>
                                 <p id="favoriteNote" class="text-xs font-bold text-slate-500 leading-relaxed"></p>
                             </div>
                         </div>
@@ -532,15 +529,12 @@
                                 ${renderSchedule()}
                             </section>
 
-                            <section class="bg-white/80 border-2 border-blue-100 rounded-3xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                            <section class="bg-white/80 border-2 border-blue-100 rounded-3xl p-5">
                                 <div>
                                     <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Saatlıq qiymət</div>
                                     <div class="text-3xl font-black text-blue-950">${sitter.basePrice} AZN <span class="text-sm text-slate-500">/ saat</span></div>
                                     <div class="text-xs font-bold text-slate-500 mt-1">Boş saatlar: ${sitter.slots.join(', ')}</div>
                                 </div>
-                                <button onclick="goToBooking()" class="btn-premium text-white font-black px-7 py-4 text-xs uppercase tracking-widest">
-                                    <i class="fa-solid fa-baby-carriage mr-1.5"></i> Favorilərdən sifariş et
-                                </button>
                             </section>
                         </div>
                     </div>
@@ -550,6 +544,73 @@
 
         renderProfile();
         updateFavoriteButton();
+    </script>
+
+    <div id="callModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
+        <div class="bg-slate-950 text-white rounded-3xl border-2 border-blue-400 max-w-md w-full overflow-hidden relative">
+            <button onclick="closeCallModal()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-white/10"><i class="fa-solid fa-xmark"></i></button>
+            <div class="p-6 text-center">
+                <span class="text-[9px] font-black uppercase tracking-widest text-emerald-300">Aldayə tətbiqdaxili görüş otağı</span>
+                <h2 id="callTitle" class="text-2xl font-black mt-2"></h2>
+                <p id="callStatus" class="text-xs font-bold text-slate-400 mt-2">Şəxsi telefon nömrəsi qarşı tərəfə göstərilmir.</p>
+                <div id="audioCallVisual" class="my-7">
+                    <img id="callAvatar" class="w-32 h-32 rounded-full object-cover mx-auto border-4 border-pink-400 shadow-2xl">
+                    <div class="flex justify-center gap-1 h-8 mt-4">
+                        <span class="w-1 bg-pink-500 rounded animate-bounce h-6"></span><span class="w-1 bg-blue-400 rounded animate-bounce h-4"></span><span class="w-1 bg-emerald-400 rounded animate-bounce h-7"></span>
+                    </div>
+                </div>
+                <video id="localCallVideo" class="hidden w-full aspect-video object-cover rounded-2xl bg-black my-6" autoplay muted playsinline></video>
+                <div class="flex justify-center gap-3">
+                    <button id="startCallButton" onclick="startInAppCall()" class="bg-emerald-500 text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-widest"><i class="fa-solid fa-phone mr-1"></i> Zəngi başlat</button>
+                    <button onclick="closeCallModal()" class="bg-rose-600 text-white font-black px-6 py-3 rounded-2xl text-xs uppercase tracking-widest"><i class="fa-solid fa-phone-slash mr-1"></i> Bitir</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentCallType = 'audio';
+        let activeCallStream = null;
+
+        function openCallModal(type) {
+            currentCallType = type;
+            callTitle.textContent = `${sitter.name} ilə ${type === 'video' ? 'video' : 'səsli'} zəng`;
+            callAvatar.src = sitter.avatar;
+            callStatus.textContent = 'Şəxsi telefon nömrəsi qarşı tərəfə göstərilmir.';
+            startCallButton.innerHTML = `<i class="fa-solid ${type === 'video' ? 'fa-video' : 'fa-phone'} mr-1"></i> Zəngi başlat`;
+            audioCallVisual.classList.remove('hidden');
+            localCallVideo.classList.add('hidden');
+            callModal.classList.remove('hidden');
+            callModal.classList.add('flex');
+        }
+
+        async function startInAppCall() {
+            try {
+                activeCallStream = await navigator.mediaDevices.getUserMedia({ audio:true, video:currentCallType === 'video' });
+                if (currentCallType === 'video') {
+                    localCallVideo.srcObject = activeCallStream;
+                    localCallVideo.classList.remove('hidden');
+                    audioCallVisual.classList.add('hidden');
+                }
+                callStatus.textContent = 'Tətbiqdaxili zəng otağı aktivdir. Dayəyə qoşulma sorğusu göndərildi.';
+                startCallButton.disabled = true;
+                startCallButton.classList.add('opacity-50');
+            } catch {
+                callStatus.textContent = 'Zəng üçün mikrofon və kamera icazəsi lazımdır. Brauzer icazəsini aktiv edib yenidən sınayın.';
+            }
+        }
+
+        function closeCallModal() {
+            if (activeCallStream) {
+                activeCallStream.getTracks().forEach(track => track.stop());
+                activeCallStream = null;
+            }
+            localCallVideo.srcObject = null;
+            startCallButton.disabled = false;
+            startCallButton.classList.remove('opacity-50');
+            callModal.classList.add('hidden');
+            callModal.classList.remove('flex');
+        }
     </script>
 </body>
 </html>

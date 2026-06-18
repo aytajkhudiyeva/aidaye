@@ -904,83 +904,9 @@
             </div>
         </section>
 
-        <!-- TWO COLUMN LAYOUT MATRIX -->
-        <div class="island-workspace grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative z-10">
-            
-            <!-- LEFT PANEL: DAYƏ MODULU -->
-            <div class="lg:col-span-5 premium-card p-6 md:p-8 rounded-3xl space-y-6">
-                <div class="flex justify-between items-center border-b-2 border-blue-50 pb-4">
-                    <h2 class="text-xs font-extrabold uppercase tracking-widest text-blue-900 flex items-center gap-2">
-                        <i class="fa-solid fa-sliders text-pink-500"></i> Dayə İdarəetmə Paneli
-                    </h2>
-                    
-                    <label class="relative inline-flex items-center cursor-pointer select-none">
-                        <input type="checkbox" id="nannyStatus" checked onchange="toggleStatus()" class="sr-only peer">
-                        <div class="w-16 h-6 bg-slate-200 rounded-full peer peer-checked:after:translate-x-full after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:rounded-full after:h-5 after:w-7 after:transition-all peer-checked:bg-emerald-600"></div>
-                        <span id="statusText" class="absolute text-[8px] font-bold text-white right-2 peer-checked:left-2 peer-checked:right-auto pointer-events-none tracking-wider">ON</span>
-                    </label>
-                </div>
-
-                <div class="space-y-5 text-xs font-bold text-slate-700">
-                    <div>
-                        <label class="block mb-1.5 text-blue-950">Adınız və Soyadınız</label>
-                        <input type="text" id="nannyName" value="Nərgiz Qasımova" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
-                    </div>
-
-                    <div class="grid grid-cols-2 gap-4">
-                        <div>
-                            <label class="block mb-1.5 text-blue-950">Fəaliyyət Şəhəri</label>
-                            <select id="nannyCity" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
-                                <option>Bakı</option>
-                                <option>Sumqayıt</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label class="block mb-1.5 text-blue-950">Təcrübə (İl)</label>
-                            <input type="number" id="nannyExp" value="7" class="w-full p-3 rounded-xl text-slate-900 text-sm font-semibold bg-white">
-                        </div>
-                    </div>
-
-                    <div class="space-y-2">
-                        <label class="block text-blue-950">📅 Uyğun Olduğunuz Günlər:</label>
-                        <div class="flex flex-wrap gap-1.5">
-                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">B.e</span>
-                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç.a</span>
-                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">Ç</span>
-                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C.a</span>
-                            <span class="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center cursor-pointer shadow-sm">C</span>
-                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">Ş</span>
-                            <span class="w-8 h-8 rounded-lg bg-white text-slate-400 font-bold text-[10px] flex items-center justify-center border-2 border-slate-200 cursor-pointer">B</span>
-                        </div>
-                    </div>
-
-                    <div class="bg-blue-50/80 p-4 rounded-xl border-2 border-blue-100 space-y-3">
-                        <label class="block font-black text-blue-950 text-[10px] uppercase tracking-widest">💰 Saatlıq Qiymət (MİN: 4 AZN)</label>
-                        <div class="relative">
-                            <input type="number" id="nannyHourlyRate" value="5" min="4" oninput="calculateNannyEarnings()" class="w-full p-3 rounded-xl font-black text-xl text-center text-pink-600 pr-16 bg-white border-2 border-pink-200">
-                            <span class="absolute right-4 top-3.5 text-xs font-bold text-slate-400">AZN / Saat</span>
-                        </div>
-                        
-                        <div class="text-xs text-slate-600 space-y-1.5 pt-1">
-                            <div class="flex justify-between">
-                                <span>Platforma komissiyası (15%):</span>
-                                <span id="lblComm" class="font-bold text-red-500">-0.75 AZN</span>
-                            </div>
-                            <div class="flex justify-between border-t-2 pt-2 border-blue-100 font-black text-blue-900">
-                                <span>Sizin Xalis Gəliriniz:</span>
-                                <span id="lblNet" class="font-black text-pink-600">4.25 AZN/saat</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="w-full btn-premium toy-action text-white font-bold py-4 text-xs tracking-widest uppercase">
-                    <i class="fa-solid fa-cubes-stacked mr-1.5"></i> Profili SİMA-ya Göndər
-                </button>
-            </div>
-
-            <!-- RIGHT PANEL: VALİDEYN FILTER / LISTINGS -->
-            <div class="lg:col-span-7 space-y-6">
+        <!-- VALİDEYN AXTARIŞ SAHƏSİ -->
+        <div class="island-workspace relative z-10">
+            <div class="space-y-6">
                 
                 <!-- SEARCH MODULE -->
                 <div id="search" class="premium-card p-6 rounded-3xl space-y-4 scroll-mt-24">
@@ -988,9 +914,14 @@
                         <h2 class="text-xs font-extrabold uppercase tracking-widest text-pink-600 flex items-center gap-2">
                             <i class="fa-solid fa-magnifying-glass text-blue-500"></i> Dayə Axtarış və Sifariş Filtrləri
                         </h2>
-                        <button onclick="generateOfficialPDF()" class="text-xs font-bold text-blue-600 hover:text-pink-600 flex items-center gap-1.5 underline">
-                            <i class="fa-solid fa-file-pdf text-red-500"></i> Rəsmi Müqavilə Variantı (PDF Yüklə)
-                        </button>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="openFavoritesModal()" class="text-xs font-black text-rose-600 bg-rose-50 border border-rose-100 px-3 py-2 rounded-xl">
+                                <i class="fa-solid fa-heart mr-1"></i> Favorilərim <span id="favoritesCount">(0)</span>
+                            </button>
+                            <button onclick="openContractModal()" class="text-xs font-bold text-blue-600 hover:text-pink-600 flex items-center gap-1.5 underline">
+                                <i class="fa-solid fa-file-contract text-emerald-600"></i> Müqavilə şərtləri
+                            </button>
+                        </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-xs font-bold text-slate-700">
@@ -1038,6 +969,29 @@
                 <div id="sittersList" class="space-y-4"></div>
             </div>
 
+        </div>
+
+        <div id="favoritesModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-3xl w-full max-h-[85vh] overflow-y-auto p-6 relative">
+                <button onclick="closeFavoritesModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-700"><i class="fa-solid fa-xmark"></i></button>
+                <span class="text-[10px] font-black uppercase tracking-widest text-rose-600">Ailənin seçim siyahısı</span>
+                <h2 class="serif-title text-3xl font-black text-blue-950 mt-1">Favori dayələrim</h2>
+                <p class="text-sm font-semibold text-slate-500 mt-2">Saxladığınız dayələri müqayisə edin və sifariş səhifəsində birini seçin.</p>
+                <div id="favoritesModalList" class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6"></div>
+                <div id="favoritesModalEmpty" class="hidden mt-6 bg-amber-50 border border-amber-100 text-amber-800 rounded-2xl p-5 text-sm font-bold">Hələ favoriyə dayə əlavə etməmisiniz.</div>
+                <a href="parent-register.html#booking" class="mt-6 inline-flex btn-premium text-white font-black px-6 py-3 rounded-xl text-xs uppercase tracking-widest"><i class="fa-solid fa-calendar-check mr-2"></i> Favorilərdən sifariş et</a>
+            </div>
+        </div>
+
+        <div id="contractModal" class="fixed inset-0 bg-slate-950/70 backdrop-blur-sm hidden z-50 items-center justify-center p-4">
+            <div class="bg-white rounded-3xl max-w-4xl w-full max-h-[88vh] overflow-y-auto p-7 relative">
+                <button onclick="closeContractModal()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-100 text-slate-700"><i class="fa-solid fa-xmark"></i></button>
+                <span class="text-[10px] font-black uppercase tracking-widest text-emerald-700">Nümunə xidmət müqaviləsi</span>
+                <h2 class="serif-title text-3xl font-black text-blue-950 mt-1">Dayə xidməti müqaviləsinin əsas müddəaları</h2>
+                <p class="text-xs font-bold text-amber-700 bg-amber-50 border border-amber-100 rounded-xl p-3 mt-3">Bu mətn hüquqi məsləhət deyil. Tərəflərin məlumatları və konkret sifariş şərtləri ilə tamamlanmalı, zərurət olduqda hüquqşünas tərəfindən yoxlanılmalıdır.</p>
+                <div id="contractClauses" class="mt-5 space-y-4 text-sm text-slate-700 font-semibold leading-relaxed"></div>
+                <button onclick="generateOfficialPDF()" class="mt-6 bg-blue-700 text-white font-black px-6 py-3 rounded-xl text-xs uppercase tracking-widest"><i class="fa-solid fa-file-pdf mr-2"></i> Nümunəni PDF yüklə</button>
+            </div>
         </div>
 
         <!-- AI DEMO VIDEO MODAL -->
@@ -1315,6 +1269,9 @@
                     <button onclick="quickAiQuestion('Dayə qeydiyyatı necədir?')" class="text-[10px] font-black bg-white border border-pink-100 text-pink-700 px-2 py-1 rounded-full">Dayə qeydiyyatı</button>
                     <button onclick="quickAiQuestion('Valideyn necə sifariş edir?')" class="text-[10px] font-black bg-white border border-blue-100 text-blue-700 px-2 py-1 rounded-full">Valideyn sifarişi</button>
                     <button onclick="quickAiQuestion('SİMA yoxlama nədir?')" class="text-[10px] font-black bg-white border border-emerald-100 text-emerald-700 px-2 py-1 rounded-full">SİMA</button>
+                    <button onclick="quickAiQuestion('Favorilər necə işləyir?')" class="text-[10px] font-black bg-white border border-rose-100 text-rose-700 px-2 py-1 rounded-full">Favorilər</button>
+                    <button onclick="quickAiQuestion('Video zəng necə edilir?')" class="text-[10px] font-black bg-white border border-violet-100 text-violet-700 px-2 py-1 rounded-full">Zəng</button>
+                    <button onclick="quickAiQuestion('Müqavilədə nələr var?')" class="text-[10px] font-black bg-white border border-amber-100 text-amber-700 px-2 py-1 rounded-full">Müqavilə</button>
                 </div>
             </div>
         </div>
@@ -1411,36 +1368,6 @@
                 avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120"
             }
         ];
-
-        function calculateNannyEarnings() {
-            const input = document.getElementById('nannyHourlyRate');
-            let rate = parseFloat(input.value) || 0;
-            if (rate < 4) rate = 4;
-
-            const commission = rate * 0.15;
-            const netEarnings = rate - commission;
-
-            document.getElementById('lblComm').innerText = `-${commission.toFixed(2)} AZN`;
-            document.getElementById('lblNet').innerText = `${netEarnings.toFixed(2)} AZN/saat`;
-            
-            if(sittersData[0]) {
-                sittersData[0].basePrice = rate;
-                loadActiveSitters();
-            }
-        }
-
-        function toggleStatus() {
-            const checkbox = document.getElementById('nannyStatus');
-            const text = document.getElementById('statusText');
-            if (checkbox.checked) {
-                text.innerText = "ON";
-                sittersData[0].online = true;
-            } else {
-                text.innerText = "OFF";
-                sittersData[0].online = false;
-            }
-            loadActiveSitters();
-        }
 
         function loadActiveSitters() {
             const grid = document.getElementById('sittersList');
@@ -1573,9 +1500,6 @@
                             <a href="profile.html?id=${s.id}" class="toy-soft-button bg-white text-blue-900 border-2 border-blue-100 font-black px-4 py-3 text-xs uppercase tracking-wider">
                                 <i class="fa-solid fa-id-card mr-1"></i> Profilə bax
                             </a>
-                            <a href="parent-register.html#booking" class="btn-premium toy-action text-white font-bold px-6 py-3 text-xs uppercase tracking-wider">
-                                <i class="fa-solid fa-heart mr-1"></i> Favorilərdən seç
-                            </a>
                         </div>
                     </div>
                 `;
@@ -1626,18 +1550,103 @@
             timeText.innerText = new Date().toTimeString().split(' ')[0];
         }
 
+        const contractTerms = [
+            ["1. Tərəflər və müqavilənin predmeti", "Valideyn sifarişdə göstərilən tarix və saatlarda uşağa qulluq xidmətini sifariş edir, dayə isə razılaşdırılmış xidmətləri şəxsən və təhlükəsizlik qaydalarına uyğun yerinə yetirməyi öhdəsinə götürür."],
+            ["2. Xidmətin həcmi", "Uşağın sayı, yaşı, ünvan, xidmət müddəti, qidalanma, dərs dəstəyi, gəzinti, yuxu rejimi və icazə verilən əlavə ev işləri sifariş xülasəsində ayrıca göstərilir. Yazılmayan əlavə işlər dayənin öhdəliyinə daxil deyil."],
+            ["3. Tərəflərin öhdəlikləri", "Valideyn sağlamlıq, allergiya, dərman, xüsusi qayğı və təcili əlaqə məlumatlarını düzgün təqdim edir. Dayə uşağı nəzarətsiz qoymur, üçüncü şəxsə təhvil vermir və valideynin yazılı razılığı olmadan uşağı razılaşdırılmış ərazidən çıxarmır."],
+            ["4. Ödəniş və xidmət haqqı", "Saatlıq tarif, ümumi müddət, əlavə xidmətlər və platforma xidmət haqqı sifariş təsdiqindən əvvəl göstərilir. Müddətin uzadılması tərəflərin tətbiqdaxili razılığı ilə hesablanır."],
+            ["5. Ləğv və gecikmə", "Ləğv, gecikmə və geri ödəniş şərtləri sifariş xülasəsində göstərilir. Fors-major və uşağın səhhəti ilə bağlı təcili hallar ayrıca qiymətləndirilir."],
+            ["6. Təhlükəsizlik və fövqəladə hal", "Təcili vəziyyətdə dayə əvvəlcə təcili yardım xidmətinə, sonra valideynə və platforma dəstəyinə məlumat verir. Dayə yalnız valideynin əvvəlcədən bildirdiyi təlimat çərçivəsində dərman verə bilər."],
+            ["7. Məxfilik və fərdi məlumatlar", "Uşaq və ailə haqqında məlumat, foto, video, ünvan və sağlamlıq məlumatları yalnız xidmətin icrası üçün istifadə edilir; ayrıca razılıq olmadan üçüncü şəxslə paylaşılmır və sosial şəbəkədə yayımlanmır."],
+            ["8. Tətbiqdaxili əlaqə", "Mesajlaşma, səsli və video görüşlər platforma daxilində aparılır. Tərəflərin şəxsi telefon nömrəsi qarşı tərəfə avtomatik açıqlanmır."],
+            ["9. Məsuliyyət və mübahisələr", "Tərəflər öhdəliklərin pozulmasına görə qanunvericilik və müqavilə çərçivəsində məsuliyyət daşıyırlar. Mübahisə əvvəlcə platforma dəstəyi vasitəsilə danışıqlar yolu ilə, nəticə olmadıqda aidiyyəti qaydada həll edilir."],
+            ["10. Qüvvəyə minmə", "Müqavilə sifariş şərtləri tərəflər tərəfindən təsdiqləndikdən və elektron imza tətbiq olunduqdan sonra qüvvəyə minir; sifariş xülasəsi müqavilənin ayrılmaz hissəsidir."]
+        ];
+
+        function getFavorites() {
+            try {
+                return JSON.parse(localStorage.getItem('aldayeFavorites') || '[]').map(Number);
+            } catch {
+                return [];
+            }
+        }
+
+        function updateFavoritesCount() {
+            document.getElementById('favoritesCount').textContent = `(${getFavorites().length})`;
+        }
+
+        function openFavoritesModal() {
+            const ids = getFavorites();
+            const favorites = sittersData.filter(sitter => ids.includes(sitter.id));
+            const list = document.getElementById('favoritesModalList');
+            const empty = document.getElementById('favoritesModalEmpty');
+            list.innerHTML = favorites.map(sitter => `
+                <article class="border-2 border-blue-100 rounded-2xl p-4 flex gap-3 items-center">
+                    <img src="${sitter.avatar}" alt="${sitter.name}" class="w-16 h-16 rounded-2xl object-cover">
+                    <div>
+                        <h3 class="font-black text-blue-950">${sitter.name}</h3>
+                        <p class="text-xs font-bold text-slate-500">${sitter.city} · ${sitter.basePrice} AZN/saat</p>
+                        <a href="profile.html?id=${sitter.id}" class="text-[10px] font-black uppercase tracking-widest text-pink-600">Profilə bax</a>
+                    </div>
+                </article>
+            `).join('');
+            empty.classList.toggle('hidden', favorites.length > 0);
+            const modal = document.getElementById('favoritesModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeFavoritesModal() {
+            const modal = document.getElementById('favoritesModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function openContractModal() {
+            document.getElementById('contractClauses').innerHTML = contractTerms.map(([title, text]) => `
+                <section class="border-b border-slate-100 pb-4">
+                    <h3 class="font-black text-blue-950">${title}</h3>
+                    <p class="mt-1">${text}</p>
+                </section>
+            `).join('');
+            const modal = document.getElementById('contractModal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeContractModal() {
+            const modal = document.getElementById('contractModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
         function generateOfficialPDF() {
             const { jsPDF } = window.jspdf;
             const doc = new jsPDF();
             doc.setFont("Helvetica", "bold");
             doc.setFontSize(14);
-            doc.text("ALDAYE EKOSISTEMI - RASMI XIDMET MUQAVILESI", 15, 20);
-            doc.setFontSize(10);
+            doc.text("ALDAYE - DAYE XIDMETI UCUN NUMUNE MUQAVILE", 15, 18);
+            doc.setFontSize(9);
             doc.setFont("Helvetica", "normal");
-            doc.text("Tarix: " + new Date().toLocaleDateString(), 15, 30);
-            doc.text("Bu sened AR Mulki Mecellesinin xidmet muqavileleri standartlarina uygun hazirlanmisdir.", 15, 40);
-            doc.text("SIMA ile tesdiqlendiyi an huquqi quvveye sahib olur.", 15, 50);
-            doc.save("Aldaye_Guvenlik_Muqavilesi.pdf");
+            doc.text("Tarix: " + new Date().toLocaleDateString("az-AZ"), 15, 26);
+            doc.text("Qeyd: Bu numune huquqi meslehet deyil ve konkret sifaris melumatlari ile tamamlanmalidir.", 15, 33);
+            let y = 43;
+            contractTerms.forEach(([title, text]) => {
+                const safeTitle = title.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[əƏ]/g, "e").replace(/[ıİ]/g, "i").replace(/[şŞ]/g, "s").replace(/[çÇ]/g, "c").replace(/[ğĞ]/g, "g").replace(/[öÖ]/g, "o").replace(/[üÜ]/g, "u");
+                const safeText = text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[əƏ]/g, "e").replace(/[ıİ]/g, "i").replace(/[şŞ]/g, "s").replace(/[çÇ]/g, "c").replace(/[ğĞ]/g, "g").replace(/[öÖ]/g, "o").replace(/[üÜ]/g, "u");
+                const lines = doc.splitTextToSize(safeText, 180);
+                if (y + lines.length * 5 > 282) {
+                    doc.addPage();
+                    y = 18;
+                }
+                doc.setFont("Helvetica", "bold");
+                doc.text(safeTitle, 15, y);
+                y += 5;
+                doc.setFont("Helvetica", "normal");
+                doc.text(lines, 15, y);
+                y += lines.length * 5 + 5;
+            });
+            doc.save("Aldaye_Daye_Xidmeti_Numune_Muqavile.pdf");
         }
 
         function submitLead(event) {
@@ -1664,7 +1673,7 @@
 
             if (!panel.classList.contains('hidden') && !panel.dataset.started) {
                 panel.dataset.started = "true";
-                addAiMessage('bot', 'Salam, mən Aldayə AI köməkçisiyəm. Dayə qeydiyyatı, valideyn sifarişi, SİMA yoxlama və qiymət haqqında sual verə bilərsiniz.');
+                addAiMessage('bot', 'Salam, mən Aldayə köməkçisiyəm. Dayə seçimi, uyğun saatlar, tarif, favoritlər, müqavilə, təhlükəsizlik və tətbiqdaxili zənglər barədə sərbəst sual yaza bilərsiniz.');
             }
         }
 
@@ -1677,30 +1686,39 @@
             messages.scrollTop = messages.scrollHeight;
         }
 
+        const assistantKnowledge = [
+            { keys: ["ilk dəfə", "ilk defe", "nədən başlayım", "neden baslayim", "necə seçim"], answer: "İlk addım olaraq uşaq sayı, xidmət növü, dil və lazım olan müddəti filtrlərdə seçin. Sonra 2-3 profili sənədlər, uyğunluq cədvəli, təcrübə və rəylərə görə müqayisə edib bəyəndiklərinizi favoriyə əlavə edin." },
+            { keys: ["qeydiyyat", "daye olmaq", "dayə olmaq", "işləmək"], answer: "Dayə qeydiyyatı ayrıca səhifədə aparılır. Müraciətdən sonra dayə öz panelində bio, tarif, uyğun günlər, xidmətlər və sənədləri idarə edir." },
+            { keys: ["sifariş", "sifarish", "rezerv", "valideyn"], answer: "Əvvəl profilə baxıb dayəni favoriyə əlavə edin. Sonra “Favorilərim” bölməsindən sifariş səhifəsinə keçin, dayəni seçin və uşağın ehtiyaclarını yazın." },
+            { keys: ["favori", "seçim siyah"], answer: "Favori düyməsi dayənin profilindədir. Saxlanmış bütün dayələr ana səhifədəki ayrıca “Favorilərim” pəncərəsində və sifariş səhifəsində birlikdə görünür." },
+            { keys: ["sima", "sənəd", "sened", "yoxlama", "təhlükəsiz"], answer: "Profilin güvən hissəsində SİMA şəxsiyyət təsdiqi, arayış, təhsil sənədi və referans məlumatları göstərilir. Sifarişdən əvvəl bu bölmələri yoxlamağınız tövsiyə olunur." },
+            { keys: ["qiymət", "qiymet", "azn", "tarif", "komissiya", "məbləğ"], answer: "Dayə saatlıq tarifini şəxsi paneldə + və − düymələri ilə dəyişir. Yekun məbləğ saat sayı, uşaq sayı və xüsusi qayğı əlavəsinə görə hesablanır; platforma xidmət haqqı ayrıca göstərilir." },
+            { keys: ["müqavilə", "muqavile", "şərt", "madde", "maddə"], answer: "Müqavilədə xidmətin həcmi, ödəniş, ləğv, təhlükəsizlik, məxfilik, tətbiqdaxili əlaqə və mübahisələrin həlli müddəaları var. Ana səhifədə “Müqavilə şərtləri” düyməsindən oxuya və nümunə PDF yükləyə bilərsiniz." },
+            { keys: ["zəng", "zeng", "video", "səsli", "sesli", "telefon", "nömrə"], answer: "Səsli və video görüş dayənin profilindəki tətbiqdaxili zəng düymələri ilə başladılır. Şəxsi telefon nömrəsi qarşı tərəfə göstərilmir." },
+            { keys: ["saat", "vaxt", "uyğun", "bos", "boş", "cədvəl"], answer: "Hər dayənin profilində həftəlik uyğunluq cədvəli var. Yaşıl xanalar uyğun, boz xanalar dolu vaxtları göstərir." },
+            { keys: ["siqaret", "evli", "subay", "övlad", "suruc", "sürüc", "ev işi", "yemək"], answer: "Bu məlumatlar dayənin geniş profilində “Şəxsi və xidmət məlumatları” bölməsində göstərilir: ailə vəziyyəti, övlad, siqaret, sürücülük, avtomobil, yemək və ev işi imkanları." },
+            { keys: ["körpə", "korpe", "gecə"], answer: "Körpə və gecə baxımı üçün xidmət filtrindən uyğun növü seçin. Profil daxilində yaş qrupları, gecə qalmaq imkanı, yuxu rutini və ilk yardım məlumatlarını müqayisə edin." },
+            { keys: ["ləğv", "legv", "geri ödə", "gecik"], answer: "Ləğv və gecikmə şərtləri sifariş xülasəsində göstərilməlidir. Müqavilə pəncərəsində bunun üçün ayrıca müddəa var; konkret sifarişdə tarix və məbləğ ayrıca təsdiqlənir." },
+            { keys: ["salam", "sabah", "axşam", "necəsən"], answer: "Salam! Sizə uyğun dayə tapmaq, profil müqayisə etmək və sifariş addımlarını izah etmək üçün buradayam. Nəyi bilmək istəyirsiniz?" }
+        ];
+
+        function normalizeQuestion(text) {
+            return text.toLowerCase().replace(/[?!.,:;]/g, " ").replace(/\s+/g, " ").trim();
+        }
+
         function getAiReply(question) {
-            const q = question.toLowerCase();
+            const q = normalizeQuestion(question);
+            const ranked = assistantKnowledge
+                .map(item => ({ ...item, score: item.keys.reduce((score, key) => score + (q.includes(key) ? key.length : 0), 0) }))
+                .sort((a, b) => b.score - a.score);
 
-            if (q.includes('dayə') || q.includes('daye')) {
-                return 'Dayə kimi qeydiyyat ayrıca səhifədədir: “Dayə qeydiyyatı” bölməsinə keçin. Orada profil, təcrübə, saatlıq tarif, sənədlər, SİMA yoxlama və təsdiq mərhələləri izah olunur.';
+            if (ranked[0]?.score > 0) return ranked[0].answer;
+
+            if (q.includes("necə") || q.includes("harada") || q.includes("nə")) {
+                return `“${question}” sualınız üçün ən yaxın addım profil və sifariş məlumatlarını yoxlamaqdır. Sualı dayə seçimi, qiymət, vaxt, sənəd, zəng və ya müqavilə ilə əlaqələndirib bir az daha detallı yazsanız, sizə konkret yol göstərəcəyəm.`;
             }
 
-            if (q.includes('valideyn') || q.includes('uşaq') || q.includes('usaq') || q.includes('sifariş')) {
-                return 'Valideyn üçün axın ayrıca səhifədədir: uşaq məlumatı, ehtiyac seçimi, uyğun dayə axtarışı, profilə baxış, tanışlıq və SİMA ilə sifariş təsdiqi.';
-            }
-
-            if (q.includes('sima') || q.includes('sənəd') || q.includes('sened') || q.includes('yoxlama')) {
-                return 'SİMA şəxsiyyət təsdiqi üçün istifadə olunur. Profil daxilində SİMA ID, məhkumluq arayışı, referans və təhsil sənədi kimi güvən məlumatları göstərilir.';
-            }
-
-            if (q.includes('qiymət') || q.includes('qiymet') || q.includes('azn') || q.includes('komissiya')) {
-                return 'Qiymət saatlıq tarif, uşaq sayı, xüsusi qayğı ehtiyacı və müddətə görə hesablanır. Platforma xidmət haqqı 15% təşkil edir.';
-            }
-
-            if (q.includes('profil')) {
-                return 'Dayə kartındakı “Profilə bax” düyməsi ayrıca profil səhifəsini açır. Orada bio, bacarıqlar, yaş qrupları, sənədlər, rəylər və boş saatlar rahat görünür.';
-            }
-
-            return 'Sizə dayə qeydiyyatı, valideyn qeydiyyatı, dayə profilləri, SİMA yoxlama və qiymət hesablaması haqqında kömək edə bilərəm. Hansı biri haqqında danışaq?';
+            return `Sualınızı aldım. Aldayə daxilində bu mövzuya uyğun təhlükəsiz addımı tapmaq üçün məqsədinizi bir cümlə ilə dəqiqləşdirin: dayə axtarırsınız, dayə kimi profil yaradırsınız, yoxsa mövcud sifarişi idarə edirsiniz?`;
         }
 
         function sendAiChatMessage() {
@@ -1728,8 +1746,8 @@
         }
 
         window.onload = function() {
-            calculateNannyEarnings();
             loadActiveSitters();
+            updateFavoritesCount();
         };
     </script>
 </body>
