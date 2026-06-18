@@ -15,6 +15,9 @@
         .card { background: rgba(255,255,255,.96); border: 2px solid #bfdbfe; box-shadow: 0 15px 30px rgba(37,99,235,.1); }
         .btn { background: linear-gradient(135deg,#10b981,#3b82f6); border-radius: 18px; box-shadow: 0 10px 0 rgba(16,185,129,.16),0 18px 36px rgba(15,23,42,.12); }
         input, select, textarea { border: 2px solid #bfdbfe !important; background: #f8fafc !important; outline: none; }
+        .favorite-card { border: 2px solid #dbeafe; transition: border-color .2s ease, transform .2s ease, background .2s ease; }
+        .favorite-card:hover { transform: translateY(-2px); border-color: #f9a8d4; }
+        .favorite-card.selected { border-color: #10b981; background: #ecfdf5; box-shadow: 0 12px 24px rgba(16,185,129,.12); }
     </style>
 </head>
 <body class="p-4 md:p-10 text-slate-800">
@@ -49,12 +52,31 @@
             <div class="card rounded-3xl p-5"><div class="font-black text-emerald-600 text-2xl">4</div><h3 class="font-black text-blue-950 mt-2">Sifariş</h3><p class="text-xs font-semibold text-slate-500 mt-2">Qiymət hesablanır, müqavilə hazırlanır və GPS paneli aktiv olur.</p></div>
         </section>
 
+        <section id="booking" class="card rounded-3xl p-8 space-y-6 scroll-mt-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <div>
+                    <span class="text-[10px] font-black uppercase tracking-widest text-pink-600">Ailənin seçim siyahısı</span>
+                    <h2 class="serif-title text-3xl font-black text-blue-950 mt-1">Favori dayənizi seçin</h2>
+                    <p class="text-sm font-semibold text-slate-600 mt-2">Profil səhifəsində favoriyə əlavə etdiyiniz dayələr burada görünür.</p>
+                </div>
+                <a href="index.html#search" class="text-xs font-black uppercase tracking-widest text-blue-700 bg-blue-50 border border-blue-100 px-4 py-3 rounded-xl">
+                    <i class="fa-solid fa-magnifying-glass mr-1"></i> Başqa dayə tap
+                </a>
+            </div>
+            <div id="favoriteSitters" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            <div id="emptyFavorites" class="hidden bg-amber-50 border-2 border-amber-100 rounded-2xl p-5 text-sm font-bold text-amber-800">
+                <i class="fa-regular fa-heart mr-1"></i> Hələ favorit dayəniz yoxdur. Dayə profilinə daxil olub “Favorilərə əlavə et” düyməsini seçin.
+            </div>
+        </section>
+
         <section class="card rounded-3xl p-8 grid grid-cols-1 lg:grid-cols-12 gap-8">
             <div class="lg:col-span-5">
-                <h2 class="serif-title text-3xl font-black text-blue-950">Demo valideyn forması</h2>
-                <p class="text-sm font-semibold text-slate-600 mt-2">Bu forma demo məqsədlidir və məlumatı brauzerdə saxlayır.</p>
+                <h2 class="serif-title text-3xl font-black text-blue-950">Sifariş məlumatları</h2>
+                <p class="text-sm font-semibold text-slate-600 mt-2">Seçilmiş dayə və uşağınızın ehtiyacları əsasında müraciətinizi tamamlayın.</p>
+                <div id="selectedNannySummary" class="hidden mt-5 bg-emerald-50 border-2 border-emerald-100 rounded-2xl p-4"></div>
             </div>
             <form onsubmit="submitRegister(event, 'valideyn')" class="lg:col-span-7 space-y-4">
+                <input type="hidden" id="selectedNannyId">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <input required id="name" class="p-3 rounded-xl text-sm font-semibold" placeholder="Ad Soyad">
                     <input required id="contact" class="p-3 rounded-xl text-sm font-semibold" placeholder="Telefon və ya email">
@@ -62,22 +84,115 @@
                     <select id="need" class="p-3 rounded-xl text-sm font-semibold"><option>Gündəlik dayə</option><option>Gecə baxımı</option><option>Dərs dəstəyi</option><option>Xüsusi qayğı dəstəyi</option></select>
                 </div>
                 <textarea id="note" class="w-full p-3 rounded-xl text-sm font-semibold" rows="4" placeholder="Uşağın yaşı, lazım olan saatlar və xüsusi qeydlər"></textarea>
-                <button class="btn text-white font-black px-6 py-4 text-xs uppercase tracking-widest">Valideyn kimi müraciət göndər</button>
+                <button id="submitButton" class="btn text-white font-black px-6 py-4 text-xs uppercase tracking-widest disabled:opacity-50 disabled:cursor-not-allowed" disabled>Sifarişi göndər</button>
                 <p id="success" class="hidden text-xs font-black text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-xl p-3">Müraciət qeydə alındı.</p>
             </form>
         </section>
     </main>
 
     <script>
+        const sittersData = [
+            { id: 1, name: "Nərgiz Qasımova", city: "Bakı", rating: 5.0, basePrice: 5, services: "Dayə · Məktəbə hazırlıq", avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=220&h=220" },
+            { id: 2, name: "Fatimə Həsənli", city: "Sumqayıt", rating: 4.9, basePrice: 4, services: "Gecə baxımı · Körpə rutini", avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=220&h=220" },
+            { id: 3, name: "Aysel Məmmədova", city: "Bakı", rating: 5.0, basePrice: 6, services: "İngilis dili · Dərs dəstəyi", avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=220&h=220" }
+        ];
+
+        function getFavorites() {
+            try {
+                return JSON.parse(localStorage.getItem('aldayeFavorites') || '[]').map(Number);
+            } catch {
+                return [];
+            }
+        }
+
+        function renderFavorites() {
+            const favoriteIds = getFavorites();
+            const favorites = sittersData.filter(sitter => favoriteIds.includes(sitter.id));
+            const container = document.getElementById('favoriteSitters');
+            const empty = document.getElementById('emptyFavorites');
+
+            if (!favorites.length) {
+                container.innerHTML = '';
+                empty.classList.remove('hidden');
+                selectNanny(null);
+                return;
+            }
+
+            empty.classList.add('hidden');
+            container.innerHTML = favorites.map(sitter => `
+                <button type="button" data-nanny-id="${sitter.id}" onclick="selectNanny(${sitter.id})" class="favorite-card text-left bg-white rounded-2xl p-4">
+                    <div class="flex gap-3 items-center">
+                        <img src="${sitter.avatar}" alt="${sitter.name}" class="w-16 h-16 object-cover rounded-2xl border-2 border-pink-100">
+                        <div class="min-w-0">
+                            <div class="font-black text-blue-950">${sitter.name}</div>
+                            <div class="text-xs font-bold text-slate-500 mt-1">${sitter.city} · <span class="text-amber-500"><i class="fa-solid fa-star"></i> ${sitter.rating.toFixed(1)}</span></div>
+                            <div class="text-[10px] font-black uppercase tracking-wider text-pink-600 mt-1">${sitter.services}</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center mt-4 pt-3 border-t border-slate-100">
+                        <span class="text-sm font-black text-blue-950">${sitter.basePrice} AZN / saat</span>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-emerald-600"><i class="fa-solid fa-circle-check mr-1"></i> Seç</span>
+                    </div>
+                </button>
+            `).join('');
+
+            const requestedId = Number(new URLSearchParams(window.location.search).get('nanny'));
+            const initial = favorites.find(sitter => sitter.id === requestedId) || (favorites.length === 1 ? favorites[0] : null);
+            selectNanny(initial?.id || null);
+        }
+
+        function selectNanny(id) {
+            const sitter = sittersData.find(item => item.id === Number(id));
+            document.querySelectorAll('[data-nanny-id]').forEach(card => {
+                card.classList.toggle('selected', Number(card.dataset.nannyId) === Number(id));
+            });
+
+            selectedNannyId.value = sitter?.id || '';
+            submitButton.disabled = !sitter;
+
+            if (!sitter) {
+                selectedNannySummary.classList.add('hidden');
+                selectedNannySummary.innerHTML = '';
+                return;
+            }
+
+            selectedNannySummary.classList.remove('hidden');
+            selectedNannySummary.innerHTML = `
+                <div class="text-[10px] font-black uppercase tracking-widest text-emerald-600">Seçilmiş dayə</div>
+                <div class="text-lg font-black text-blue-950 mt-1">${sitter.name}</div>
+                <div class="text-xs font-bold text-slate-500 mt-1">${sitter.services} · ${sitter.basePrice} AZN/saat</div>
+            `;
+        }
+
         function submitRegister(event, type) {
             event.preventDefault();
-            const payload = { type, name: name.value, contact: contact.value, city: city.value, need: need.value, note: note.value, createdAt: new Date().toISOString() };
+            const sitter = sittersData.find(item => item.id === Number(selectedNannyId.value));
+            if (!sitter) {
+                document.getElementById('booking').scrollIntoView({ behavior: 'smooth' });
+                return;
+            }
+
+            const payload = {
+                type,
+                name: name.value,
+                contact: contact.value,
+                city: city.value,
+                need: need.value,
+                note: note.value,
+                nannyId: sitter.id,
+                nannyName: sitter.name,
+                createdAt: new Date().toISOString()
+            };
             const data = JSON.parse(localStorage.getItem('aldayeRegistrations') || '[]');
             data.push(payload);
             localStorage.setItem('aldayeRegistrations', JSON.stringify(data));
+            success.textContent = `${sitter.name} üçün sifariş müraciətiniz qeydə alındı.`;
             success.classList.remove('hidden');
             event.target.reset();
+            selectedNannyId.value = sitter.id;
         }
+
+        renderFavorites();
     </script>
 </body>
 </html>

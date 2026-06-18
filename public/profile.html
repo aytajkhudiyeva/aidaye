@@ -75,6 +75,58 @@
         .floating-element {
             animation: floatSmall 4s ease-in-out infinite;
         }
+
+        .detail-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            border-radius: 16px;
+            padding: 14px;
+            background: rgba(255, 255, 255, .92);
+            border: 1px solid #dbeafe;
+        }
+
+        .schedule-table {
+            width: 100%;
+            min-width: 720px;
+            border-collapse: separate;
+            border-spacing: 6px;
+        }
+
+        .schedule-table th {
+            padding: 8px 6px;
+            color: #64748b;
+            font-size: 10px;
+            font-weight: 900;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        .schedule-table td {
+            padding: 10px 7px;
+            border-radius: 12px;
+            text-align: center;
+            font-size: 10px;
+            font-weight: 900;
+        }
+
+        .schedule-available {
+            background: #dcfce7;
+            color: #047857;
+            border: 1px solid #bbf7d0;
+        }
+
+        .schedule-busy {
+            background: #f1f5f9;
+            color: #94a3b8;
+            border: 1px solid #e2e8f0;
+        }
+
+        .favorite-active {
+            background: #fff1f2;
+            color: #be123c;
+            border-color: #fecdd3;
+        }
     </style>
 </head>
 <body class="p-4 md:p-10 text-slate-800 antialiased">
@@ -121,6 +173,25 @@
                 verifications: ["SİMA ID", "Məhkumluq arayışı", "Referans yoxlanışı"],
                 bio: "7 illik təcrübəm var. Uşaqlarla sakit, ritmli gün planı qurmağı və valideynlə gündəlik hesabat paylaşmağı sevirəm.",
                 review: "Nərgiz xanım uşağımızla çox tez bağ qurdu, vaxtında gəldi və günün sonunda hər şeyi izah etdi.",
+                maritalStatus: "Evli",
+                hasChildren: "Bəli, 1 övladı var",
+                smoking: "Siqaret çəkmir",
+                driversLicense: "Bəli, B kateqoriyası",
+                hasCar: "Şəxsi avtomobili yoxdur",
+                housework: "Uşaqla bağlı yüngül ev işləri",
+                cooking: "Uşaq üçün sadə yeməklər hazırlayır",
+                pets: "Ev heyvanları ilə işləyə bilir",
+                overnight: "Öncədən razılaşma ilə",
+                emergencyTraining: "İlk yardım təlimi keçib",
+                availability: {
+                    "Bazar ertəsi": ["09:00-12:00", "14:00-18:00"],
+                    "Çərşənbə axşamı": ["09:00-12:00"],
+                    "Çərşənbə": ["14:00-18:00"],
+                    "Cümə axşamı": ["09:00-12:00", "18:00-22:00"],
+                    "Cümə": ["09:00-12:00", "14:00-18:00"],
+                    "Şənbə": ["10:00-14:00"],
+                    "Bazar": []
+                },
                 avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=420&h=420"
             },
             {
@@ -148,6 +219,25 @@
                 verifications: ["SİMA ID", "Video təqdimat", "Referans yoxlanışı"],
                 bio: "Körpə və azyaşlı uşaqlarla işləməyi sevirəm. Gecə baxımı və yuxu rejimi mövzularında ailələrə dəstək verirəm.",
                 review: "Fatimə xanım çox diqqətli idi, körpəmizin rejiminə tam uyğunlaşdı.",
+                maritalStatus: "Subay",
+                hasChildren: "Xeyr",
+                smoking: "Siqaret çəkmir",
+                driversLicense: "Xeyr",
+                hasCar: "Şəxsi avtomobili yoxdur",
+                housework: "Yalnız uşağa qulluq edir",
+                cooking: "Körpə qidası hazırlayır",
+                pets: "Pişik və it olan evlərə uyğundur",
+                overnight: "Bəli",
+                emergencyTraining: "Körpələr üçün ilk yardım biliyi",
+                availability: {
+                    "Bazar ertəsi": ["18:00-22:00"],
+                    "Çərşənbə axşamı": ["14:00-18:00", "18:00-22:00"],
+                    "Çərşənbə": [],
+                    "Cümə axşamı": ["18:00-22:00"],
+                    "Cümə": ["14:00-18:00", "18:00-22:00"],
+                    "Şənbə": ["09:00-12:00", "14:00-18:00", "18:00-22:00"],
+                    "Bazar": ["09:00-12:00", "14:00-18:00"]
+                },
                 avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=420&h=420"
             },
             {
@@ -175,6 +265,25 @@
                 verifications: ["SİMA ID", "Məhkumluq arayışı", "Təhsil sənədi"],
                 bio: "İbtidai yaşlı uşaqlara dərs dəstəyi, yaradıcı oyunlar və dil praktikası ilə kömək edirəm. Valideynlə planlı ünsiyyət saxlayıram.",
                 review: "Aysel xanım həm dayə, həm də dərs dəstəyi kimi çox faydalı oldu.",
+                maritalStatus: "Evli",
+                hasChildren: "Bəli, 2 övladı var",
+                smoking: "Siqaret çəkmir",
+                driversLicense: "Bəli, B kateqoriyası",
+                hasCar: "Şəxsi avtomobili var",
+                housework: "Uşaq otağının yığışdırılması və uşaq paltarları",
+                cooking: "Uşaq və ailə üçün yemək hazırlaya bilir",
+                pets: "Ev heyvanları ilə işləyə bilir",
+                overnight: "Xeyr",
+                emergencyTraining: "İlk yardım sertifikatı var",
+                availability: {
+                    "Bazar ertəsi": ["08:00-12:00", "14:00-18:00"],
+                    "Çərşənbə axşamı": ["08:00-12:00", "14:00-18:00"],
+                    "Çərşənbə": ["08:00-12:00"],
+                    "Cümə axşamı": ["14:00-18:00"],
+                    "Cümə": ["08:00-12:00", "14:00-18:00"],
+                    "Şənbə": [],
+                    "Bazar": []
+                },
                 avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=420&h=420"
             }
         ];
@@ -185,6 +294,87 @@
 
         function chips(items, icon, classes = "") {
             return items.map(item => `<span class="profile-chip ${classes}"><i class="fa-solid ${icon}"></i>${item}</span>`).join('');
+        }
+
+        const schedulePeriods = ["08:00-12:00", "09:00-12:00", "10:00-14:00", "14:00-18:00", "18:00-22:00"];
+
+        function getFavorites() {
+            try {
+                return JSON.parse(localStorage.getItem('aldayeFavorites') || '[]').map(Number);
+            } catch {
+                return [];
+            }
+        }
+
+        function isFavorite() {
+            return getFavorites().includes(sitter.id);
+        }
+
+        function toggleFavorite() {
+            const favorites = getFavorites();
+            const updated = favorites.includes(sitter.id)
+                ? favorites.filter(id => id !== sitter.id)
+                : [...favorites, sitter.id];
+
+            localStorage.setItem('aldayeFavorites', JSON.stringify(updated));
+            updateFavoriteButton();
+        }
+
+        function updateFavoriteButton() {
+            const button = document.getElementById('favoriteButton');
+            const note = document.getElementById('favoriteNote');
+            if (!button) return;
+
+            const active = isFavorite();
+            button.classList.toggle('favorite-active', active);
+            button.innerHTML = active
+                ? '<i class="fa-solid fa-heart mr-1.5"></i> Favorilərdən çıxar'
+                : '<i class="fa-regular fa-heart mr-1.5"></i> Favorilərə əlavə et';
+            note.textContent = active
+                ? 'Bu dayə ailənizin seçim siyahısına əlavə edilib.'
+                : 'Bəyəndiyiniz dayəni saxlayın və sifariş zamanı siyahıdan seçin.';
+        }
+
+        function renderSchedule() {
+            const days = Object.keys(sitter.availability);
+            return `
+                <div class="overflow-x-auto">
+                    <table class="schedule-table" aria-label="${sitter.name} üçün həftəlik uyğunluq cədvəli">
+                        <thead>
+                            <tr>
+                                <th>Gün</th>
+                                ${schedulePeriods.map(period => `<th>${period}</th>`).join('')}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${days.map(day => `
+                                <tr>
+                                    <td class="bg-blue-50 text-blue-950 border border-blue-100">${day}</td>
+                                    ${schedulePeriods.map(period => {
+                                        const available = sitter.availability[day].includes(period);
+                                        return `<td class="${available ? 'schedule-available' : 'schedule-busy'}">
+                                            <i class="fa-solid ${available ? 'fa-check' : 'fa-minus'} mr-1"></i>
+                                            ${available ? 'Uyğundur' : 'Dolu'}
+                                        </td>`;
+                                    }).join('')}
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        function bookingUrl() {
+            if (!isFavorite()) {
+                const favorites = getFavorites();
+                localStorage.setItem('aldayeFavorites', JSON.stringify([...favorites, sitter.id]));
+            }
+            return `parent-register.html?nanny=${sitter.id}#booking`;
+        }
+
+        function goToBooking() {
+            window.location.href = bookingUrl();
         }
 
         function renderProfile() {
@@ -215,6 +405,10 @@
                                         <div class="text-xl font-black text-emerald-600">${sitter.responseTime}</div>
                                     </div>
                                 </div>
+                                <button id="favoriteButton" onclick="toggleFavorite()" class="toy-soft-button w-full bg-white text-rose-600 border-2 border-rose-100 font-black px-5 py-3.5 text-xs uppercase tracking-wider transition">
+                                    <i class="fa-regular fa-heart mr-1.5"></i> Favorilərə əlavə et
+                                </button>
+                                <p id="favoriteNote" class="text-xs font-bold text-slate-500 leading-relaxed"></p>
                             </div>
                         </div>
 
@@ -281,14 +475,47 @@
                                 </div>
                             </section>
 
+                            <section class="bg-blue-50/60 border-2 border-blue-100 rounded-3xl p-5 space-y-4">
+                                <div>
+                                    <h2 class="text-xl font-black text-blue-950 serif-title">Şəxsi və xidmət məlumatları</h2>
+                                    <p class="text-xs font-semibold text-slate-500 mt-1">Ailə üçün seçim zamanı vacib ola biləcək məlumatlar.</p>
+                                </div>
+                                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                    <div class="detail-item"><i class="fa-solid fa-ring text-pink-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Ailə vəziyyəti</div><div class="text-sm font-black text-blue-950">${sitter.maritalStatus}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-children text-blue-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Öz övladları</div><div class="text-sm font-black text-blue-950">${sitter.hasChildren}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-ban-smoking text-emerald-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Siqaret</div><div class="text-sm font-black text-blue-950">${sitter.smoking}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-id-card text-amber-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Sürücülük vəsiqəsi</div><div class="text-sm font-black text-blue-950">${sitter.driversLicense}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-car text-violet-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Avtomobil</div><div class="text-sm font-black text-blue-950">${sitter.hasCar}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-broom text-cyan-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Ev işləri</div><div class="text-sm font-black text-blue-950">${sitter.housework}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-kitchen-set text-orange-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Yemək hazırlığı</div><div class="text-sm font-black text-blue-950">${sitter.cooking}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-paw text-rose-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Ev heyvanları</div><div class="text-sm font-black text-blue-950">${sitter.pets}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-moon text-indigo-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Gecə qalmaq</div><div class="text-sm font-black text-blue-950">${sitter.overnight}</div></div></div>
+                                    <div class="detail-item"><i class="fa-solid fa-kit-medical text-red-500 mt-1"></i><div><div class="text-[9px] font-black uppercase tracking-widest text-slate-400">Təcili yardım</div><div class="text-sm font-black text-blue-950">${sitter.emergencyTraining}</div></div></div>
+                                </div>
+                            </section>
+
+                            <section class="bg-white/90 border-2 border-emerald-100 rounded-3xl p-5 space-y-3">
+                                <div class="flex flex-wrap items-end justify-between gap-3">
+                                    <div>
+                                        <h2 class="text-xl font-black text-blue-950 serif-title">Həftəlik uyğunluq cədvəli</h2>
+                                        <p class="text-xs font-semibold text-slate-500 mt-1">Yaşıl xanalar dayənin sifariş üçün uyğun olduğu vaxtları göstərir.</p>
+                                    </div>
+                                    <div class="flex gap-2 text-[10px] font-black uppercase tracking-wider">
+                                        <span class="schedule-available px-3 py-1.5 rounded-full"><i class="fa-solid fa-check mr-1"></i> Uyğundur</span>
+                                        <span class="schedule-busy px-3 py-1.5 rounded-full"><i class="fa-solid fa-minus mr-1"></i> Dolu</span>
+                                    </div>
+                                </div>
+                                ${renderSchedule()}
+                            </section>
+
                             <section class="bg-white/80 border-2 border-blue-100 rounded-3xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                 <div>
                                     <div class="text-[10px] font-black uppercase tracking-widest text-slate-400">Saatlıq qiymət</div>
                                     <div class="text-3xl font-black text-blue-950">${sitter.basePrice} AZN <span class="text-sm text-slate-500">/ saat</span></div>
                                     <div class="text-xs font-bold text-slate-500 mt-1">Boş saatlar: ${sitter.slots.join(', ')}</div>
                                 </div>
-                                <button onclick="alert('SİMA rəqəmsal imza pəncərəsi başladıldı. Müqavilə təsdiqləndikdən sonra GPS aktivləşəcək.')" class="btn-premium text-white font-black px-7 py-4 text-xs uppercase tracking-widest">
-                                    <i class="fa-solid fa-baby-carriage mr-1.5"></i> Sifariş et
+                                <button onclick="goToBooking()" class="btn-premium text-white font-black px-7 py-4 text-xs uppercase tracking-widest">
+                                    <i class="fa-solid fa-baby-carriage mr-1.5"></i> Favorilərdən sifariş et
                                 </button>
                             </section>
                         </div>
@@ -298,6 +525,7 @@
         }
 
         renderProfile();
+        updateFavoriteButton();
     </script>
 </body>
 </html>
