@@ -1040,45 +1040,27 @@
 
         </div>
 
-        <!-- 100% RELIABLE LIVE AI DIGITAL SIMULATION MODAL (No Loading/CORS issues) -->
+        <!-- AI DEMO VIDEO MODAL -->
         <div id="videoModal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden z-50 flex items-center justify-center p-4">
             <div class="bg-gradient-to-b from-slate-900 to-blue-950 rounded-3xl border-2 border-pink-400 overflow-hidden max-w-sm w-full shadow-2xl relative">
                 <button onclick="closeVideoModal()" class="absolute top-4 right-4 bg-white/10 hover:bg-white/20 text-white w-8 h-8 rounded-full flex items-center justify-center z-20 transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
-                
-                <div class="h-[450px] w-full flex flex-col items-center justify-center relative p-6 text-center overflow-hidden">
-                    <div class="absolute w-64 h-64 border-4 border-pink-500/30 rounded-full animate-ping"></div>
-                    <div class="absolute w-48 h-48 border-2 border-blue-400/20 rounded-full animate-pulse"></div>
-                    
-                    <div class="relative z-10 space-y-4">
-                        <div class="w-32 h-32 mx-auto rounded-full p-1 bg-gradient-to-tr from-pink-500 to-blue-500 shadow-2xl">
-                            <img id="modalAvatar" src="" class="w-full h-full object-cover rounded-full border-4 border-slate-900">
-                        </div>
-                        
-                        <div class="space-y-1">
-                            <span class="bg-pink-500 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full tracking-wider">AI Video Verified</span>
-                            <h3 id="videoModalTitle" class="text-xl font-black text-white tracking-tight pt-1">Dayə Təqdimatı</h3>
-                            <p class="text-xs text-emerald-400 font-mono flex items-center justify-center gap-1.5">
-                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span> Canlı Giriş Təmin Olunub
-                            </p>
-                        </div>
 
-                        <!-- Real Səs Dalğası Simulyasiyası (CSS Animasiya) -->
-                        <div class="flex items-center justify-center gap-1 h-8 pt-2">
-                            <span class="w-1 bg-pink-500 rounded animate-bounce h-6" style="animation-duration: 0.5s"></span>
-                            <span class="w-1 bg-blue-400 rounded animate-bounce h-4" style="animation-duration: 0.3s"></span>
-                            <span class="w-1 bg-purple-500 rounded animate-bounce h-7" style="animation-duration: 0.7s"></span>
-                            <span class="w-1 bg-pink-400 rounded animate-bounce h-5" style="animation-duration: 0.4s"></span>
-                            <span class="w-1 bg-emerald-400 rounded animate-bounce h-3" style="animation-duration: 0.6s"></span>
+                <video id="nannyPresentationVideo" class="w-full aspect-[3/4] bg-slate-950 object-cover" controls playsinline preload="metadata"></video>
+                <div class="p-4 border-t border-slate-800">
+                    <div class="flex items-center justify-between gap-3">
+                        <div>
+                            <span class="text-[9px] font-black uppercase tracking-widest text-pink-300">AI demo təqdimat</span>
+                            <h3 id="videoModalTitle" class="text-lg font-black text-white mt-1">Dayə təqdimatı</h3>
                         </div>
+                        <span class="text-[10px] font-black text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 px-3 py-1.5 rounded-full">
+                            <i class="fa-solid fa-volume-high mr-1"></i> Səsli
+                        </span>
                     </div>
-                    
-                    <div class="absolute bottom-0 inset-x-0 bg-slate-900/90 p-5 border-t border-slate-800 text-left">
-                        <p class="text-[11px] text-slate-300 leading-normal font-medium">
-                            <i class="fa-solid fa-circle-info text-pink-400 mr-1"></i> Təhlükəsizlik protokolları səbəbindən dayənin rəsmi video-müraciəti platformanın daxili şifrəli kanalında tam təhlükəsiz yayımlanır.
-                        </p>
-                    </div>
+                    <p class="text-[10px] text-slate-400 font-semibold mt-2">
+                        Bu, profil məlumatları əsasında hazırlanmış AI demo təqdimatdır.
+                    </p>
                 </div>
             </div>
         </div>
@@ -1369,6 +1351,7 @@
                 verifications: ["SİMA ID", "Məhkumluq arayışı", "Referans yoxlanışı"],
                 bio: "7 illik təcrübəm var. Uşaqlarla sakit, ritmli gün planı qurmağı və valideynlə gündəlik hesabat paylaşmağı sevirəm.",
                 review: "Nərgiz xanım uşağımızla çox tez bağ qurdu, vaxtında gəldi və günün sonunda hər şeyi izah etdi.",
+                video: "assets/videos/nargiz-ai-demo.mp4",
                 avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=120&h=120"
             },
             { 
@@ -1396,6 +1379,7 @@
                 verifications: ["SİMA ID", "Video təqdimat", "Referans yoxlanışı"],
                 bio: "Körpə və azyaşlı uşaqlarla işləməyi sevirəm. Gecə baxımı və yuxu rejimi mövzularında ailələrə dəstək verirəm.",
                 review: "Fatimə xanım çox diqqətli idi, körpəmizin rejiminə tam uyğunlaşdı.",
+                video: "assets/videos/fatima-ai-demo.mp4",
                 avatar: "https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&q=80&w=120&h=120"
             },
             { 
@@ -1423,6 +1407,7 @@
                 verifications: ["SİMA ID", "Məhkumluq arayışı", "Təhsil sənədi"],
                 bio: "İbtidai yaşlı uşaqlara dərs dəstəyi, yaradıcı oyunlar və dil praktikası ilə kömək edirəm. Valideynlə planlı ünsiyyət saxlayıram.",
                 review: "Aysel xanım həm dayə, həm də dərs dəstəyi kimi çox faydalı oldu.",
+                video: "assets/videos/aysel-ai-demo.mp4",
                 avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=120&h=120"
             }
         ];
@@ -1522,7 +1507,7 @@
                                     <h4 class="font-extrabold text-blue-950 text-base tracking-tight">
                                         ${s.name}
                                     </h4>
-                                    <button onclick="openVideoModal('${s.name}', '${s.avatar}')" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm hover:scale-105 transition">
+                                    <button onclick="openVideoModal(${s.id})" class="bg-gradient-to-r from-pink-500 to-rose-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm hover:scale-105 transition">
                                         <i class="fa-solid fa-circle-play text-[11px]"></i> VİDEO BAX
                                     </button>
                                     <span class="text-[9px] bg-emerald-500 text-white px-2 py-0.5 rounded font-bold tracking-wider uppercase flex items-center gap-0.5">
@@ -1604,13 +1589,22 @@
             btn.classList.add('selected');
         }
 
-        function openVideoModal(name, avatarUrl) {
-            document.getElementById('videoModalTitle').innerText = name;
-            document.getElementById('modalAvatar').src = avatarUrl;
+        function openVideoModal(sitterId) {
+            const sitter = sittersData.find(item => item.id === Number(sitterId));
+            if (!sitter) return;
+
+            const video = document.getElementById('nannyPresentationVideo');
+            document.getElementById('videoModalTitle').innerText = sitter.name;
+            video.src = sitter.video;
+            video.poster = sitter.avatar;
             document.getElementById('videoModal').classList.remove('hidden');
+            video.play().catch(() => {});
         }
 
         function closeVideoModal() {
+            const video = document.getElementById('nannyPresentationVideo');
+            video.pause();
+            video.currentTime = 0;
             document.getElementById('videoModal').classList.add('hidden');
         }
 
