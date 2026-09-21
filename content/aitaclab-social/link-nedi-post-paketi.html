@@ -1,0 +1,1155 @@
+<title>Səhifədən sonra</title>
+
+<style>
+  /* ============================================================
+     PALET — səhifə çərçivəsi (slaydların öz rəngləri aşağıda)
+     ============================================================ */
+  :root {
+    --bg:        #EDEFEB;
+    --surface:   #FBFCF9;
+    --ink:       #171B1A;
+    --ink-soft:  #454F4D;
+    --muted:     #737E7B;
+    --line:      #D2D8D3;
+    --pen:       #24408F;   /* mürəkkəb mavisi */
+    --marker:    #E8E7A8;   /* solğun marker */
+    --shadow:    0 1px 2px rgba(23,27,26,.06), 0 14px 32px -22px rgba(23,27,26,.4);
+
+    --font-display: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-mono: "Courier New", ui-monospace, monospace;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg:        #101312;
+      --surface:   #181C1B;
+      --ink:       #EDEFEA;
+      --ink-soft:  #C3CAC6;
+      --muted:     #8C9793;
+      --line:      #2B3332;
+      --pen:       #94AEF5;
+      --marker:    #B9B96F;
+      --shadow:    0 1px 2px rgba(0,0,0,.5), 0 18px 36px -24px rgba(0,0,0,.85);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg:        #101312;
+    --surface:   #181C1B;
+    --ink:       #EDEFEA;
+    --ink-soft:  #C3CAC6;
+    --muted:     #8C9793;
+    --line:      #2B3332;
+    --pen:       #94AEF5;
+    --marker:    #B9B96F;
+    --shadow:    0 1px 2px rgba(0,0,0,.5), 0 18px 36px -24px rgba(0,0,0,.85);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: clamp(30px, 5vw, 70px) clamp(16px, 4vw, 40px) 96px;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(48px, 6vw, 82px);
+  }
+
+  /* ---------- Başlıq ---------- */
+  .masthead { display: flex; flex-direction: column; gap: 20px; }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(40px, 8vw, 78px);
+    line-height: 1;
+    letter-spacing: -.032em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  .lede {
+    font-size: clamp(18px, 2.2vw, 21px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 60ch;
+    margin: 0;
+  }
+
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 2px; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: .04em;
+    padding: 6px 12px;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: var(--surface);
+    color: var(--ink-soft);
+    white-space: nowrap;
+  }
+  .chip.hot { border-color: var(--pen); color: var(--pen); }
+
+  /* ---------- Bölmə başlıqları ---------- */
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+  }
+  .sec-head h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    font-size: clamp(23px, 3.2vw, 31px);
+    margin: 0;
+  }
+  .sec-head .note {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  /* ---------- Dil qaydaları ---------- */
+  .voice { display: grid; grid-template-columns: repeat(auto-fit, minmax(288px, 1fr)); gap: 16px; }
+  .vcard {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: 20px 22px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .vcard h3 {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+  }
+  .vrow { display: flex; flex-direction: column; gap: 4px; }
+  .vbad { color: var(--muted); font-size: 15.5px; line-height: 1.4; }
+  .vbad::before { content: "əvəzinə "; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+  .vgood { color: var(--ink); font-size: 15.5px; line-height: 1.45; font-weight: 600; border-left: 2px solid var(--pen); padding-left: 10px; }
+
+  /* ---------- Post bloku ---------- */
+  .post {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: clamp(20px, 3vw, 34px);
+    align-items: start;
+  }
+  @media (max-width: 940px) { .post { grid-template-columns: minmax(0, 1fr); } }
+
+  .post-head {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    border-top: 1px solid var(--line);
+    padding-top: 14px;
+  }
+  .post-num {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .12em;
+    color: var(--muted);
+  }
+  .post-head h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: -.025em;
+    font-size: clamp(21px, 2.8vw, 28px);
+    margin: 0;
+  }
+  .post-kind {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  /* ---------- Slayd lenti ---------- */
+  .strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 2px 2px 14px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+  .strip .slide { flex: 0 0 min(300px, 76vw); scroll-snap-align: start; }
+  .strip-hint {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: .08em;
+    color: var(--muted);
+    margin: -6px 0 0;
+  }
+
+  /* ============================================================
+     SLAYD — dəftər vərəqi. İki temada da eyni görünür,
+     çünki bu çap olunmuş səhifədir, interfeys deyil.
+     ============================================================ */
+  .slide {
+    container-type: inline-size;
+    position: relative;
+    aspect-ratio: 4 / 5;
+    background-color: #FCFCF7;
+    background-image:
+      linear-gradient(rgba(36,64,143,.055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(36,64,143,.055) 1px, transparent 1px);
+    background-size: 8% 6.4%;
+    border: 1px solid #E0E0D6;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    color: #171B1A;
+  }
+  .slide.v { aspect-ratio: 9 / 16; background-size: 10% 5.625%; }
+  /* reels: yuxarıdan 250, aşağıdan 400 piksel interfeys altında qalır */
+  .slide.v .pad { padding: 21cqw 8.4cqw 34cqw; }
+  .slide.v .pad > .top { margin-bottom: auto; }
+
+  .slide .pad {
+    position: absolute;
+    inset: 0;
+    padding: 8.4cqw;
+    display: flex;
+    flex-direction: column;
+    gap: 4.6cqw;
+  }
+  .slide .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: var(--font-mono);
+    font-size: 2.8cqw;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: #8A9088;
+    padding-bottom: 2.4cqw;
+    border-bottom: 1px solid rgba(23,27,26,.13);
+  }
+  .slide .bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 3cqw;
+    font-family: var(--font-mono);
+    font-size: 2.8cqw;
+    letter-spacing: .11em;
+    color: #8A9088;
+  }
+  .slide h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 9cqw;
+    line-height: 1.02;
+    letter-spacing: -.033em;
+    margin: 0;
+    color: #171B1A;
+    text-wrap: balance;
+  }
+  .slide h3.sm { font-size: 7.6cqw; }
+  .slide h3.xs { font-size: 6.6cqw; line-height: 1.08; letter-spacing: -.024em; }
+  .slide p {
+    font-size: 4.4cqw;
+    line-height: 1.42;
+    margin: 0;
+    color: #333C3A;
+  }
+  .slide p.small { font-size: 3.55cqw; color: #5A6462; }
+
+  .mark {
+    background-image: linear-gradient(#E8E7A8, #E8E7A8);
+    background-size: 100% .46em;
+    background-position: 0 .68em;
+    background-repeat: no-repeat;
+    padding: 0 .05em;
+  }
+
+  .slide .seg {
+    font-family: var(--font-mono);
+    font-size: 2.9cqw;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: #24408F;
+    margin-top: -2.2cqw;
+  }
+
+  /* söhbət qabarcıqları */
+  .bubbles { display: flex; flex-direction: column; gap: 2.2cqw; }
+  .bubble {
+    align-self: flex-start;
+    max-width: 82%;
+    background: #EFEFE7;
+    border: 1px solid #E1E1D5;
+    border-radius: 4cqw 4cqw 4cqw 1cqw;
+    padding: 2.5cqw 3.2cqw;
+    font-size: 3.95cqw;
+    line-height: 1.32;
+    color: #232A28;
+  }
+  .bubble.me {
+    align-self: flex-end;
+    background: #24408F;
+    border-color: #24408F;
+    color: #F4F6FC;
+    border-radius: 4cqw 4cqw 1cqw 4cqw;
+  }
+  .bubble .t {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 2.6cqw;
+    letter-spacing: .06em;
+    opacity: .6;
+    margin-top: .8cqw;
+  }
+
+  /* siyahılar */
+  .rows { display: flex; flex-direction: column; gap: 3.4cqw; }
+  .row {
+    display: flex;
+    gap: 3cqw;
+    align-items: flex-start;
+    font-size: 4.3cqw;
+    line-height: 1.34;
+    color: #232A28;
+  }
+  .row .dot {
+    flex: 0 0 auto;
+    width: 1.6cqw;
+    height: 1.6cqw;
+    border-radius: 50%;
+    background: #24408F;
+    margin-top: 2.1cqw;
+  }
+  .row .n {
+    flex: 0 0 auto;
+    font-family: var(--font-mono);
+    font-size: 3.2cqw;
+    color: #24408F;
+    padding-top: .5cqw;
+    letter-spacing: .04em;
+    min-width: 5cqw;
+  }
+  .row .x { flex: 0 0 auto; color: #A03D30; font-size: 3.6cqw; padding-top: .3cqw; }
+  .row.off { color: #6A736F; }
+
+  /* kənar qeyd */
+  .aside {
+    border-left: .9cqw solid #E8E7A8;
+    padding: .4cqw 0 .4cqw 3.2cqw;
+    font-size: 3.95cqw;
+    line-height: 1.42;
+    color: #4A5350;
+  }
+  .aside b { color: #171B1A; font-weight: 600; }
+
+  /* növbəti addım */
+  .step {
+    border-top: 1px solid #171B1A;
+    padding-top: 3.4cqw;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6cqw;
+  }
+  .step .lg { font-size: 5.3cqw; line-height: 1.24; font-weight: 600; color: #171B1A; letter-spacing: -.01em; }
+  .step .sm2 { font-family: var(--font-mono); font-size: 3.2cqw; letter-spacing: .08em; color: #24408F; }
+
+  /* ---------- Mətn paneli ---------- */
+  .copy {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    padding: clamp(18px, 2.4vw, 26px);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .copy h4 {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+  }
+  .caption {
+    font-size: 16px;
+    line-height: 1.62;
+    color: var(--ink);
+    white-space: pre-line;
+    margin: 0;
+  }
+  .tags {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    line-height: 1.7;
+    color: var(--pen);
+    word-break: break-word;
+    margin: 0;
+  }
+  .why {
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    margin: 0;
+    padding-left: 12px;
+    border-left: 2px solid var(--marker);
+  }
+
+  /* ---------- Reels ---------- */
+  .table-scroll { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 560px; }
+  th, td { text-align: left; vertical-align: top; padding: 11px 14px 11px 0; border-bottom: 1px solid var(--line); }
+  th {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: .13em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+  }
+  td.time {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    color: var(--pen);
+    white-space: nowrap;
+    font-size: 13.5px;
+  }
+  td.say { color: var(--ink); }
+  td.see { color: var(--ink-soft); }
+
+  .reel {
+    display: grid;
+    grid-template-columns: minmax(0, 208px) minmax(0, 1fr);
+    gap: clamp(18px, 3vw, 30px);
+    align-items: start;
+  }
+  @media (max-width: 820px) { .reel { grid-template-columns: minmax(0, 1fr); } .reel .slide { max-width: 236px; } }
+
+  /* ---------- Plan / story ---------- */
+  .plan { display: grid; grid-template-columns: repeat(auto-fit, minmax(238px, 1fr)); gap: 12px; }
+  .day {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--pen);
+    border-radius: 2px;
+    padding: 15px 17px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .day .d { font-family: var(--font-mono); font-size: 11px; letter-spacing: .11em; text-transform: uppercase; color: var(--muted); }
+  .day .w { font-weight: 700; font-size: 16px; }
+  .day .x2 { font-size: 14.5px; color: var(--ink-soft); line-height: 1.45; }
+
+  /* ---------- Dizayn kiti ---------- */
+  .kit { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 16px; }
+  .swatches { display: flex; flex-wrap: wrap; gap: 10px; }
+  .sw { display: flex; flex-direction: column; gap: 6px; width: 92px; }
+  .sw i { display: block; height: 48px; border-radius: 2px; border: 1px solid var(--line); }
+  .sw code { font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-soft); }
+  .sw b { font-size: 12.5px; font-weight: 600; }
+
+  ul.plain { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 8px; }
+  ul.plain li { font-size: 15.5px; line-height: 1.5; color: var(--ink-soft); }
+  ul.plain li b { color: var(--ink); }
+
+  footer.end {
+    border-top: 1px solid var(--ink);
+    padding-top: 16px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    letter-spacing: .06em;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  @media (prefers-reduced-motion: no-preference) { .strip { scroll-behavior: smooth; } }
+</style>
+
+<div class="wrap">
+
+  <!-- ================= BAŞLIQ ================= -->
+  <header class="masthead">
+    <div class="eyebrow">aitaclab.co · instagram + tiktok · kiçik biznes</div>
+    <h1>Səhifədən sonra</h1>
+    <p class="lede">Beş post, bir fikir: <b>səhifəni bəyənən adamın növbəti addımı olmalıdır.</b> Hamısı sayt/landing xidmətini danışır — reklam dili ilə deyil, sahibkarla üzbəüz söhbət dili ilə. Salon, kafe, onlayn mağaza və kurs sahibləri üçün.</p>
+    <div class="facts">
+      <span class="chip hot">3 karusel</span>
+      <span class="chip hot">2 reels</span>
+      <span class="chip">1 story serisi</span>
+      <span class="chip">2 həftəlik plan</span>
+      <span class="chip">karusel 1080×1350</span>
+      <span class="chip">reels 1080×1920</span>
+    </div>
+  </header>
+
+  <!-- ================= DİL ================= -->
+  <section>
+    <div class="sec-head">
+      <h2>Səs tonu</h2>
+      <span class="note">nə quru, nə ucuz</span>
+    </div>
+    <div class="voice">
+      <div class="vcard">
+        <h3>Belə yazırıq</h3>
+        <div class="vrow">
+          <span class="vbad">Biznesinizi rəqəmsal dünyaya inteqrasiya edin.</span>
+          <span class="vgood">Səhifəni bəyənən adam növbəti addımı axtarır. Sənin səhifəndə o addım varmı?</span>
+        </div>
+        <div class="vrow">
+          <span class="vbad">Bu postu saxla, DM-ə «SAYT» yaz, bonus qazan.</span>
+          <span class="vgood">Səhifəni göndər — nəyin çatmadığını yazım.</span>
+        </div>
+        <div class="vrow">
+          <span class="vbad">Ən son texnologiyalarla optimallaşdırılmış platforma.</span>
+          <span class="vgood">Telefonda bir neçə saniyəyə açılır, qiyməti özün dəyişə bilirsən.</span>
+        </div>
+      </div>
+      <div class="vcard">
+        <h3>Yazarkən</h3>
+        <ul class="plain">
+          <li><b>«Sən» de, amma laqeyd yox.</b> Söhbət eyni masada oturan iki adamın söhbətidir.</li>
+          <li><b>Rəqəm uydurma.</b> «14 mesaj gəlir», «87% müştəri» — bunlar yoxdursa, yazma.</li>
+          <li><b>Çağırış yalvarış olmasın.</b> Şərh, saxlama, bəyənmə istəmirik; iş təklif edirik.</li>
+          <li><b>Emoji, nida işarəsi, böyük hərf — yoxdur.</b> Fikir kifayət qədər güclüdürsə, bəzək lazım gəlmir.</li>
+          <li><b>Bir postda bir fikir.</b> İkinci fikir növbəti postun mövzusudur.</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <h3>Dizaynda</h3>
+        <ul class="plain">
+          <li><b>Dəftər vərəqi.</b> Qradiyentli «texnologiya» fonu yox — solğun damalı kağız, mürəkkəb mavisi.</li>
+          <li><b>Bir slaydda bir fikir və bir vurğu.</b> Marker bütün karuseldə bir dəfə işlənir.</li>
+          <li><b>Sakit tipoqrafiya.</b> Qalın qrotesk, amma qışqırmayan ölçüdə; boşluq mətn qədər vacibdir.</li>
+          <li><b>Real ekranlar.</b> Yazışma, xəritə, səhifə — adı örtülmüş həqiqi görüntülər, stok foto yox.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POST 1 ================= -->
+  <section class="post">
+    <div class="post-head">
+      <span class="post-num">01</span>
+      <h2>Səhifəni bəyəndi. Bəs sonra?</h2>
+      <span class="post-kind">Karusel · 6 slayd</span>
+    </div>
+
+    <div>
+      <div class="strip">
+        <article class="slide" data-png="p1-01">
+          <div class="pad">
+            <div class="top"><span>01 / 06</span><span>aitaclab.co</span></div>
+            <h3>Səhifəni bəyəndi. <span class="mark">Bəs sonra?</span></h3>
+            <p>Qiymətə baxmaq istəyir, ünvanı axtarır, sifarişi haradan verəcəyini bilmir.</p>
+            <div class="bubbles">
+              <div class="bubble">Salam, qiymətlərə haradan baxa bilərəm?<span class="t">23:41</span></div>
+              <div class="bubble me">Salam, sabah yazacam sizə<span class="t">09:12</span></div>
+            </div>
+            <div class="bottom"><span>sürüşdür</span><span>01</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p1-02">
+          <div class="pad">
+            <div class="top"><span>02 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Cavabsız qalan sual sənin vaxtına düşür</h3>
+            <div class="bubbles">
+              <div class="bubble">Qiymət nə qədərdir?</div>
+              <div class="bubble">Ünvanınız haradadır?</div>
+              <div class="bubble">Sabaha yer varmı?</div>
+              <div class="bubble">Çatdırılma edirsiniz?</div>
+            </div>
+            <div class="aside">Yazdığın cavab <b>bir nəfərə</b> çatır. Bir yerdə duran cavab <b>hamıya</b>.</div>
+            <div class="bottom"><span></span><span>02</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p1-03">
+          <div class="pad">
+            <div class="top"><span>03 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Söhbət gecə başlayır, cavab səhər gəlir</h3>
+            <p>Adam səhifəni işdən sonra açır. Sənin cavabın səhər çatır. O aralıqda qərar çoxdan verilib.</p>
+            <div class="aside">Səhifə yatmır. Yazışma isə sənin iş saatına bağlıdır.</div>
+            <div class="bottom"><span></span><span>03</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p1-04">
+          <div class="pad">
+            <div class="top"><span>04 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="xs">Bir səhifə bunları özü edir</h3>
+            <div class="rows">
+              <div class="row"><i class="dot"></i><span>Qiyməti göstərir</span></div>
+              <div class="row"><i class="dot"></i><span>Ünvanı xəritədə açır</span></div>
+              <div class="row"><i class="dot"></i><span>İş saatını yazır</span></div>
+              <div class="row"><i class="dot"></i><span>Rezerv və sifariş qəbul edir</span></div>
+              <div class="row"><i class="dot"></i><span>Lazım olanda birbaşa yazışmaya keçirir</span></div>
+            </div>
+            <div class="bottom"><span></span><span>04</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p1-05">
+          <div class="pad">
+            <div class="top"><span>05 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="xs">Səhifənin sırası — yuxarıdan aşağı</h3>
+            <div class="rows">
+              <div class="row"><span class="n">01</span><span>Kim olduğun</span></div>
+              <div class="row"><span class="n">02</span><span>Nə təklif etdiyin</span></div>
+              <div class="row"><span class="n">03</span><span>Hansı qiymətə</span></div>
+              <div class="row"><span class="n">04</span><span>Hara gəlsin, nə vaxt açıqsan</span></div>
+              <div class="row"><span class="n">05</span><span>Növbəti addım — bir dənə</span></div>
+            </div>
+            <p class="small">Böyük sayta ehtiyac yoxdur. Bu beş bölmə iş görür.</p>
+            <div class="bottom"><span></span><span>05</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p1-06">
+          <div class="pad">
+            <div class="top"><span>06 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Üç günə hazır olur</h3>
+            <p>Mətni, şəkilləri, xəritəsi və formu ilə birlikdə. Qiyməti sonra özün dəyişirsən.</p>
+            <div class="step">
+              <span class="lg">Səhifəni göndər, nəyin çatmadığını yazım.</span>
+              <span class="sm2">aitaclab.co</span>
+            </div>
+            <div class="bottom"><span></span><span>06</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="strip-hint">← yana sürüşdür · 1080 × 1350</p>
+    </div>
+
+    <div class="copy">
+      <h4>Caption</h4>
+      <p class="caption">Səhifəni bəyənən adam növbəti addımı axtarır: qiymət, ünvan, sifariş. Tapmayanda soruşur — və iş yenidən sənin üzərinə düşür.
+
+Yazdığın cavab bir nəfərə çatır. Bir yerdə yazılıb duran cavab isə hamıya çatır. Bütün fərq buradadır.
+
+Kiçik biznesin çox vaxt böyük sayta ehtiyacı olmur. Bir səhifə kifayət edir: kim olduğun, nə təklif etdiyin, qiymət, ünvan və iş saatı, bir də aydın bir növbəti addım — yaz, zəng et, yer ayır.
+
+Belə bir səhifəni üç günə hazırlayırıq. Mətni, şəkilləri, xəritəsi, formu ilə. Sonra qiyməti və məhsulları özün dəyişirsən, hər dəfə bizə yazmağa ehtiyac qalmır.
+
+Səhifəni göndər, nəyin çatmadığını yazım.
+aitaclab.co</p>
+      <h4>Hashtag</h4>
+      <p class="tags">#aitaclab #sayt #landingpage #kiçikbiznes #sahibkar #bakı #azərbaycan #onlaynsatış #biznes</p>
+      <h4>Niyə belə</h4>
+      <p class="why">Birinci slayd real yazışmadır — «23:41-də sual, 09:12-də cavab» hər sahibkarın tanıdığı mənzərədir. Post problemi onun öz dili ilə adlandırır, satış isə yalnız sonuncu slaydda və bir cümlə ilə gəlir.</p>
+    </div>
+  </section>
+
+  <!-- ================= POST 2 ================= -->
+  <section class="post">
+    <div class="post-head">
+      <span class="post-num">02</span>
+      <h2>Eyni beş sual</h2>
+      <span class="post-kind">Reels / TikTok · 22 saniyə</span>
+    </div>
+
+    <div class="reel" style="grid-column: 1 / -1;">
+      <article class="slide v" data-png="p2-cover">
+        <div class="pad">
+          <div class="top"><span>reels</span><span>aitaclab.co</span></div>
+          <h3 class="sm">Bir günün mesajlarında <span class="mark">eyni beş sual</span></h3>
+          <p>Və onların səhifədəki yeri.</p>
+          <div class="bubbles">
+            <div class="bubble">Qiymət nə qədərdir?</div>
+            <div class="bubble">Ünvanınız haradadır?</div>
+            <div class="bubble">Sabaha yer varmı?</div>
+          </div>
+          <div class="step">
+            <span class="lg">Bir dəfə yazılır, hər gün işləyir.</span>
+            <span class="sm2">aitaclab.co</span>
+          </div>
+          <div class="bottom"><span>səsi aç</span><span></span></div>
+        </div>
+      </article>
+
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th style="width:80px">Vaxt</th><th style="width:36%">Ekranda</th><th>Səsli deyirsən</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="time">0–3 sn</td>
+                <td class="see">Yazışma siyahısı yavaş sürüşür, adlar bulanıq</td>
+                <td class="say">«Bir günün mesajlarını yan-yana qoyanda çox vaxt eyni beş sual çıxır.»</td>
+              </tr>
+              <tr>
+                <td class="time">3–8 sn</td>
+                <td class="see">Suallar bir-bir ekranda görünür</td>
+                <td class="say">«Qiymət nə qədərdir. Ünvan haradadır. Nə vaxt açıqsınız. Yer varmı. Çatdırırsınızmı.»</td>
+              </tr>
+              <tr>
+                <td class="time">8–13 sn</td>
+                <td class="see">Telefonda səhifə açılır, qiymət bölməsinə sürüşür</td>
+                <td class="say">«Bu beş sual əslində bir səhifənin beş bölməsidir.»</td>
+              </tr>
+              <tr>
+                <td class="time">13–18 sn</td>
+                <td class="see">Kəsiklər: xəritə açılır, iş saatı, rezerv düyməsi</td>
+                <td class="say">«Bir dəfə yazılır — sonra hər gün özü cavab verir. Sən yazışmasan da.»</td>
+              </tr>
+              <tr>
+                <td class="time">18–22 sn</td>
+                <td class="see">Sadə kadr, altda: aitaclab.co</td>
+                <td class="say">«Səhifən varsa, göndər — nəyin çatmadığını deyim.»</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="copy">
+          <h4>Caption</h4>
+          <p class="caption">Bir günün mesajlarını yan-yana qoyanda çox vaxt eyni beş sual çıxır: qiymət, ünvan, iş saatı, boş yer, çatdırılma.
+
+Həmin beş sual bir səhifənin beş bölməsidir. Bir dəfə yazırsan, sonra hər gün özü cavab verir.
+
+Salon, kafe, onlayn mağaza, kurs mərkəzi — səhifədən müştəri gələn hər kəsə aiddir.
+
+aitaclab.co</p>
+          <h4>Çəkiliş qeydi</h4>
+          <p class="why">Tamamı telefon ekranının yazılışıdır, üz göstərmək lazım deyil; adları və şəkilləri bulandır. Səsi bir nəfəsə, yazılı mətni oxumadan danış — oxunan cümlə eşidilir. Musiqi çox yavaş, söz aydın çıxsın.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POST 3 ================= -->
+  <section class="post">
+    <div class="post-head">
+      <span class="post-num">03</span>
+      <h2>Səhifə var, amma iş görmür</h2>
+      <span class="post-kind">Karusel · 5 slayd</span>
+    </div>
+
+    <div>
+      <div class="strip">
+        <article class="slide" data-png="p3-01">
+          <div class="pad">
+            <div class="top"><span>01 / 05</span><span>aitaclab.co</span></div>
+            <h3>Saytın var, <span class="mark">amma iş görmür?</span></h3>
+            <p>Çox vaxt səbəb dizaynda deyil — səhifədə yeddi şeydən biri əskik olur.</p>
+            <div class="bottom"><span>sürüşdür</span><span>01</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p3-02">
+          <div class="pad">
+            <div class="top"><span>02 / 05</span><span>aitaclab.co</span></div>
+            <div class="seg">ilk ekran</div>
+            <h3 class="xs">İlk üç saniyə</h3>
+            <div class="rows">
+              <div class="row"><span class="n">01</span><span>Nə etdiyin ilk ekranda bir cümlə ilə yazılıb — «Xoş gəlmisiniz» deyil</span></div>
+              <div class="row"><span class="n">02</span><span>Qiymət və ya qiymət aralığı görünür</span></div>
+              <div class="row"><span class="n">03</span><span>Bir aydın növbəti addım var; çox düymə diqqəti bölür</span></div>
+            </div>
+            <div class="bottom"><span></span><span>02</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p3-03">
+          <div class="pad">
+            <div class="top"><span>03 / 05</span><span>aitaclab.co</span></div>
+            <div class="seg">etibar</div>
+            <h3 class="xs">Adam sənə inanmalıdır</h3>
+            <div class="rows">
+              <div class="row"><span class="n">04</span><span>Şəkillər sənin öz işindir — stok foto tanınır</span></div>
+              <div class="row"><span class="n">05</span><span>Ünvan, xəritə və iş saatı bir yerdədir</span></div>
+              <div class="row"><span class="n">06</span><span>Müştəri rəyi var — bir neçə səmimi cümlə kifayətdir</span></div>
+            </div>
+            <div class="bottom"><span></span><span>03</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p3-04">
+          <div class="pad">
+            <div class="top"><span>04 / 05</span><span>aitaclab.co</span></div>
+            <div class="seg">telefon</div>
+            <h3 class="xs">Səhifəyə demək olar həmişə telefondan baxılır</h3>
+            <div class="rows">
+              <div class="row"><span class="n">07</span><span>Telefonda rahat açılır və tez yüklənir</span></div>
+              <div class="row off"><span class="x">✕</span><span>Yazını oxumaq üçün barmaqla böyütmək lazım gəlir</span></div>
+              <div class="row off"><span class="x">✕</span><span>Menyu və ya kataloq PDF faylıdır</span></div>
+            </div>
+            <div class="bottom"><span></span><span>04</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p3-05">
+          <div class="pad">
+            <div class="top"><span>05 / 05</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Bu siyahını öz səhifənlə yan-yana qoy</h3>
+            <p>Çatmayanı görmək çətin olmur. Dördündən azdırsa, səhifə vizit kartı kimi işləyir.</p>
+            <div class="step">
+              <span class="lg">Linkini göndər, birlikdə baxaq.</span>
+              <span class="sm2">aitaclab.co</span>
+            </div>
+            <div class="bottom"><span></span><span>05</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="strip-hint">← yana sürüşdür · yığcam, saxlanıla bilən post</p>
+    </div>
+
+    <div class="copy">
+      <h4>Caption</h4>
+      <p class="caption">Ən çox rast gəldiyimiz hal budur: sayt var, amma müştəri gətirmir.
+
+Səbəb adətən dizaynda olmur. Səhifədə sadəcə bir neçə şey əskik qalır:
+
+– İlk ekranda nə etdiyin yazılmır. Adam bir neçə saniyə verir, sonra çıxır.
+– Qiymət yoxdur, «əlaqə saxlayın» yazılır. Bu, qərarı təxirə salır.
+– Menyu və ya kataloq PDF-dir. Telefonda açan az olur.
+– Şəkillər stokdur. Bu, ilk baxışdan bilinir.
+
+Karuseldə yeddi maddəni yığmışam. Onları öz səhifənlə yan-yana qoy — nəyin çatmadığı özü görünəcək.
+
+Linkini göndərsən, birlikdə baxarıq.
+aitaclab.co</p>
+      <h4>Hashtag</h4>
+      <p class="tags">#aitaclab #sayt #veb #landingpage #kiçikbiznes #sahibkar #marketinq #bakı #azərbaycan</p>
+      <h4>Niyə belə</h4>
+      <p class="why">Faydalı post — saxlanılır və göndərilir, ona görə mətn az, maddə çoxdur. «Şərhdə rəqəm yaz» tipli çağırış götürülüb; onun yerinə real təklif var — linki göndər, baxaq. Bu, həm daha səmimi, həm də daha çox söhbət açır.</p>
+    </div>
+  </section>
+
+  <!-- ================= POST 4 ================= -->
+  <section class="post">
+    <div class="post-head">
+      <span class="post-num">04</span>
+      <h2>Üç haqlı sual</h2>
+      <span class="post-kind">Reels / TikTok · 30 saniyə</span>
+    </div>
+
+    <div class="reel" style="grid-column: 1 / -1;">
+      <article class="slide v" data-png="p4-cover">
+        <div class="pad">
+          <div class="top"><span>reels</span><span>aitaclab.co</span></div>
+          <h3 class="sm">«Bizə sayt lazımdırmı?»</h3>
+          <p>Sahibkarlardan ən çox eşitdiyimiz üç sual — və hərəsinə <span class="mark">bir cavab.</span></p>
+          <div class="rows">
+            <div class="row"><span class="n">01</span><span>Xərcə dəyərmi?</span></div>
+            <div class="row"><span class="n">02</span><span>Instagram bəs deyilmi?</span></div>
+            <div class="row"><span class="n">03</span><span>Vaxtım və biliyim yoxdur</span></div>
+          </div>
+          <div class="bottom"><span>səsi aç</span><span>aitaclab.co</span></div>
+        </div>
+      </article>
+
+      <div style="display:flex; flex-direction:column; gap:18px;">
+        <div class="table-scroll">
+          <table>
+            <thead>
+              <tr><th style="width:80px">Vaxt</th><th style="width:34%">Ekranda</th><th>Səsli deyirsən</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="time">0–4 sn</td>
+                <td class="see">Kameraya baxırsan, altda yazı: «Bizə sayt lazımdırmı?»</td>
+                <td class="say">«Bu sualı hər həftə eşidirik. Üç formada gəlir və üçü də haqlıdır.»</td>
+              </tr>
+              <tr>
+                <td class="time">4–12 sn</td>
+                <td class="see">Yazı: «01 — Xərcə dəyərmi?»</td>
+                <td class="say">«Birincisi xərcdir. Səhifə bir dəfə qurulur, yazışma isə hər gün təkrarlanır. Hesabı bu iki rəqəmin üstündə aparmaq lazımdır.»</td>
+              </tr>
+              <tr>
+                <td class="time">12–21 sn</td>
+                <td class="see">Yazı: «02 — Instagram bəs deyilmi?»</td>
+                <td class="say">«İkincisi Instagram-dır. Tanışlıq üçün əladır. Amma qiymət, ünvan və sifariş şərtləri yazışmada itir. Bir də səhifə sənin mülkiyyətin deyil — sayt və domen sənin adına yazılır.»</td>
+              </tr>
+              <tr>
+                <td class="time">21–27 sn</td>
+                <td class="see">Yazı: «03 — Vaxtım yoxdur»</td>
+                <td class="say">«Üçüncüsü vaxtdır. Səndən iyirmi dəqiqəlik söhbət və şəkillər lazımdır. Qalanı bizim işimizdir.»</td>
+              </tr>
+              <tr>
+                <td class="time">27–30 sn</td>
+                <td class="see">Sadə kadr, altda: aitaclab.co</td>
+                <td class="say">«Sualın varsa, yaz — cavab verək.»</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="copy">
+          <h4>Caption</h4>
+          <p class="caption">«Xərcə dəyərmi», «Instagram bəs deyilmi», «vaxtım yoxdur» — üç sual, üçü də yerində.
+
+Bircə məqamı tez-tez unuduruq: sosial səhifə sənin mülkiyyətin deyil. Qaydalar dəyişə, hesab müvəqqəti bağlana bilər. Sayt və domen isə sənin adına qalır.
+
+İyirmi dəqiqəlik söhbət, üç gün iş — səhifə hazır olur.
+aitaclab.co</p>
+          <h4>Çəkiliş qeydi</h4>
+          <p class="why">Oturaq halda, kəsiksiz bir götürüm. Suflyor oxuma — üç maddəni yadda saxla, öz sözlərinlə danış. Ekrandakı yazılar sadə, effektsiz olsun; burada inandırıcılığı səs və sakit ton daşıyır.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= POST 5 ================= -->
+  <section class="post">
+    <div class="post-head">
+      <span class="post-num">05</span>
+      <h2>Hər sahənin öz səhifəsi</h2>
+      <span class="post-kind">Karusel · 6 slayd</span>
+    </div>
+
+    <div>
+      <div class="strip">
+        <article class="slide" data-png="p5-01">
+          <div class="pad">
+            <div class="top"><span>01 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Bir səhifə — <span class="mark">hər sahədə ayrı cür</span></h3>
+            <p>Salon, kafe, onlayn mağaza, kurs. Müştəri hər birində başqa şey axtarır.</p>
+            <div class="bottom"><span>sürüşdür</span><span>01</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p5-02">
+          <div class="pad">
+            <div class="top"><span>02 / 06</span><span>aitaclab.co</span></div>
+            <div class="seg">salon, barber, klinika</div>
+            <h3 class="xs">Randevu üçün gələn adam</h3>
+            <div class="rows">
+              <div class="row"><i class="dot"></i><span>Xidmət və qiymət siyahısı, hamısı bir yerdə</span></div>
+              <div class="row"><i class="dot"></i><span>Ustanın öz işləri — əvvəl və sonra</span></div>
+              <div class="row"><i class="dot"></i><span>Boş saatlar görünür</span></div>
+              <div class="row"><i class="dot"></i><span>Ünvan, mərtəbə, parkinq</span></div>
+            </div>
+            <div class="aside">Düymənin üstündə <b>«Saat seç»</b> yazılsın, «Əlaqə» yox.</div>
+            <div class="bottom"><span></span><span>02</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p5-03">
+          <div class="pad">
+            <div class="top"><span>03 / 06</span><span>aitaclab.co</span></div>
+            <div class="seg">kafe, restoran, şirniyyat</div>
+            <h3 class="xs">Menyu səhifənin içində olmalıdır</h3>
+            <div class="rows">
+              <div class="row"><i class="dot"></i><span>Menyu birbaşa səhifədə — PDF fayl deyil</span></div>
+              <div class="row"><i class="dot"></i><span>Yeməklərin real şəkli, qiymətlə yanaşı</span></div>
+              <div class="row"><i class="dot"></i><span>Ünvan, parkinq, iş saatı</span></div>
+              <div class="row"><i class="dot"></i><span>Çatdırılma linki və masa rezervi</span></div>
+            </div>
+            <div class="aside">Sifarişlə hazırlanan tortlar üçün <b>tarix seçimi</b> olan forma.</div>
+            <div class="bottom"><span></span><span>03</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p5-04">
+          <div class="pad">
+            <div class="top"><span>04 / 06</span><span>aitaclab.co</span></div>
+            <div class="seg">onlayn mağaza</div>
+            <h3 class="xs">Ölçü sualını səhifə cavablandırsın</h3>
+            <div class="rows">
+              <div class="row"><i class="dot"></i><span>Kataloq: şəkil, qiymət, mövcud ölçülər</span></div>
+              <div class="row"><i class="dot"></i><span>Ölçü cədvəli — santimetrlə, şəkilli</span></div>
+              <div class="row"><i class="dot"></i><span>Çatdırılma müddəti və qaytarma şərti</span></div>
+              <div class="row"><i class="dot"></i><span>Ödəniş: kartla və ya çatdırılanda</span></div>
+            </div>
+            <div class="aside">Bu dörd bölmə gündəlik yazışmanın <b>böyük hissəsini</b> yığışdırır.</div>
+            <div class="bottom"><span></span><span>04</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p5-05">
+          <div class="pad">
+            <div class="top"><span>05 / 06</span><span>aitaclab.co</span></div>
+            <div class="seg">kurs, repetitor, usta</div>
+            <h3 class="xs">Burada əvvəl sənə inanırlar</h3>
+            <div class="rows">
+              <div class="row"><i class="dot"></i><span>Kim öyrədir — ad, şəkil, iki cümlə təcrübə</span></div>
+              <div class="row"><i class="dot"></i><span>Proqram: nə öyrənəcək, neçə həftəyə</span></div>
+              <div class="row"><i class="dot"></i><span>Qiymət və ödəniş şərti</span></div>
+              <div class="row"><i class="dot"></i><span>Növbəti qrupun tarixi, qeydiyyat formu</span></div>
+            </div>
+            <div class="aside">Keçmiş şagirdin <b>bir səmimi cümləsi</b> uzun mətndən güclüdür.</div>
+            <div class="bottom"><span></span><span>05</span></div>
+          </div>
+        </article>
+
+        <article class="slide" data-png="p5-06">
+          <div class="pad">
+            <div class="top"><span>06 / 06</span><span>aitaclab.co</span></div>
+            <h3 class="sm">Sən hansı sahədəsən?</h3>
+            <p>Yaz, həmin sahə üçün səhifənin sırasını hazırlayıb göndərim.</p>
+            <div class="step">
+              <span class="lg">Bir söhbət, üç gün, bir səhifə.</span>
+              <span class="sm2">aitaclab.co</span>
+            </div>
+            <div class="bottom"><span></span><span>06</span></div>
+          </div>
+        </article>
+      </div>
+      <p class="strip-hint">← yana sürüşdür · dörd seqment bir postda</p>
+    </div>
+
+    <div class="copy">
+      <h4>Caption</h4>
+      <p class="caption">Hər sahəyə eyni səhifə olmur.
+
+Salona gələn adam boş saat axtarır. Kafeyə baxan adam menyunu və ünvanı. Onlayn mağazadan alan adam ölçünü və çatdırılma şərtini. Kursa yazılan adam isə əvvəlcə səni tanımaq istəyir — kim öyrədir, nə öyrədir, nə vaxt başlayır.
+
+Karuseldə hər sahə üçün ayrıca yazmışam: səhifədə hansı bölmələr olmalıdır və düymənin üstündə nə yazılmalıdır.
+
+Sən hansı sahədəsən? Yaz, həmin sahə üçün sıranı hazırlayıb göndərim.
+aitaclab.co</p>
+      <h4>Hashtag</h4>
+      <p class="tags">#aitaclab #gözəlliksalonu #kafe #onlaynmağaza #kursmərkəzi #sayt #landingpage #kiçikbiznes #bakı #sahibkar</p>
+      <h4>Niyə belə</h4>
+      <p class="why">Dörd seqment bir postdadır ki, hər biri özünü tanısın və «mən salonam» deyib yazsın — gələn cavablar birbaşa müştəri siyahısıdır. Sonra hər slaydı ayrıca tək post kimi də paylaşmaq olar.</p>
+    </div>
+  </section>
+
+  <!-- ================= STORY ================= -->
+  <section>
+    <div class="sec-head">
+      <h2>Story serisi</h2>
+      <span class="note">postlarla eyni həftədə</span>
+    </div>
+    <div class="plan">
+      <div class="day">
+        <span class="d">Story 1 · sorğu</span>
+        <span class="w">«Saytın var?»</span>
+        <span class="x2">İki cavab: <b>Var</b> / <b>Yoxdur, hələlik Instagram</b>. Cavab verənlərin siyahısı sonrakı söhbətlərin başlanğıcıdır.</span>
+      </div>
+      <div class="day">
+        <span class="d">Story 2 · ekran</span>
+        <span class="w">Bir səhifə, baş-ayaq</span>
+        <span class="x2">Nümunə səhifəni telefonda yuxarıdan aşağı sürüşdür. Üstündə tək cümlə: «bir səhifə bu qədərdir».</span>
+      </div>
+      <div class="day">
+        <span class="d">Story 3 · sual qutusu</span>
+        <span class="w">«Səhifənə baxaq?»</span>
+        <span class="x2">Link istə, üç nəfərə səsli cavab göndər. Razılıq alsan, həmin cavabları story-də paylaş.</span>
+      </div>
+      <div class="day">
+        <span class="d">Story 4 · nəticə</span>
+        <span class="w">Baxdığın səhifədən bir tapıntı</span>
+        <span class="x2">Adı gizli: «bu səhifədə qiymət heç yerdə yazılmayıb — düzəlişi iyirmi dəqiqəlik işdir».</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PLAN ================= -->
+  <section>
+    <div class="sec-head">
+      <h2>2 həftəlik plan</h2>
+      <span class="note">reels axşam 19:00–21:00</span>
+    </div>
+    <div class="plan">
+      <div class="day"><span class="d">1-ci həftə · çərşənbə axşamı</span><span class="w">01 — Səhifəni bəyəndi. Bəs sonra?</span><span class="x2">Karusel. Gələn şərhlərə özün cavab yaz.</span></div>
+      <div class="day"><span class="d">1-ci həftə · cümə</span><span class="w">02 — Eyni beş sual</span><span class="x2">Reels və TikTok, eyni video.</span></div>
+      <div class="day"><span class="d">1-ci həftə · şənbə</span><span class="w">Story 1 və 2</span><span class="x2">Sorğu axşam saatlarında; cavab verənlərə növbəti gün yaz.</span></div>
+      <div class="day"><span class="d">2-ci həftə · bazar ertəsi</span><span class="w">03 — Səhifə var, amma iş görmür</span><span class="x2">Karusel. Saxlanılmaq üçün nəzərdə tutulub.</span></div>
+      <div class="day"><span class="d">2-ci həftə · çərşənbə</span><span class="w">04 — Üç haqlı sual</span><span class="x2">Reels. Şərhlərdə etirazlar gələcək; hər birinə sakit cavab.</span></div>
+      <div class="day"><span class="d">2-ci həftə · cümə</span><span class="w">05 — Hər sahənin öz səhifəsi</span><span class="x2">Karusel. Yazan sahələri siyahıya yığ.</span></div>
+      <div class="day"><span class="d">2-ci həftə · şənbə</span><span class="w">Story 3 və 4</span><span class="x2">Səhifə baxışı — söhbətin açıldığı yer.</span></div>
+      <div class="day"><span class="d">hər iş günü</span><span class="w">10 hədəfli mesaj</span><span class="x2">Profilində link olmayan yerli səhifələr. Şablon yox — hər birinə bir cümlə, o səhifə haqqında.</span></div>
+    </div>
+  </section>
+
+  <!-- ================= DİZAYN KİTİ ================= -->
+  <section>
+    <div class="sec-head">
+      <h2>Dizayn kiti</h2>
+      <span class="note">Canva-da eyni ilə qur</span>
+    </div>
+    <div class="kit">
+      <div class="vcard">
+        <h3>Rənglər</h3>
+        <div class="swatches">
+          <div class="sw"><i style="background:#FCFCF7"></i><b>Kağız</b><code>#FCFCF7</code></div>
+          <div class="sw"><i style="background:#171B1A"></i><b>Mürəkkəb</b><code>#171B1A</code></div>
+          <div class="sw"><i style="background:#24408F"></i><b>Mavi</b><code>#24408F</code></div>
+          <div class="sw"><i style="background:#E8E7A8"></i><b>Marker</b><code>#E8E7A8</code></div>
+        </div>
+        <p class="why">Dörd rəng, artıq yox. Marker bütöv karuseldə yalnız bir sözün altında işlənir — hər slaydda işlənsə, vurğu itir.</p>
+      </div>
+      <div class="vcard">
+        <h3>Şrift</h3>
+        <ul class="plain">
+          <li><b>Başlıq:</b> qrotesk, yarı-qalın (Canva-da Archivo ya Inter Semi Bold), hərflər arası sıx.</li>
+          <li><b>Mətn:</b> adi sistem şrifti, sətir aralığı 1.4.</li>
+          <li><b>Kiçik yazılar:</b> maşınyazısı şrifti — nömrə, saat, aitaclab.co.</li>
+          <li><b>Slaydda iki ölçü:</b> bir başlıq, bir mətn. Üçüncü ölçü qarışıqlıq yaradır.</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <h3>Dəyişməz qaydalar</h3>
+        <ul class="plain">
+          <li>Fon həmişə <b>solğun damalı kağız</b> — lentdə tanınmağın yeganə yolu təkrardır.</li>
+          <li>Yuxarıda <b>nömrə və bölmə adı</b>, altında incə xətt.</li>
+          <li>Aşağıda <b>aitaclab.co</b>, kiçik və sakit.</li>
+          <li>Şəkillər real: yazışma, xəritə, səhifə görüntüsü. <b>Stok foto yox.</b></li>
+          <li>Kənarlardan <b>8%</b> boşluq — profil şəbəkəsində kəsilməsin.</li>
+        </ul>
+      </div>
+      <div class="vcard">
+        <h3>Ölçülər</h3>
+        <ul class="plain">
+          <li><b>Karusel:</b> 1080 × 1350 (4:5)</li>
+          <li><b>Reels / TikTok:</b> 1080 × 1920 (9:16)</li>
+          <li><b>Reels mətni</b> yuxarıdan 250, aşağıdan 400 piksel içəridə — interfeys örtür.</li>
+          <li><b>Cover</b> ayrıca seçilir, avtomatik kadr qoyulmur.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="end">
+    <span>aitaclab.co · «Səhifədən sonra» kampaniyası</span>
+    <span>3 karusel · 2 reels · 1 story serisi</span>
+  </footer>
+
+</div>
